@@ -1,0 +1,29 @@
+一、引入的模块
+	1、(适配)引入借助postcss-px2rem-exclude插件（引入vant插件style不会缩小）方便的将px单位转为了rem =>
+		安装命令: npm install postcss-px2rem-exclude  lib-flexible --save 
+		引用: main.js
+		配置：.postcssrc.js
+	
+	2、使用vant插件 
+		安装命令：npm install vant --save
+		引用: main.js (全局)
+		插件地址: https://youzan.github.io/vant/#/zh-CN/intro
+
+	3、使用axios来请求。
+		安装命令：npm install axios --save
+		引用: main.js
+		配置：'@/axios_s/request.js'
+
+	4、使用预处理stylus
+		注意: 编辑器支持Stylus: WebStorm、VSCode、Sublime Text
+		配置Stylus环境: cnpm install stylus
+		下载本项目（开发环境）:	 cnpm install stylus --save-dev
+							   cnpm install stylus-loader --save-dev	
+
+二、规范
+	1、script的内容--按照生命周期来排。
+	2、数据的渲染 => (尽量)后台数据结构渲染。
+	3、
+
+三、职责
+	1、对应做的模块(页面的完成、数据交互、测试)。
