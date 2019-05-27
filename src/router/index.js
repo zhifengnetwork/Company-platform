@@ -9,27 +9,25 @@ import login from '@/components/login/login'
 
 /*首页-模块*/
 import home from '@/components/home/home'
+//精选
+import choice from '@/components/home/childrens/choice'
+//9.9包邮
+import guarantees from '@/components/home/childrens/guarantees'
+//男装
+import male from '@/components/home/childrens/male'
+//女装
+import female from '@/components/home/childrens/female'
+//家纺家居
+import homeTextile from '@/components/home/childrens/homeTextile'
+// 电器
+import appliances from '@/components/home/childrens/appliances'
+// 拼团专区
+import groupArea from '@/components/home/groupArea/groupArea'
 
 /*我的-模块*/
 import user from '@/components/user/user'
 
-//精选
-import choice from '@/components/home/childrens/choice'
 
-//9.9包邮
-import guarantees from '@/components/home/childrens/guarantees'
-
-//男装
-import male from '@/components/home/childrens/male'
-
-//女装
-import female from '@/components/home/childrens/female'
-
-//家纺家居
-import homeTextile from '@/components/home/childrens/homeTextile'
-
-// 电器
-import appliances from '@/components/home/childrens/appliances'
 
 Vue.use(Router)
 
@@ -72,6 +70,11 @@ export default new Router({
 		    },
 			]
 		},
+		{
+			path: '/home/groupArea', /**拼团 */
+			name: 'groupArea',
+			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve) 
+		}
     
   ]
 })

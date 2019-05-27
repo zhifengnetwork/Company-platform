@@ -54,7 +54,7 @@
 				data_nav: [
 					{	
 						name: '首页',
-						url_data: '/index',
+						url_data: '/index/',
 						/**状态切换-通过index */
 						/* 是否-show-文字 */
 						text: true,
@@ -74,7 +74,9 @@
 						url_data: '/index',
 						text: true,
 					},
-				]
+				],
+				/**当前四大模块的-路由标识 */
+				this_sign: ['home','','user']
 			}
 		},
 		/*方法*/
@@ -95,6 +97,7 @@
 			for(var i=0;i<this.data_nav.length;i++){
 				console.log(this.data_nav[i]['url_data'], this_toute);
 				if(this.data_nav[i]['url_data'].indexOf(this_toute) != -1 ){
+					console.log(i,6666);
 					this.this_state = i;
 					share_start = false;
 					break;
