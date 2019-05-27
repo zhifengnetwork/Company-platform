@@ -24,8 +24,17 @@ import appliances from '@/components/home/childrens/appliances'
 // 拼团专区
 import groupArea from '@/components/home/groupArea/groupArea'
 
+
+/*会员-模块*/
+import member from '@/components/member/member'
+
+/*购物车-模块*/
+import cart from '@/components/cart/cart'
+
 /*我的-模块*/
 import user from '@/components/user/user'
+
+
 
 Vue.use(Router)
 
@@ -50,7 +59,7 @@ export default new Router({
 			children: [
 				// 首页
 				{
-		      path: '/',
+		      path: '/index/',  /**首页 */
 		      name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
@@ -98,13 +107,6 @@ export default new Router({
 		      name: 'user',
 		      component: (resolve) => require(['@/components/user/user'],resolve) 
 		    },
-		    // 拼团专区
-		    {
-		      path: '/groupArea',
-		      name: 'groupArea',
-		      component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve) 
-		    }
-		    
 			]
 		},
 		// 拼团专区

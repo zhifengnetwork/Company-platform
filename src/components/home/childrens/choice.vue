@@ -53,6 +53,20 @@
             </div>
         </div>
 
+        <!-- 分类 -->
+        <div class="category-wrap">
+            <div class="cate-item">
+                <h3>新人专区</h3>
+                <p>15元特惠</p>
+                <div class="goods-item">
+                    <div class="img-wrap"></div>
+                    <div class="text">
+                        <span class="price"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 

@@ -22,11 +22,13 @@
 		</div>
 
 		<!-- 横向滚动标签栏 -->
-		<van-tabs v-model="active" @click="handleChange"> 
-			<van-tab v-for="(item,index) in items" :title="item.label" :key="index">
-				<router-view></router-view>
-			</van-tab>
-		</van-tabs>
+		<div class="navTab">
+			<van-tabs v-model="active" @click="handleChange"> 
+				<van-tab v-for="(item,index) in items" :title="item.label" :key="index">
+					<router-view></router-view>
+				</van-tab>
+			</van-tabs>
+		</div>
 		
   </div>
 </template>
@@ -34,6 +36,7 @@
 <script>
 
 export default {
+	name: 'home',
   	data() {
 		return {
 			active: 0,
@@ -72,6 +75,7 @@ export default {
 
 <style lang="stylus" scoped>
 .home
+	// 顶部
 	.topBar
 		width 100%
 		height 357px
@@ -127,30 +131,32 @@ export default {
 				margin-left 28px
 				img 
 					width 100%
-	.van-tabs
-		left 0
-		top -250px
-		color #ffffff
-	.van-tabs >>> .van-tabs__nav
-		background none
-	.van-tabs >>> .van-hairline--top-bottom::after
-		border-width 0
-	.van-tabs >>> .van-tab
-		color #ffffff
-		padding 0
-	.van-tabs >>> .van-tabs__line
-		background-color #ffffff
-	.van-tabs >>> .van-tabs__wrap
-		height 80px
-	.van-tabs >>> .van-tab, .van-tag--large
-		font-size 28px
-	.van-tabs >>> .van-tab--active
-		font-size 30px
-	.van-tabs >>> .van-tabs__wrap--scrollable .van-tab
-		flex-basis: 17% !important
-	.van-tabs >>> .van-tab__pane
-		padding 0 25px
-		box-sizing border-box	
+	// 菜单tab
+	.navTab
+		.van-tabs
+			left 0
+			top -250px
+			color #ffffff
+		.van-tabs >>> .van-tabs__nav
+			background none
+		.van-tabs >>> .van-hairline--top-bottom::after
+			border-width 0
+		.van-tabs >>> .van-tab
+			color #ffffff
+			padding 0
+		.van-tabs >>> .van-tabs__line
+			background-color #ffffff
+		.van-tabs >>> .van-tabs__wrap
+			height 80px
+		.van-tabs >>> .van-tab, .van-tag--large
+			font-size 28px
+		.van-tabs >>> .van-tab--active
+			font-size 30px
+		.van-tabs >>> .van-tabs__wrap--scrollable .van-tab
+			flex-basis: 17% !important
+		.van-tabs >>> .van-tab__pane
+			padding 0 25px
+			box-sizing border-box	
 
 
 			

@@ -28,6 +28,16 @@ export default {
 	  height: auto;
 	  overflow-x: hidden;
 	}
+	/* 引入公共头部 */
+	.public_head {
+		padding-top: 88px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		width: 100%;
+		height: auto;
+	}
+
 	/*清除浮动代码 '父元素'*/
 	.clearfloat:after{
 		display: block;
