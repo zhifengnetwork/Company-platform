@@ -12,15 +12,16 @@ export default {
 
 <style>
 
-.van-dialog{
-	  border-radius:25px
-}
+	.van-dialog{
+			border-radius:25px
+	}
 
-.van-dialog .van-button {
-    border: 2px solid #ebedf0;
-}
+	.van-dialog .van-button {
+			border: 2px solid #ebedf0;
+	}
   
 	* {
+		/*ios 按住出现阴影*/
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		-webkit-tap-highlight-color: transparent;
 	}

@@ -68,95 +68,72 @@ export default new Router({
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
 					children:[
-<<<<<<< HEAD
-							// 精选
-							{ 
-									path: '/index/home/choice', 
-									name:'choice',
-									component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
-							},
-							// 9.9包邮
-							{ 
-									path: '/index/home/guarantees', 
-									name:'guarantees',
-									component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
-							},
-							// 男装
-							{ 
-									path: '/index/home/male', 
-									name:'male',
-									component: (resolve) => require(['@/components/home/childrens/male'],resolve)
-							},
-							// 女装
-							{ 
-									path: '/index/home/female', 
-									name:'female',
-									component: (resolve) => require(['@/components/home/childrens/female'],resolve)
-							},
-							// 家居家纺
-							{ 	
-									path: '/index/home/homeTextile', 
-									name:'homeTextile',
-									component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
-							},
-							// 电器
-							{ 
-									path: '/index/home/appliances', 
-									name:'appliances',
-									component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
-							}
-					]
-		    },
-=======
-							{ path: '/index/home/choice', component: choice },
-							{ path: '/index/home/guarantees', component: guarantees },
-							{ path: '/index/home/male', component: male },
-							{ path: '/index/home/female', component: female },
-							{ path: '/index/home/homeTextile', component: homeTextile },
-							{ path: '/index/home/appliances', component: appliances }
+						// 精选
+						{ 
+								path: '/index/home/choice', 
+								name:'choice',
+								component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+						},
+						// 9.9包邮
+						{ 
+								path: '/index/home/guarantees', 
+								name:'guarantees',
+								component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
+						},
+						// 男装
+						{ 
+								path: '/index/home/male', 
+								name:'male',
+								component: (resolve) => require(['@/components/home/childrens/male'],resolve)
+						},
+						// 女装
+						{ 
+								path: '/index/home/female', 
+								name:'female',
+								component: (resolve) => require(['@/components/home/childrens/female'],resolve)
+						},
+						// 家居家纺
+						{ 	
+								path: '/index/home/homeTextile', 
+								name:'homeTextile',
+								component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
+						},
+						// 电器
+						{ 
+								path: '/index/home/appliances', 
+								name:'appliances',
+								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
+						}
 					]
 				},
 				{
-		      path: '/index/member',
-		      name: 'member',
-		      component: (resolve) => require(['@/components/member/member'],resolve) 
+					path: '/index/member',
+					name: 'member',
+					component: (resolve) => require(['@/components/member/member'],resolve) 
 				},
 				{
-		      path: '/index/cart',
-		      name: 'cart',
-		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
+					path: '/index/cart',
+					name: 'cart',
+					component: (resolve) => require(['@/components/cart/cart'],resolve) 
 				},
 				//用户中心
->>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
-		    {
-		      path: '/index/user',  
-		      name: 'user',
-		      component: (resolve) => require(['@/components/user/user'],resolve) 
-		    },
-<<<<<<< HEAD
-			]
-		},
-		// 拼团专区
-	   	{
-	      path: '/home/groupArea',
-	      name: 'groupArea',
-	      component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve) 
-	    }
-=======
-			 ]
-	   	 },
-		  	{
-				path: '/home/groupArea', /**拼团 */
-				name: 'groupArea',
-				component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
-				},
-				//拼团订单
 				{
-					path: '/home/groupArea/order', /**拼团 */
-					name: 'groupOrder',
-					component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+					path: '/index/user',  
+					name: 'user',
+					component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
->>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
+			],
+	  },
+		{
+		path: '/home/groupArea', /**拼团 */
+		name: 'groupArea',
+		component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+		},
+		{
+			path: '/home/groupArea/order', /**拼团订单 */
+			name: 'groupOrder',
+			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+		},
     
   ]
 })
