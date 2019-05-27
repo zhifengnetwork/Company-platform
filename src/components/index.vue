@@ -1,5 +1,6 @@
 <template>
 	<div class="wrap_app">
+		<headtop></headtop>
 		<!--二级页面-->
 		<router-view/>
 		<!--底部导航 w: 100%-->
@@ -33,12 +34,12 @@
 
 			</div>
 		</div>
-				
+
 	</div>
 </template>
 
 <script>
-
+	
 	export default {
 		/*存放-底部导航切换-的页面-容器*/
 		name: "index",

@@ -30,6 +30,10 @@ export default {
 	}
 	/* 引入公共头部 */
 	.public_head {
+		padding-top: 88px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
 		width: 100%;
 		height: auto;
 	}
