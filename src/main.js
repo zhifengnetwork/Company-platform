@@ -14,6 +14,8 @@ import axios from "./axios_s/request";
 //vue添加一个$axios方法
 Vue.prototype.$axios = axios;
 
+
+
 // 导入vant所有组件
 import Vant from 'vant';
 import 'vant/lib/index.css';

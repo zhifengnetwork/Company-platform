@@ -13,6 +13,24 @@ import home from '@/components/home/home'
 /*我的-模块*/
 import user from '@/components/user/user'
 
+//精选
+import choice from '@/components/home/childrens/choice'
+
+//9.9包邮
+import guarantees from '@/components/home/childrens/guarantees'
+
+//男装
+import male from '@/components/home/childrens/male'
+
+//女装
+import female from '@/components/home/childrens/female'
+
+//家纺家居
+import homeTextile from '@/components/home/childrens/homeTextile'
+
+// 电器
+import appliances from '@/components/home/childrens/appliances'
+
 Vue.use(Router)
 
 export default new Router({
@@ -36,7 +54,16 @@ export default new Router({
 				{
 		      path: '/',
 		      name: 'home',
-		      component: (resolve) => require(['@/components/home/home'],resolve) 
+					component: (resolve) => require(['@/components/home/home'],resolve),
+					redirect:'/home/choice',
+					children:[
+							{ path: '/home/choice', component: choice },
+							{ path: '/home/guarantees', component: guarantees },
+							{ path: '/home/male', component: male },
+							{ path: '/home/female', component: female },
+							{ path: '/home/homeTextile', component: homeTextile },
+							{ path: '/home/appliances', component: appliances }
+					]
 		    },
 		    {
 		      path: '/index/user',
