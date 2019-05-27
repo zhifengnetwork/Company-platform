@@ -9,7 +9,8 @@
         <span class="head_title" v-if="$store.state.top_head_data['title']['need_model']" :style="$store.state.top_head_data['title']['style']">{{$store.state.top_head_data['title']['name']}}</span>
         <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click="right_button($store.state.top_head_data['right_button']['url_data'])">
           <span v-if="$store.state.top_head_data['right_button']['text']">{{$store.state.top_head_data['right_button']['text']}}</span> 
-          <!-- <img class="head_right_button_icon" src="" alt=""> -->
+          <!-- 绝对定位,垂直水平居中 -->
+          <img class="centered" v-else :class="$store.state.top_head_data['right_button']['icon']['class']" :src="$store.state.top_head_data['right_button']['icon']['icon_url']" alt="">
         </div>
     </div>
 </template>
@@ -24,7 +25,7 @@
         return_button(_url){
           console.log('返回:',_url);
           if(_url){
-            this.$router.push({ path:_url}) /**路由跳转 */
+            this.$router.push({ path: _url}) /**路由跳转 */
           }else {
             this.$router.go(-1); /** 返回上一层*/
           }
