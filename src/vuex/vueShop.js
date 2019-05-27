@@ -60,7 +60,6 @@ const state = {
 			text: '按钮',
 			/**点击按钮-模块显示 */
 			show: false,
-			/* 跳转的路由(可以传参)*/
 			url_data: '',
 		},
 	},

@@ -8,7 +8,7 @@
         </div>
         <span class="head_title" v-if="$store.state.top_head_data['title']['need_model']" :style="$store.state.top_head_data['title']['style']">{{$store.state.top_head_data['title']['name']}}</span>
         <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click="right_button($store.state.top_head_data['right_button']['url_data'])">
-          <span>{{$store.state.top_head_data['right_button']['text']}}</span> 
+          <span v-if="$store.state.top_head_data['right_button']['text']">{{$store.state.top_head_data['right_button']['text']}}</span> 
           <!-- <img class="head_right_button_icon" src="" alt=""> -->
         </div>
     </div>

@@ -1,6 +1,5 @@
 <template>
 	<div class="wrap_app">
-		<headtop></headtop>
 		<!--二级页面-->
 		<router-view/>
 		<!--底部导航 w: 100%-->
