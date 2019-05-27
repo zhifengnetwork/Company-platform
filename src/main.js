@@ -23,7 +23,6 @@ Vue.use(Vant);
 
 /*阻止启动生产消息，常用作指令*/
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

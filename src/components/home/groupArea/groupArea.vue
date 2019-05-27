@@ -1,4 +1,90 @@
 <template>
+<<<<<<< HEAD
+	<div class="group">
+		<Area-Header customTitle="拼团专区"></Area-Header>
+		<div class="content">
+			<div class="top_img">
+				<img src="static/img/group_area/nav.png" />
+			</div>
+			<div class="box_wrap">
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="static/img/group_area/shop.png" />
+						</div>
+						<div class="time">5月06日-27日</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p>青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥99999</div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="static/img/group_area/shop.png" />
+						</div>
+						<div class="time">6月06日-27日</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p>青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥99999</div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="static/img/group_area/shop.png" />
+						</div>
+						<div class="time">1天 02:05:04</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p>青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥99999</div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="static/img/group_area/shop.png" />
+						</div>
+						<div class="time">10天 02:05:04</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p>青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥99999</div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+=======
 	<div class="public_head">
 		<headtop></headtop>
 
@@ -6,11 +92,19 @@
 		
 			拼团
 		</div>
+>>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 	</div>
 	
 </template>
 
 <script>
+<<<<<<< HEAD
+	import AreaHeader from '../../common/header/TopHeader';
+	export default {
+		components:{
+	        AreaHeader
+	    }
+=======
 	/**头部 */
 	import headtop from '@/components/public/page_top_head'
 	export default {
@@ -37,7 +131,7 @@
 				},
 				right_button: {
 					need_model: false,
-					/**通过判断=>文字是否为空=> 来控制文字和图片的显隐 */
+					/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
 					text: '按钮',
 					/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
 					icon: {
@@ -53,6 +147,7 @@
 			this.$store.commit('change_head',style_obj);
 
 		},
+>>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 	}
 </script>
 
