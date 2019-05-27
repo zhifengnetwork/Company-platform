@@ -43,6 +43,7 @@ export default new Router({
 	    name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
+
 		{
 	    path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
