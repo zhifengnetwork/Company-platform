@@ -9,10 +9,6 @@ import login from '@/components/login/login'
 
 /*首页-模块*/
 import home from '@/components/home/home'
-
-/*我的-模块*/
-import user from '@/components/user/user'
-
 //精选
 import choice from '@/components/home/childrens/choice'
 //9.9包邮
@@ -25,9 +21,11 @@ import female from '@/components/home/childrens/female'
 import homeTextile from '@/components/home/childrens/homeTextile'
 // 电器
 import appliances from '@/components/home/childrens/appliances'
-
 // 拼团专区
 import groupArea from '@/components/home/groupArea/groupArea'
+
+/*我的-模块*/
+import user from '@/components/user/user'
 
 Vue.use(Router)
 
@@ -109,6 +107,12 @@ export default new Router({
 		    
 			]
 		},
+		// 拼团专区
+	   	{
+	      path: '/home/groupArea',
+	      name: 'groupArea',
+	      component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve) 
+	    }
     
-  ]
+  	]
 })

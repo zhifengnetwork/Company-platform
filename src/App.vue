@@ -25,7 +25,7 @@ export default {
 	}
 	#app {
 	  width: 100%;
-		height: auto;
+	  height: auto;
 	  overflow-x: hidden;
 	}
 	/*清除浮动代码 '父元素'*/
