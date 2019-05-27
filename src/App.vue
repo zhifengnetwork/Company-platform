@@ -24,7 +24,7 @@ export default {
 		background-color: #f7f7f7;
 	}
 	#app {
-	  width: 750px;
+	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
 	}
