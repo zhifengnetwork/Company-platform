@@ -63,7 +63,8 @@
     font-size: 30px;
     line-height: 88px;
     letter-spacing: 5px;
-    // font-weight: bold;
+    // font-weight: 580;
+
     
     .head_title 
       color: #333;
