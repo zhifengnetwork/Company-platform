@@ -15,37 +15,8 @@
             </van-swipe>
         </div>
 
+        <!-- 导航菜单左右切换 -->
         <div class="nav-wrap">
-            <!-- <van-swipe :autoplay="3000" :width="300">
-                <van-swipe-item>
-                    <div class="nav-item">
-                        <img src="static/img/home/assemble-icon.png" />
-                        <span>马上拼团</span>
-                    </div>
-                    <div class="nav-item">
-                        <img src="static/img/home/assemble-icon.png" />
-                        <span>砍价专区</span>
-                    </div>
-                    <div class="nav-item">
-                        <img src="static/img/home/assemble-icon.png" />
-                        <span>明星推荐</span>
-                    </div>
-                    <div class="nav-item">
-                        <img src="static/img/home/assemble-icon.png" />
-                        <span>马上领券</span>
-                    </div>
-                </van-swipe-item>
-                <van-swipe-item>
-                    <div class="nav-item">
-                        <img src="static/img/home/assemble-icon.png" />
-                        <span>热门推荐</span>
-                    </div>
-                    <div class="nav-item">
-                        <img src="static/img/home/assemble-icon.png" />
-                        <span>发现好货</span>
-                    </div>
-                </van-swipe-item>
-            </van-swipe> -->
               <div class="swiper-container">
                 <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -77,7 +48,7 @@
                     </div>
                 </div>
                 </div>
-                <!-- Add Scrollbar -->
+                <!-- 滚动条 -->
                 <div class="swiper-scrollbar"></div>
             </div>
         </div>
@@ -86,8 +57,8 @@
 </template>
 
 <script>
-import Swiper from "swiper";
-import "swiper/dist/css/swiper.css";
+import Swiper from "swiper"
+import "swiper/dist/css/swiper.css"
 export default {
     name:'choice',
     data(){

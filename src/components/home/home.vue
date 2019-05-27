@@ -23,7 +23,7 @@
 
 		<!-- 横向滚动标签栏 -->
 		<van-tabs v-model="active" @click="handleChange"> 
-			<van-tab v-for="item in items" :title="item.label">
+			<van-tab v-for="(item,index) in items" :title="item.label" :key="index">
 				<router-view></router-view>
 			</van-tab>
 		</van-tabs>
