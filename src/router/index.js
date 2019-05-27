@@ -31,6 +31,9 @@ import homeTextile from '@/components/home/childrens/homeTextile'
 // 电器
 import appliances from '@/components/home/childrens/appliances'
 
+// 拼团专区
+import groupArea from '@/components/home/groupArea/groupArea'
+
 Vue.use(Router)
 
 export default new Router({
@@ -54,22 +57,29 @@ export default new Router({
 				{
 		      path: '/',
 		      name: 'home',
-					component: (resolve) => require(['@/components/home/home'],resolve),
-					redirect:'/home/choice',
-					children:[
-							{ path: '/home/choice', component: choice },
-							{ path: '/home/guarantees', component: guarantees },
-							{ path: '/home/male', component: male },
-							{ path: '/home/female', component: female },
-							{ path: '/home/homeTextile', component: homeTextile },
-							{ path: '/home/appliances', component: appliances }
-					]
+				component: (resolve) => require(['@/components/home/home'],resolve),
+				redirect:'/home/choice',
+				children:[
+						{ path: '/home/choice', component: choice },
+						{ path: '/home/guarantees', component: guarantees },
+						{ path: '/home/male', component: male },
+						{ path: '/home/female', component: female },
+						{ path: '/home/homeTextile', component: homeTextile },
+						{ path: '/home/appliances', component: appliances }
+				]
 		    },
 		    {
 		      path: '/index/user',
 		      name: 'user',
 		      component: (resolve) => require(['@/components/user/user'],resolve) 
 		    },
+		    // 拼团专区
+		    {
+		      path: '/groupArea',
+		      name: 'groupArea',
+		      component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve) 
+		    }
+		    
 			]
 		},
     
