@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-	  	<ly-tab
+	  	<!-- <ly-tab
 			v-model="selectedId"
 			:items="items"
 			:options="options"
 			@change="handleChange">
-		</ly-tab>
+		</ly-tab> -->
 		<router-view></router-view>
   </div>
 </template>

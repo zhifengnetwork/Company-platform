@@ -52,17 +52,17 @@ export default new Router({
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
 				{
-		      path: '/',
+		      path: '/index/',
 		      name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
-					redirect:'/home/choice',
+					redirect:'/index/home/choice',
 					children:[
-							{ path: '/home/choice', component: choice },
-							{ path: '/home/guarantees', component: guarantees },
-							{ path: '/home/male', component: male },
-							{ path: '/home/female', component: female },
-							{ path: '/home/homeTextile', component: homeTextile },
-							{ path: '/home/appliances', component: appliances }
+							{ path: '/index/home/choice', component: choice },
+							{ path: '/index/home/guarantees', component: guarantees },
+							{ path: '/index/home/male', component: male },
+							{ path: '/index/home/female', component: female },
+							{ path: '/index/home/homeTextile', component: homeTextile },
+							{ path: '/index/home/appliances', component: appliances }
 					]
 		    },
 		    {

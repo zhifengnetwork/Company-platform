@@ -94,7 +94,7 @@
 			console.log('当前路由:',this_toute);
 			for(var i=0;i<this.data_nav.length;i++){
 				console.log(this.data_nav[i]['url_data'], this_toute);
-				if(this.data_nav[i]['url_data'] == this_toute){
+				if(this.data_nav[i]['url_data'].indexOf(this_toute) != -1 ){
 					this.this_state = i;
 					share_start = false;
 					break;
