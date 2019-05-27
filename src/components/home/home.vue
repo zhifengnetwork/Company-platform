@@ -39,7 +39,6 @@ export default {
 	name: 'home',
   	data() {
 		return {
-			active: 0,
 			selectedId: 0,
 			items: [
 				{label: '精选'},
@@ -63,12 +62,13 @@ export default {
 		}
 	},
 	methods: {
-		handleChange (index){
+		handleChange (item, index) {
+			console.log(item, index)
 			this.$router.replace(this.path[index])
 		}
   	},
 	components:{
-		
+		TopHeader
 	},
 };
 </script>

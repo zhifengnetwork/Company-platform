@@ -23,6 +23,11 @@ import homeTextile from '@/components/home/childrens/homeTextile'
 import appliances from '@/components/home/childrens/appliances'
 // 拼团专区
 import groupArea from '@/components/home/groupArea/groupArea'
+//拼团订单
+import groupOrder from '@/components/home/groupArea/groupOrder'
+
+
+
 
 
 /*会员-模块*/
@@ -49,7 +54,7 @@ export default new Router({
 		},
 		{
 	    path: '/login',
-	    name: 'login',
+	    name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
 
@@ -57,13 +62,13 @@ export default new Router({
 	    path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
-				// 首页
 				{
 		      path: '/index/',  /**首页 */
 		      name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
 					children:[
+<<<<<<< HEAD
 							// 精选
 							{ 
 									path: '/index/home/choice', 
@@ -102,11 +107,33 @@ export default new Router({
 							}
 					]
 		    },
+=======
+							{ path: '/index/home/choice', component: choice },
+							{ path: '/index/home/guarantees', component: guarantees },
+							{ path: '/index/home/male', component: male },
+							{ path: '/index/home/female', component: female },
+							{ path: '/index/home/homeTextile', component: homeTextile },
+							{ path: '/index/home/appliances', component: appliances }
+					]
+				},
+				{
+		      path: '/index/member',
+		      name: 'member',
+		      component: (resolve) => require(['@/components/member/member'],resolve) 
+				},
+				{
+		      path: '/index/cart',
+		      name: 'cart',
+		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
+				},
+				//用户中心
+>>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 		    {
-		      path: '/index/user',
+		      path: '/index/user',  
 		      name: 'user',
 		      component: (resolve) => require(['@/components/user/user'],resolve) 
 		    },
+<<<<<<< HEAD
 			]
 		},
 		// 拼团专区
@@ -115,6 +142,21 @@ export default new Router({
 	      name: 'groupArea',
 	      component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve) 
 	    }
+=======
+			 ]
+	   	 },
+		  	{
+				path: '/home/groupArea', /**拼团 */
+				name: 'groupArea',
+				component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+				},
+				//拼团订单
+				{
+					path: '/home/groupArea/order', /**拼团 */
+					name: 'groupOrder',
+					component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+				},
+>>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
     
-  	]
+  ]
 })

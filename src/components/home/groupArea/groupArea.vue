@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 	<div class="group">
 		<Area-Header customTitle="拼团专区"></Area-Header>
 		<div class="content">
@@ -83,121 +84,73 @@
 
 		</div>
 
+=======
+	<div class="public_head">
+		<headtop></headtop>
+
+		<div class="group">
+		
+			拼团
+		</div>
+>>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 	</div>
 	
 </template>
 
 <script>
+<<<<<<< HEAD
 	import AreaHeader from '../../common/header/TopHeader';
 	export default {
 		components:{
 	        AreaHeader
 	    }
+=======
+	/**头部 */
+	import headtop from '@/components/public/page_top_head'
+	export default {
+		components: {
+			headtop,
+		},
+		/*组件实例创建完成，属性已绑定，但DOM还未生成*/
+		created: function(){
+			/**head=>style */
+			var style_obj = {
+				head_wrap_style: {
+					background: '#ff4d39',
+				},
+				return_data: {
+					icon: '/static/img/left_icon_fff.png',
+					/*跳转的路由(可以传参),为空=>返回上一页*/
+					url_data: '',
+				},
+				title: {
+					/**是否-显示该模块 */
+					need_model: true,
+					name: '拼团专区',
+					style: {color:'#fff'}
+				},
+				right_button: {
+					need_model: false,
+					/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
+					text: '按钮',
+					/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
+					icon: {
+						class: '',
+						icon_url: '',
+					},
+					/**点击按钮-模块显示 */
+					show: false,
+					url_data: '',
+				},
+			}
+			/**改变vuex对应头部数据 */
+			this.$store.commit('change_head',style_obj);
+
+		},
+>>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 	}
 </script>
 
-<style lang="stylus" scoped>
-	.group
-		padding-bottom: 65px;
-		width: 100%;
-		height: 100%
-		.content
-			margin: 0 auto;
-			.top_img
-				margin: 10px 24px 25px 24px;
-				img
-					margin: 0 auto;
-					display: block;
-					max-width: 100%;
-					border-radius: 10px;
-			.box_wrap
-				padding: 0 0 0 24px;
-				.box
-					margin-bottom: 10px;
-					display: inline-block;
-					vertical-align: top;
-					width: 346px;
-					background: #fff;
-					&:nth-child(even)
-						margin-left: 10px;
-					.img_wrap
-						position: relative;
-						.img
-							width: 346px;
-							height: 346px;
-							img
-								margin: 0 auto;
-								display: block;
-								max-width: 100%;
-						.time
-							position: absolute;
-							top: 0;
-							right 0;
-							width: 168px;
-							height: 34px;
-							background: url("~/static/img/group_area/tiem.png") no-repeat;
-							background-size: 100% 100%;
-							font-size: 18px;
-							color: #fff;
-							text-align: center;
-							line-height: 34px;
-						.piece
-							position: absolute;
-							bottom: 0;
-							left: 0;
-							width: 346px;
-							height: 26px;
-							background: #fd5014;
-							font-size: 18px;
-							color: #fff;
-							text-align: center;
-							line-height: 26px;
-					p
-						margin: 12px 0 17px;
-						padding: 0 11px;
-						font-size: 24px;
-						color: #151515;
-						line-height: 35px;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						display: -webkit-box;
-						-webkit-line-clamp: 1;
-						-webkit-box-orient: vertical;
-					.goods_wrap
-						padding: 0 0 20px 11px;
-						width: 346px;
-						height: 62px;
-						font-size: 0;
-					.goods_wrap .good_1,.good_2,.good_3
-						display: inline-block;
-						vertical-align: middle;
-					.good_1
-						font-size: 18px;
-						color: #fff;
-						text-align: center;
-						.num
-							width: 92px;
-							height: 29px;
-							background-color: #fd142f;
-							border-radius: 4px;
-							line-height: 29px;
-						.meoy
-							font-size: 30px;
-							color: #fd5014;
-							line-height: 55px;
-					.good_2
-						margin: 0 25px 0 35px;
-						font-size: 24px;
-						color: #212121;
-					.good_3
-						width: 40px;
-						height: 40px;
-						background: #fd142f;
-						font-size: 16px;
-						color: #fff;
-						text-align: center;
-						line-height: 40px;
-						border-radius: 50%;			
-
-			
+<style>
+	
 </style>
