@@ -21,8 +21,8 @@ export default {
 	}
   a { text-decoration:none }
 	#app {
-	  width: 750px;
-	  height: auto;
+	  width: 100%;
+		height: auto;
 	  overflow-x: hidden;
 	}
 </style>

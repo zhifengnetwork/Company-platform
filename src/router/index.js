@@ -31,6 +31,8 @@ import homeTextile from '@/components/home/childrens/homeTextile'
 // 电器
 import appliances from '@/components/home/childrens/appliances'
 
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -47,6 +49,7 @@ export default new Router({
 	    name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
+
 		{
 	    path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
@@ -57,12 +60,12 @@ export default new Router({
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/home/choice',
 					children:[
-							{ path: '/home/choice', component: choice },
-							{ path: '/home/guarantees', component: guarantees },
-							{ path: '/home/male', component: male },
-							{ path: '/home/female', component: female },
-							{ path: '/home/homeTextile', component: homeTextile },
-							{ path: '/home/appliances', component: appliances }
+							{ path: '/index/home/choice', component: choice },
+							{ path: '/index/home/guarantees', component: guarantees },
+							{ path: '/index/home/male', component: male },
+							{ path: '/index/home/female', component: female },
+							{ path: '/index/home/homeTextile', component: homeTextile },
+							{ path: '/index/home/appliances', component: appliances }
 					]
 		    },
 		    {
