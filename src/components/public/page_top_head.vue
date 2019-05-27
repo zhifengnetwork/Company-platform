@@ -1,16 +1,21 @@
 <template>
     <!-- 默认: 透明底 -->
     <div class="head_wrap" :style="$store.state.top_head_data['head_wrap_style']">
+        <!-- 右边 return -->
         <div class="head_return_box">
           <img class="head_return_icon centered" :src="$store.state.top_head_data['return_data']['icon']" alt="">
-          <!-- 遮盖，返回图标，防止部分手机，点击-图片放大 -->
+          <!-- 遮盖(绝对定位)，返回图标，防止部分手机，点击-图片放大 -->
           <p class="head_return_button" @click.stop="return_button($store.state.top_head_data['return_data']['url_data'])"></p>
         </div>
+        <!-- title -->
         <span class="head_title" v-if="$store.state.top_head_data['title']['need_model']" :style="$store.state.top_head_data['title']['style']">{{$store.state.top_head_data['title']['name']}}</span>
-        <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click="right_button($store.state.top_head_data['right_button']['url_data'])">
-          <span v-if="$store.state.top_head_data['right_button']['text']">{{$store.state.top_head_data['right_button']['text']}}</span> 
-          <!-- 绝对定位,垂直水平居中 -->
+        <!-- 左边 按钮 -->
+        <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click.stop="right_button($store.state.top_head_data['right_button']['url_data'])">
+          <span v-if="$store.state.top_head_data['right_button']['text']" @click.stop="right_button($store.state.top_head_data['right_button']['url_data'])">{{$store.state.top_head_data['right_button']['text']}}</span> 
+          <!-- 遮盖(绝对定位),垂直水平居中 -->
           <img class="centered" v-else :class="$store.state.top_head_data['right_button']['icon']['class']" :src="$store.state.top_head_data['right_button']['icon']['icon_url']" alt="">
+          <!-- 遮盖，返回图标，防止部分手机，点击-图片放大 -->
+          <p class="head_right_button_box" @click.stop="right_button($store.state.top_head_data['right_button']['url_data'])"></p>
         </div>
     </div>
 </template>
@@ -84,17 +89,16 @@
       height: 100%;
       background-color: transparent;
 
-    .head_right_button
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 1;
-      width: 15%;
-      height: 100%;
-      font-size: 26px;
+      .head_right_button_box
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
 
-      .head_right_button_icon
-        display: block;
+    
         
 
       
