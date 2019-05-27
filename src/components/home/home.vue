@@ -17,6 +17,7 @@
 // Vue.use(LyTab)
 
 export default {
+	name: 'home',
   	data() {
 		return {
 			selectedId: 0,

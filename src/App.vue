@@ -24,10 +24,16 @@ export default {
 		background-color: #f7f7f7;
 	}
 	#app {
-	  width: 750px;
+	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
 	}
+	/* 引入公共头部 */
+	.public_head {
+		width: 100%;
+		height: auto;
+	}
+
 	/*清除浮动代码 '父元素'*/
 	.clearfloat:after{
 		display: block;

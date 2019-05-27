@@ -24,6 +24,13 @@ import appliances from '@/components/home/childrens/appliances'
 // 拼团专区
 import groupArea from '@/components/home/groupArea/groupArea'
 
+
+/*会员-模块*/
+import member from '@/components/member/member'
+
+/*购物车-模块*/
+import cart from '@/components/cart/cart'
+
 /*我的-模块*/
 import user from '@/components/user/user'
 
@@ -50,7 +57,7 @@ export default new Router({
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
 				{
-		      path: '/index/',
+		      path: '/index/',  /**首页 */
 		      name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
@@ -62,7 +69,17 @@ export default new Router({
 							{ path: '/index/home/homeTextile', component: homeTextile },
 							{ path: '/index/home/appliances', component: appliances }
 					]
-		    },
+				},
+				{
+		      path: '/index/member',
+		      name: 'member',
+		      component: (resolve) => require(['@/components/member/member'],resolve) 
+				},
+				{
+		      path: '/index/cart',
+		      name: 'cart',
+		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
+				},
 		    {
 		      path: '/index/user',
 		      name: 'user',

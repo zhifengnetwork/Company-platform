@@ -192,6 +192,7 @@
 // import "swiper/dist/css/swiper.css";
 
 export default {
+  name: 'home',
   data() {
     return {};
   },

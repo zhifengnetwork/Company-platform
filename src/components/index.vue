@@ -33,11 +33,7 @@
 
 			</div>
 		</div>
-
-
-
-
-		
+				
 	</div>
 </template>
 
@@ -61,24 +57,46 @@
 					},
 					{	
 						name: '',
-						url_data: '/index',
+						url_data: '/index/member',
 						text: false,
 					},
 					{	
 						name: '购物车',
-						url_data: '/index',
+						url_data: '/index/cart',
 						text: true,
 					},
 					{	
 						name: '我的',
-						url_data: '/index',
+						url_data: '/index/user',
 						text: true,
 					},
 				],
-				/**当前四大模块的-路由标识 */
-				this_sign: ['home','','user']
+				/**当前四大模块的--路由标识=> 底部的对应style */
+				this_sign: ['home','member','cart','user']
 			}
 		},
+		
+		/*钩子函数*/
+		mounted(){
+			/**分享的状态(不在其他模块里) */
+			var share_start = true;
+			/**根据当前路由--渲染底部导航 */
+			var this_toute = this.$route.path;
+			for(var i=0;i<this.this_sign.length;i++){
+				// console.log(this.this_sign[i], this_toute);
+				if(this_toute.indexOf(this.this_sign[i]) != -1 ){
+					console.log('当前对应的模板:',this.this_sign[i],'当前路由:',this_toute);
+					this.this_state = i;
+					share_start = false;
+					break;
+				}
+			}
+			/**分享路径 */
+			if(share_start){
+				this.this_state = null;
+			}
+		},
+
 		/*方法*/
 		methods: {
 			/*底部样式切换*/
@@ -87,28 +105,6 @@
 				this.this_state = _index;
 			},
 		},
-		/*钩子函数*/
-		mounted(){
-			/**分享的状态 */
-			var share_start = true;
-			/**根据当前路由--渲染底部导航 */
-			var this_toute = this.$route.path;
-			console.log('当前路由:',this_toute);
-			for(var i=0;i<this.data_nav.length;i++){
-				console.log(this.data_nav[i]['url_data'], this_toute);
-				if(this.data_nav[i]['url_data'].indexOf(this_toute) != -1 ){
-					console.log(i,6666);
-					this.this_state = i;
-					share_start = false;
-					break;
-				}
-			}
-			console.log(this.this_state,share_start);
-			/**分享路径 */
-			if(share_start){
-				this.this_state = null;
-			}
-		}
 		
 	}
 </script>
