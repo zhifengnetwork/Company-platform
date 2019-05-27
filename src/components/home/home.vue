@@ -1,42 +1,48 @@
 <template>
   <div class="home">
-	  	<!-- 顶部 -->
-	   	<div class="topBar">
-			<div class="top">
-				<div class="logo">
-					<img src="static/img/home/logo-zf.png" />
-				</div>
-				<div class="search">
-					<span class="logo-sm">
-						<img src="static/img/home/zf.png" />
-					</span>
-					<span class="search-icon">
-						<img src="static/img/home/search-icon-home.png" />
-					</span>
-					<span class="search-text">搜索</span>
-				</div>
-				<div class="categoryBtn">
-					<img src="static/img/home/categoryBtn-icon.png" >
-				</div>
-			</div>
-		</div>
+	    <!-- 头部组件 -->
+        <TopHeader custom-title="首页" custom-fixed></TopHeader>
 
-		<!-- 横向滚动标签栏 -->
-		<van-tabs v-model="active" @click="handleChange"> 
-			<van-tab v-for="item in items" :title="item.label">
-				<router-view></router-view>
-			</van-tab>
-		</van-tabs>
-		
+	  	<div class="topBar">
+			  <!-- <div class="top">
+				  	<div class="logo">
+						<img src="static/img/home/logo-zf.png" />
+					</div>
+					<div class="search">
+						<span class="logo-sm">
+							<img src="static/img/home/zf.png" />
+						</span>
+						<span class="search-icon">
+							<img src="static/img/home/search-icon-home.png" />
+						</span>
+						<span class="search-text">搜索</span>
+					</div>
+					<div class="categoryBtn">
+						<img src="static/img/home/categoryBtn-icon.png" >
+					</div>
+			  </div> -->
+		</div>
+	  	<!-- <ly-tab
+			v-model="selectedId"
+			:items="items"
+			:options="options"
+			@change="handleChange">
+		</ly-tab> -->
+		<router-view></router-view>
   </div>
 </template>
 
 <script>
 
+// import Vue from 'vue'
+// import LyTab from 'ly-tab'
+// Vue.use(LyTab)
+
+import TopHeader from "@/components/common/header/TopHeader"
 export default {
+	name: 'home',
   	data() {
 		return {
-			active: 0,
 			selectedId: 0,
 			items: [
 				{label: '精选'},
@@ -60,12 +66,13 @@ export default {
 		}
 	},
 	methods: {
-		handleChange (index){
+		handleChange (item, index) {
+			console.log(item, index)
 			this.$router.replace(this.path[index])
 		}
   	},
 	components:{
-		
+		TopHeader
 	},
 };
 </script>
@@ -127,32 +134,15 @@ export default {
 				margin-left 28px
 				img 
 					width 100%
-	.van-tabs
+	.ly-tab
+		position absolute
 		left 0
-		top -250px
+		top 100px
 		color #ffffff
-	.van-tabs >>> .van-tabs__nav
+	.ly-tab >>>	.ly-tabbar
 		background none
-	.van-tabs >>> .van-hairline--top-bottom::after
-		border-width 0
-	.van-tabs >>> .van-tab
-		color #ffffff
-		padding 0
-	.van-tabs >>> .van-tabs__line
-		background-color #ffffff
-	.van-tabs >>> .van-tabs__wrap
-		height 80px
-	.van-tabs >>> .van-tab, .van-tag--large
-		font-size 28px
-	.van-tabs >>> .van-tab--active
-		font-size 30px
-	.van-tabs >>> .van-tabs__wrap--scrollable .van-tab
-		flex-basis: 17% !important
-	.van-tabs >>> .van-tab__pane
-		padding 0 25px
-		box-sizing border-box	
-
-
+		border-bottom none
+		// box-shadow none
 			
 
 

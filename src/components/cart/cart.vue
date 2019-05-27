@@ -1,15 +1,15 @@
 <template>
-    <div class="guarantees">
-        9.9包邮
-    </div>
+    <div>购物车</div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        name: 'cart',
+    }
 </script>
 
 <style lang="stylus" scoped>
 
 </style>
+
+

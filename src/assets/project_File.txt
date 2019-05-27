@@ -3,6 +3,7 @@
 		安装命令: npm install postcss-px2rem-exclude  lib-flexible --save 
 		引用: main.js
 		配置：.postcssrc.js
+		缺陷：https://blog.csdn.net/qq_33485463/article/details/80454326
 	
 	2、使用vant插件 
 		安装命令：npm install vant --save

@@ -1,13 +1,11 @@
 <template>
-    <div class="guarantees">
-        9.9包邮
-    </div>
+    <div>会员</div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        name: 'member',
+    }
 </script>
 
 <style lang="stylus" scoped>

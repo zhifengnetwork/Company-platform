@@ -38,6 +38,37 @@ function clones(_type, _memory) {
 const state = {
 	/*input获取、失去焦点=>隐藏元素(默认:true)*/
 	inpShowEle: true,
+	/**页面-顶部-头部，默认*/
+	top_head_data: {
+		/**整个head的style */
+		head_wrap_style: {
+			background: '',
+		},
+		return_data: {
+			icon: '/static/img/left_icon_555.png',
+			/*跳转的路由(可以传参)，为空=>返回上一页*/
+			url_data: '',
+		},
+		title: {
+			/**是否-显示该模块 */
+			need_model: true,
+			name: '标题',
+			style: {color:'#333'}
+		},
+		right_button: {
+			need_model: false,
+			/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
+			text: '按钮',
+			/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
+			icon: {
+				class: '',
+				icon_url: '',
+			},
+			/**点击按钮-模块显示 */
+			show: false,
+			url_data: '',
+		},
+	},
 }
 
 /*专门修改state 里面的数据（同步操作）*/
@@ -51,6 +82,10 @@ const mutations = {
 	/*监听input => 失去焦点*/
 	loseInputX(state){
 		state.inpShowEle = false;
+	},
+	/**改变头部样式 */
+	change_head(state,style_obj){
+		state.top_head_data = clones(style_obj);
 	},
 	/* public -e*/
 	
