@@ -188,8 +188,8 @@
 </template>
 
 <script>
-import Swiper from "swiper";
-import "swiper/dist/css/swiper.css";
+// import Swiper from "swiper";
+// import "swiper/dist/css/swiper.css";
 
 export default {
   data() {

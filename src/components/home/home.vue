@@ -12,9 +12,9 @@
 
 <script>
 
-import Vue from 'vue'
-import LyTab from 'ly-tab'
-Vue.use(LyTab)
+// import Vue from 'vue'
+// import LyTab from 'ly-tab'
+// Vue.use(LyTab)
 
 export default {
   	data() {
