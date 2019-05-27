@@ -15,19 +15,14 @@ import user from '@/components/user/user'
 
 //精选
 import choice from '@/components/home/childrens/choice'
-
 //9.9包邮
 import guarantees from '@/components/home/childrens/guarantees'
-
 //男装
 import male from '@/components/home/childrens/male'
-
 //女装
 import female from '@/components/home/childrens/female'
-
 //家纺家居
 import homeTextile from '@/components/home/childrens/homeTextile'
-
 // 电器
 import appliances from '@/components/home/childrens/appliances'
 
@@ -47,7 +42,7 @@ export default new Router({
 		},
 		{
 	    path: '/login',
-	    name: '/login',
+	    name: 'login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
 
@@ -55,19 +50,50 @@ export default new Router({
 	    path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
+				// 首页
 				{
 		      path: '/',
 		      name: 'home',
-				component: (resolve) => require(['@/components/home/home'],resolve),
-				redirect:'/home/choice',
-				children:[
-						{ path: '/home/choice', component: choice },
-						{ path: '/home/guarantees', component: guarantees },
-						{ path: '/home/male', component: male },
-						{ path: '/home/female', component: female },
-						{ path: '/home/homeTextile', component: homeTextile },
-						{ path: '/home/appliances', component: appliances }
-				]
+					component: (resolve) => require(['@/components/home/home'],resolve),
+					redirect:'/index/home/choice',
+					children:[
+							// 精选
+							{ 
+									path: '/index/home/choice', 
+									name:'choice',
+									component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+							},
+							// 9.9包邮
+							{ 
+									path: '/index/home/guarantees', 
+									name:'guarantees',
+									component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
+							},
+							// 男装
+							{ 
+									path: '/index/home/male', 
+									name:'male',
+									component: (resolve) => require(['@/components/home/childrens/male'],resolve)
+							},
+							// 女装
+							{ 
+									path: '/index/home/female', 
+									name:'female',
+									component: (resolve) => require(['@/components/home/childrens/female'],resolve)
+							},
+							// 家居家纺
+							{ 	
+									path: '/index/home/homeTextile', 
+									name:'homeTextile',
+									component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
+							},
+							// 电器
+							{ 
+									path: '/index/home/appliances', 
+									name:'appliances',
+									component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
+							}
+					]
 		    },
 		    {
 		      path: '/index/user',
