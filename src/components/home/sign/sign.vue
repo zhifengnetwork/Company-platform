@@ -30,6 +30,7 @@
 		 <div class="poup">
 
 
+
 		 </div>
 		 <div class="qiandao_div">
 			 <img src="/static/img/home/punchcard/qiandao.png" class="qiandao_pic"/>
@@ -89,6 +90,7 @@
 				},
 			}
 
+// ddd
 			this.$store.commit('change_head',head_obj)
 
 		},
