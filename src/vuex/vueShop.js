@@ -100,6 +100,7 @@ const mutations = {
 	},
 	/**头部-右边-按钮=> show || hide */
 	head_right_but(state) {
+		console.log(6666);
 		if (state.top_head_data['right_button']['url_data']['show']) {
 			state.top_head_data['right_button']['url_data']['show'] = true;
 		} else {

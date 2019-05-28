@@ -30,6 +30,8 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
+//优惠券
+import coupon from '@/components/home/bargain/coupon'
 
 
 
@@ -147,6 +149,12 @@ export default new Router({
 			name: 'groupOrder',
 			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
 		},
-  ]
+		// 优惠券
+		{
+			path: '/home/coupon',
+			name: 'coupon',
+			component: (resolve) => require(['@/components/home/bargain/coupon'],resolve)
 
+		},
+	]
 })

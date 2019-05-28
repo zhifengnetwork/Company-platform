@@ -12,7 +12,7 @@
         <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click="right_button($store.state.top_head_data['right_button']['url_data'])">
           <span v-if="$store.state.top_head_data['right_button']['text']">{{$store.state.top_head_data['right_button']['text']}}</span> 
           <!-- 绝对定位,垂直水平居中 -->
-          <img class="centered" v-else :class="$store.state.top_head_data['right_button']['icon']['class']" :src="$store.state.top_head_data['right_button']['icon']['icon_url']" alt="">
+          <img class="centered sha" v-else :class="$store.state.top_head_data['right_button']['icon']['class']" :src="$store.state.top_head_data['right_button']['icon']['icon_url']" alt="">
         </div>
     </div>
 </template>
@@ -40,6 +40,7 @@
       },
       /**右边按钮 */
       right_button(_url){
+        console.log(111);
         if(_url){
           this.$router.push({ path:_url}) /**路由跳转 */
           return false;
@@ -110,6 +111,10 @@
 
       .head_right_button_icon
         display: block;
+        
+      .sha
+        width: 34px;
+        height: 36px;
         
 
       
