@@ -1,5 +1,4 @@
 <template>
-
 	<div class="group">
 		<headtop></headtop>
 		<div class="content">

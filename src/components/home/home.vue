@@ -39,6 +39,7 @@ export default {
 	name: 'home',
   	data() {
 		return {
+			active:0,
 			selectedId: 0,
 			items: [
 				{label: '精选'},
@@ -62,8 +63,7 @@ export default {
 		}
 	},
 	methods: {
-		handleChange (item, index) {
-			console.log(item, index)
+		handleChange (index){
 			this.$router.replace(this.path[index])
 		}
   	}
