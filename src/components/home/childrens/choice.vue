@@ -483,7 +483,8 @@ export default {
                 .share-gold
                     .share-sign
                         height 36px
-                        line-height 40px
+                        line-height 36px
+                        display inline-block
                         padding 0px 5px
                         background-color #fd5014
                         color #ffffff
