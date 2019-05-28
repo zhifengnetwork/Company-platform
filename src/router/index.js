@@ -57,7 +57,6 @@ export default new Router({
 	    name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
-
 		{
 	    path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
@@ -123,17 +122,17 @@ export default new Router({
 					component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
 			],
-	  },
-		{
-		path: '/home/groupArea', /**拼团 */
-		name: 'groupArea',
-		component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
 		},
 		{
-			path: '/home/groupArea/order', /**拼团订单 */
+			path: '/home/groupArea', 
+			name: 'groupArea',
+			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve)
+		},
+		{
+			path: '/home/groupArea/order',
 			name: 'groupOrder',
-			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve)
+
 		},
-    
-  ]
+	]
 })
