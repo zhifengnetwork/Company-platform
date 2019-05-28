@@ -73,10 +73,65 @@
 <script>
 
 export default {
-
+    name:'choice',
+    data(){
+        return {
+            bannerData:[
+                {imgUrl:'static/img/home/00banner-img01.png'}
+            ]
+        }
+    },
+    mounted(){
+        let swiper = new Swiper('.swiper-container', {
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                hide: false,
+            }
+        })
+    }
 }
 </script>
 
 <style lang="stylus" scoped>
+// 轮播图
+.banner
+    .van-swipe
+        border-radius 15px
+        margin-bottom 15px
+        img 
+            width 100%
 
+// 导航
+.nav-wrap
+    width 100%
+    height 160px
+    background url("~/static/img/home/nav-bg.png") no-repeat 
+    background-size cover
+.nav-wrap >>> .swiper-slide
+    height 160px
+    display flex
+    align-items center
+.nav-wrap >>> .nav-item
+    text-align center
+    margin 0 38px
+    img
+        width 70px
+    span 
+        display block
+        font-size 24px
+        color #fff3ca
+.nav-wrap >>> .swiper-container-horizontal > .swiper-scrollbar
+    width 120px
+    height 6px
+    left 50%
+    margin-left -60px
+    opacity 1
+    background #ffffff
+    border-radius 2px
+.nav-wrap >>> .swiper-scrollbar-drag
+    background-color #ffe679
+    border-radius 2px
+
+
+        
 </style>

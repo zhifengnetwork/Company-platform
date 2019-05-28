@@ -39,6 +39,7 @@ export default {
 	name: 'home',
   	data() {
 		return {
+			active:0,
 			selectedId: 0,
 			items: [
 				{label: '精选'},
