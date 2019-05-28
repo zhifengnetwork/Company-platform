@@ -9,6 +9,7 @@ import login from '@/components/login/login'
 
 /*首页-模块*/
 import home from '@/components/home/home'
+import punchcard from '@/components/home/punchcard'
 
 /*我的-模块*/
 import user from '@/components/user/user'
@@ -36,15 +37,27 @@ export default new Router({
 				{
 		      path: '/',
 		      name: 'home',
-		      component: (resolve) => require(['@/components/home/home'],resolve) 
+					component: (resolve) => require(['@/components/home/home'],resolve),
+					
 		    },
 		    {
 		      path: '/index/user',
 		      name: 'user',
 		      component: (resolve) => require(['@/components/user/user'],resolve) 
-		    },
+				},
+				
 			]
 		},
+    {
+			path: '/index/punchcard',
+			name: 'punchcard',
+			component: (resolve) => require(['@/components/home/punchcard'],resolve),
+		}
+
+
+
+
+
     
   ]
 })

@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import punchcard from '@/components/home/punchcard'
 export default {
-  name: 'App'
+	name: 'App',
+	components:{
+		punchcard
+	}
+	
 }
 </script>
 
