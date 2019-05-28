@@ -9,12 +9,12 @@
               <img src="/static/img/home/punchcard/loucen.png" class="loucen"/>
 		     </div>
 				<div class="bonus_pool">
-						<span class="bonus_pools_left">当前奖池</span>
+						<!-- <span class="bonus_pools_left">当前奖池</span> -->
 						<div class="bonus_pools_num">
 							<span class="number">0</span><span class="number">1</span><span class="number">8</span><span class="number">1</span><span class="number">0</span>
 							<p class="join_num">当前已有52222222人参加</p>
 						</div>
-						<span class="bonus_pools_right">元</span>
+						<!-- <span class="bonus_pools_right">元</span> -->
 				</div>
 		 
 		 <div class="button_ear">
@@ -33,11 +33,6 @@
 		 </div>
 		 
 		
-    
-
-
-
-
 
 	</div>
 	
@@ -66,18 +61,20 @@
 	background-size 100% 100%
 
 	.daka_guize
-		position absolute
-		right 28px
-		top 90px
-		width 100px
+		position absolute!important
+		right 28px!important
+		top 90px!important
+		width 100px!important
+		height 100px!important
 
 	.ren1
-		position absolute
-		right 0
-		left 0
-		margin 0 auto
-		top 0
-		width 680px
+		position absolute!important
+		right 0!important
+		left 0!important
+		margin 0 auto!important
+		top 0!important
+		width 680px!important
+		height 550px!important
 
 	.guafeng
 		position absolute
@@ -111,30 +108,11 @@
 		text-align center
 		color white
 		font-size 25px
-
-      	.bonus_pools_num
-			display inline-block
-			position relative
-
-			.number 
-				background white
-				margin-right 4px
-				padding .25rem .2rem
-				color rgb(255,73,2)
-				font-size 38px
-				border-radius .06rem
-			.join_num
-				margin-top -50px	
-			    
-		.bonus_pools_left
-			display inline-block
-			height 100%
-			vertical-align top
-
-		.bonus_pools_right
-			display inline-block
-			height 100%
-			vertical-align top	
+		border 1px solid red
+		.bonus_pools_num
+			width 400px
+			border 1px solid green	
+  
 			
 	.button_ear
 		position relative

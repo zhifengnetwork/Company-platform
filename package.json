@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lib-flexible": "^0.3.2",
+    "ly-tab": "^2.1.2",
     "postcss-px2rem-exclude": "0.0.6",
     "vant": "^1.6.19",
     "vue": "^2.5.2",
@@ -35,6 +36,7 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "ly-tab": "^2.1.2",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
@@ -48,6 +50,7 @@
     "shelljs": "^0.7.6",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "swiper": "^4.5.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
