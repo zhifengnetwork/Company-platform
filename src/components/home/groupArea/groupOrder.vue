@@ -1,6 +1,6 @@
 <template>
     <div class="grop-order-main-wrap">
-          <header>  
+          <header class="public_head">  
               <Pheader  ></Pheader>
           </header>
            <div class="gropOrder-page">
@@ -42,9 +42,9 @@
                             <div class="sku-num">
                                 <div class="buy-tt">购买数量</div>
                                 <div class="buy-num">
-                                    <a href="javascript:;" class="btn btn-opt-minus">-</a>
+                                    <a href="javascript:;" class="btn btn-opt-minus" @click="submitMinus">-</a>
                                     <input type="text" data-min="1" disabled value="1">
-                                    <a href="javascript:;" class="btn btn-opt-plus">+</a>
+                                    <a href="javascript:;" class="btn btn-opt-plus" @click="submitAdd">+</a>
                                 </div>
                             </div>
                             <div class="sku-num delivery">
@@ -63,7 +63,7 @@
                                 v-model="message"
                                 type="textarea"
                                 placeholder="选填，请先和商家协商一致"
-                                rows="1"
+                                rows="2"
                                 autosize
                                 />
                                 </div>
@@ -83,7 +83,7 @@
                             <P>微信支付</P>
                         </div>
                         <div class="item-cheack">
-                            <img src="static/img/group_area/order/cheack.png" alt="">
+                            <img src="static/img/group_area/order/gou.png" alt="" class="activeIcon">
                         </div>
                     </div>
                     <div class="mode-list">
@@ -92,7 +92,7 @@
                             <P>支付宝支付</P>
                         </div>
                         <div class="item-cheack">
-                            <img src="static/img/group_area/order/cheack.png" alt="">
+                            <!-- <img src="static/img/group_area/order/cheack.png" alt=""> -->
                         </div>
                     </div>
                     <div class="mode-list">
@@ -101,7 +101,7 @@
                             <P>银联支付</P>
                         </div>
                         <div class="item-cheack">
-                            <img src="static/img/group_area/order/cheack.png" alt="">
+                            <!-- <img src="static/img/group_area/order/cheack.png" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -131,15 +131,17 @@
                 </div>
            </div>
            <div class="footer-bottom">
-                   <a href="" class="text">实付款:</a>
-                   <a href="" class="pirce">￥720.00</a>
-                   <a href="" class="freight">免运费</a>
-                   <a href="" class="buyBtn">立即付款</a>
+                   <div class="total-b">
+                      <a href="javascript:;" class="text">实付款:</a>
+                      <a href="javascript:;" class="pirce">￥720.00</a>
+                      <a href="javascript:;" class="freight">免运费</a>
+                   </div>
+                   <button  class="buyBtn">立即付款</button>
            </div>
     </div>
 </template>
 <script>
-import Pheader from '../../public/page_top_head'
+import Pheader from '@/components/public/page_top_head'
 export default {
     data(){
         return{
@@ -147,9 +149,54 @@ export default {
             message:''
         }
     },
+    methods:{
+           //加
+           submitAdd(){
+
+           },
+
+           //减
+           submitMinus(){
+
+           }
+    },
     components:{
         Pheader,
+    },
+    created(){
+      var obj =  {
+        /**整个head的style */
+        head_wrap_style: {
+          background: '#fff',
+        },
+        return_data: {
+          icon: '/static/img/left_icon_555.png',
+          /*跳转的路由(可以传参)，为空=>返回上一页*/
+          url_data: '',
+        },
+        title: {
+          /**是否-显示该模块 */
+          need_model: true,
+          name: '确认订单',
+          style: {color:'#333'}
+        },
+        right_button: {
+          need_model: false,
+          /**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
+          text: '按钮',
+          /**图标=>内联失效(只能在头部组件style设置样式，传class名) */
+          icon: {
+            class: '',
+            icon_url: '',
+          },
+          /**点击按钮-模块显示 */
+          show: false,
+          url_data: '',
+        }
     }
+    this.$store.commit('change_head',obj);
+
+  }
 }
 </script>
 
@@ -271,6 +318,9 @@ header
 .pro-sku .delivery,.pro-sku .order-remark
   margin-top 33px
 
+.pro-sku .order-remark
+ margin-top 50px
+
 .pro-sku   .sku-num  .buy-tt
   font-size 27px
   font-weight 600
@@ -286,7 +336,6 @@ header
 
 .pro-sku   .sku-num  .buy-num .btn
   width 58px
-  height 40px
   display inline-block
   text-align center
   color #444
@@ -310,7 +359,7 @@ header
   max-width 40%
 
 .pro-sku .delivery .express .express-name
-  font-size 15px
+  font-size 20px
 
 .pro-sku .sku-num .delivery-tt
   max-width 60%
@@ -320,7 +369,7 @@ header
   padding 0
   height 100%
   line-height 40px
-  font-size 10px
+  font-size 20px
 
 .pro-sku .order-remark   .buy-num
   margin-left 20px
@@ -360,6 +409,7 @@ header
     width 30%
     display flex 
     line-height 50px
+    flex 1
 
 .payment-mode  .mode-list .item-icon>img
     width 50px
@@ -369,6 +419,15 @@ header
 .payment-mode  .mode-list .item-cheack
     width 44px
     height 44px
+    background url('../../../../static\img\group_area\order\cheack.png')
+    background-size 100%
+    display flex
+    align-items center
+ .item-cheack .activeIcon
+    width 25px
+    height 20px
+    margin 0 auto
+    align-items center
 
 .payment-mode .info-page
     display flex
@@ -384,6 +443,7 @@ header
 .payment-mode .info-page .info-item>span 
     font-size 20px
     margin-right 10px
+    max-width 50%
 
 .payment-mode .info-page .info-item .right-invite
     padding-right 20px
@@ -393,37 +453,39 @@ header
 
 .footer-bottom
     display flex
-    height 123px
-    line-height 123px
+    line-height 90px
     margin-bottom 24px
     border 1.1px solid #efece9
     position relative
-
-.footer-bottom>a
+    padding 20px
+    box-sizing border-box
+.footer-bottom .total-b>a
     display inline-block
     color #000
-
-.footer-bottom .text,.footer-bottom .pirce
     font-size 30px
-    padding-left 123px
+    font-weight 600
+.total-b
+    flex 1    
+    text-align right
+    line-height 95px
 
-.footer-bottom .pirce
+.footer-bottom .total-b  .freight
+    margin-right 18px
+    font-size 20px 
+    color #9d9d9d
+
+.footer-bottom .total-b .pirce 
+    margin-right 56px
     color #f70a0a
-    padding-left 50px
+    margin-left 32px
 
-.footer-bottom .freight
-    padding-left 80px
-    padding-right 10px
-    
 .footer-bottom .buyBtn
     background #f70a0a
     color #ffffff
     width 177px
-    height 90px
-    margin-top 15px
-    line-height 90px
+    height 95px
+    line-height 95px
     text-align center
     font-size 32px
-    position absolute
-    right 10px
+    border 0
 </style>
