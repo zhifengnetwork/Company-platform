@@ -63,8 +63,7 @@ export default {
 		}
 	},
 	methods: {
-		handleChange (item, index) {
-			console.log(item, index)
+		handleChange (index){
 			this.$router.replace(this.path[index])
 		}
   	}
