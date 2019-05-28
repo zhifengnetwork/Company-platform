@@ -27,12 +27,14 @@ export default {
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		-webkit-tap-highlight-color: transparent;
 	}
+	
 	html,body,div,p,span,i,input,button,textarea,em,h1,h2,h3,h4,h5,h6,a,form,dl,dt,dd,img {
 		margin: 0;
 		padding: 0;
 	}
 	
   a { text-decoration:none }
+
 	body {
 		background-color: #f7f7f7;
 	}
@@ -91,7 +93,7 @@ export default {
 
 	/*省略号 2行  */
 	.apostrophe{
-	-webkit-box-orient: vertical;
+		-webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     overflow: hidden;

@@ -8,31 +8,19 @@
                     <div class="banner-rule">
                         <img src="static/img/bargain/lo.png" alt="" class="banner-right">
                     </div>
-                      <div class="popup-info">
-                        <van-swipe :autoplay="3000" showIindicators="false" vertical>
-                            <van-swipe-item>
-                            <ul class="popup-info">
-                                <li class="popup-list">
-                                    <p class="popup-p">
-                                        <img src="static/img/user/0001.jpg" alt="" class="popup-head">
-                                        <span class="popup-message publicEllipsis">王思聪的表砍了0.5元</span>
-                                    </p>
-                                </li>
-                            </ul>
-                            </van-swipe-item>
-                            <van-swipe-item>
-                                <ul class="popup-info">
-                                <li class="popup-list">
-                                    <p class="popup-p">
-                                        <img src="static/img/user/0001.jpg" alt="" class="popup-head">
-                                        <span class="popup-message publicEllipsis">王思聪的表砍了0.5元</span>
-                                    </p>
-                                </li>
-                            </ul>
-                            </van-swipe-item>
-                            <van-swipe-item>3</van-swipe-item>
-                            <van-swipe-item>4</van-swipe-item>
-                        </van-swipe>
+                      <div class="popup-box">
+                    <van-swipe :autoplay="5000" vertical  :show-indicators="false" :loop="true">
+                        <van-swipe-item v-for="item in list" :key="item.id">
+                                               <ul class="popup-info">
+                                                   <li class="popup-list">
+                                                        <p class="popup-p">
+                                                            <img src="static/img/user/0001.jpg" alt="" class="popup-head">
+                                                            <span class="popup-message publicEllipsis">{{item.name}}的表砍了{{item.pic}}元</span>
+                                                        </p>
+                                                    </li>
+                                               </ul> 
+                        </van-swipe-item>
+                    </van-swipe>
                         <!-- <li class="popup-list">
                             <p class="popup-p">
                                 <img src="static/img/user/0001.jpg" alt="" class="popup-head">
@@ -59,7 +47,8 @@
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
-                                          <div class="price-red">￥
+                                          <div class="price-red">
+                                                  ￥
                                               <span class="red-rbn">360.00</span>
                                               <span class="red-original">￥700.00</span>
                                           </div>
@@ -93,7 +82,8 @@
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
-                                          <div class="price-red">￥
+                                          <div class="price-red">
+                                                  ￥
                                               <span class="red-rbn">360.00</span>
                                               <span class="red-original">￥700.00</span>
                                           </div>
@@ -127,7 +117,8 @@
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
-                                          <div class="price-red">￥
+                                          <div class="price-red">
+                                                  ￥
                                               <span class="red-rbn">360.00</span>
                                               <span class="red-original">￥700.00</span>
                                           </div>
@@ -161,7 +152,8 @@
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
-                                          <div class="price-red">￥
+                                          <div class="price-red">
+                                                  ￥
                                               <span class="red-rbn">360.00</span>
                                               <span class="red-original">￥700.00</span>
                                           </div>
@@ -195,7 +187,8 @@
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
-                                          <div class="price-red">￥
+                                          <div class="price-red">
+                                                  ￥
                                               <span class="red-rbn">360.00</span>
                                               <span class="red-original">￥700.00</span>
                                           </div>
@@ -229,7 +222,43 @@
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
-                                          <div class="price-red">￥
+                                          <div class="price-red">
+                                                  ￥
+                                              <span class="red-rbn">360.00</span>
+                                              <span class="red-original">￥700.00</span>
+                                          </div>
+                                          <div class="schedule">
+                                              <van-progress
+                                                color="#ff0b13"
+                                                :percentage="50"
+                                                pivot-text=''
+                                                />
+                                          </div>
+                                          <div class="over-time">
+                                              距离结束:
+                                              <span class="tiem-text publicEllipsis">23:23:55</span>
+                                          </div>
+                                  </div>
+                                  <div class="bargain-btn">
+                                        <p class="btn-kan ">砍一刀</p>
+                                        <p class="kan-pir publicEllipsis">已砍66元</p>
+                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
+                                  </div>
+                            </div>
+                       </div>
+                   </div>
+                   <div class="bargain-list">
+                       <div class="item-proImg">
+                           <img src="static/img/group_area/order/1.png" alt="">
+                       </div>
+                       <div class="item-detail-text">
+                            <div class="name">
+                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
+                            </div>
+                            <div class="detail-pric">
+                                  <div class="price">
+                                          <div class="price-red">
+                                                  ￥
                                               <span class="red-rbn">360.00</span>
                                               <span class="red-original">￥700.00</span>
                                           </div>
@@ -256,14 +285,24 @@
                </div>
       </div>
     </div>
+    
 </template>
 <script>
 //头部
 import Pheader from '@/components/public/page_top_head'
+import { Swipe, SwipeItem,} from 'vant';
+
+
 export default {
       data(){
           return{
-
+                 list:[
+                     {id:1,name:'王思聪',pic:'0.1'},
+                     {id:2,name:'王思聪的表',pic:'0.2'},
+                     {id:3,name:'王思聪的车',pic:'0.3'},
+                     {id:4,name:'王思聪的狗',pic:'0.4'},
+                     {id:5,name:'王思聪的手',pic:'0.5'},
+                 ]
           }
       },
       components:{
@@ -376,15 +415,28 @@ img
     right 24px
     height 90px
     width 90px
+.popup-box
+    height 160px
+    width 500px
+    position absolute
+    bottom 0
+    left 0
+    .van-swipe
+        height 160px!important
+    .van-swipe-item
+        max-width 500px
+        height 80px!important
  .popup-info
     margin-left 24px
     margin-bottom 16px
-    position absolute
-    left 0
-    bottom 0 
+    max-width 500px
+    height 60px
+    // position absolute
+    // left 0
+    // bottom 0 
 
  .header-banner ul .popup-list
-    width 330px
+    max-width 500px
     height 60px
     background-color #fda074
     // opacity 0.59
@@ -439,6 +491,7 @@ ul .popup-list .popup-p .popup-message
 .item-detail-text .name .name-text
     color #000
     font-size 25px
+    font-family: YouYuan;
 
 .item-detail-text   .detail-pric
     display flex
@@ -449,22 +502,26 @@ ul .popup-list .popup-p .popup-message
 .detail-pric .price .price-red
     color #ff112f
     font-size 20px
-    padding-bottom 10px
-    padding-top 23px
+    padding-bottom 27px
+    padding-top 31px
+    display flex
+    line-height 25px
 
 .detail-pric .price .price-red .red-rbn
     font-size 36px
+    font-family: YouYuan;
 
 .detail-pric .price .price-red   .red-original
     text-decoration: line-through
-    color #989898 
+    color #989898
+    margin-left 10px
 
 .detail-pric .price .over-time
     font-size 24px
     font-weight: normal
 
 .detail-pric .price  .schedule
-    padding-bottom 14px
+    padding-bottom 20px
     .van-progress
      background  #ff6742
      height 10px
@@ -492,7 +549,7 @@ ul .popup-list .popup-p .popup-message
 
 .detail-pric .bargain-btn>p
     max-width 100%
-    margin-top 10px
+    margin-top 15px
    
 .detail-pric  .bargain-btn .kan-pir
     color #000
@@ -504,4 +561,5 @@ ul .popup-list .popup-p .popup-message
     display inline-block
     margin-top 10px
     max-width 100%
+
 </style>

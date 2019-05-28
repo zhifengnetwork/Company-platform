@@ -185,7 +185,7 @@
 								font-size: 16px;
 								line-height 42px;
 								text-align: center;
-								letter-spacing: 1px;
+								letter-spacing: 2px;
 								color: #7b7b7b;
 								// background: red;
 							// 点击字体-style
@@ -286,7 +286,8 @@
 						height: 43%;
 						font-size: 16px;
 						text-align: center;
-						letter-spacing: 1px;
+						letter-spacing: 3px;
+						line-height 42px;
 						color: #7b7b7b;
 
 </style>
