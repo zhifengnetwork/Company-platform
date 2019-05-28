@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<div class="group">
 		<Area-Header customTitle="拼团专区"></Area-Header>
 		<div class="content">
@@ -84,27 +83,11 @@
 
 		</div>
 
-=======
-	<div class="public_head">
-		<headtop></headtop>
-
-		<div class="group">
-		
-			拼团
-		</div>
->>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 	</div>
 	
 </template>
 
 <script>
-<<<<<<< HEAD
-	import AreaHeader from '../../common/header/TopHeader';
-	export default {
-		components:{
-	        AreaHeader
-	    }
-=======
 	/**头部 */
 	import headtop from '@/components/public/page_top_head'
 	export default {
@@ -147,7 +130,6 @@
 			this.$store.commit('change_head',style_obj);
 
 		},
->>>>>>> 09413dd8a3f292b108c23bb4e1deeaf525baeb76
 	}
 </script>
 

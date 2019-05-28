@@ -66,10 +66,7 @@ export default {
 			console.log(item, index)
 			this.$router.replace(this.path[index])
 		}
-  	},
-	components:{
-		TopHeader
-	},
+  	}
 };
 </script>
 
