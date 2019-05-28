@@ -39,12 +39,6 @@ export default {
 	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
-		
-	}
-	img {
-		display: block;
-		height: 100%;
-		width: 100%;
 	}
 	/* 引入公共头部 */
 	.public_head {
@@ -94,7 +88,7 @@ export default {
 
 	/*省略号 2行  */
 	.apostrophe{
-	-webkit-box-orient: vertical;
+		-webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     overflow: hidden;
