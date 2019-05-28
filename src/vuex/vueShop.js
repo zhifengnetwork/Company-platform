@@ -75,18 +75,26 @@ const state = {
 const mutations = {
 	/* public -s */
 	/*监听input => 获取焦点*/
-	obtainInputX(state){
+	obtainInputX(state) {
 		/*更改state里的状态*/
 		state.inpShowEle = true;
 	},
 	/*监听input => 失去焦点*/
-	loseInputX(state){
+	loseInputX(state) {
 		state.inpShowEle = false;
 	},
 	/**改变头部样式 */
-	change_head(state,style_obj){
+	change_head(state,style_obj) {
 		state.top_head_data = clones(style_obj);
 	},
+	/**头部-右边-按钮=> show || hide */
+	head_right_but(state) {
+		if (state.top_head_data['right_button']['url_data']['show']) {
+			state.top_head_data['right_button']['url_data']['show'] = true;
+		} else {
+			state.top_head_data['right_button']['url_data']['show'] = false;
+		}
+	}
 	/* public -e*/
 	
 	

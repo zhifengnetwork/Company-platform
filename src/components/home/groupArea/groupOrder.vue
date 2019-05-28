@@ -336,7 +336,6 @@ header
 
 .pro-sku   .sku-num  .buy-num .btn
   width 58px
-  height 40px
   display inline-block
   text-align center
   color #444

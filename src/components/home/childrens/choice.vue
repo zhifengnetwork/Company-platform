@@ -78,7 +78,7 @@ export default {
     data(){
         return {
             bannerData:[
-                {imgUrl:'static/img/home/00banner-img01.png'}
+                {imgUrl:'/static/img/home/00banner-img01.png'}
             ]
         }
     },

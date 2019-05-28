@@ -329,7 +329,7 @@ img
 
 ul .item-tab .item-img
    position relative
-   font-size 20px
+   font-size 25px
    .info-icon
     display block
     position absolute
@@ -359,7 +359,7 @@ ul .item-tab .item-name
 .my-list .user-title .my-tit 
    color #525252
    font-weight 500
-   font-size 20px
+   font-size 25px
 
 .my-list .user-title
    padding-top 40px
