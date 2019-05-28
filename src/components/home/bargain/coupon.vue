@@ -46,7 +46,7 @@
 					text: '',
 					/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
 					icon: {
-						class: '',
+						class: 'sha',
 						icon_url: '/static/img/bargain/del.png',
 					},
 					/**点击按钮-模块显示 */

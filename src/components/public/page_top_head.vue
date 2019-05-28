@@ -6,13 +6,11 @@
           <!-- 遮盖，返回图标，防止部分手机，点击-图片放大 -->
           <p class="head_return_button" @click.stop="return_button($store.state.top_head_data['return_data']['url_data'])"></p>
         </div>
-        
-
         <span class="head_title" v-if="$store.state.top_head_data['title']['need_model']" :style="$store.state.top_head_data['title']['style']">{{$store.state.top_head_data['title']['name']}}</span>
-        <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click="right_button($store.state.top_head_data['right_button']['url_data'])">
+        <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click.stop="right_button($store.state.top_head_data['right_button']['url_data'])">
           <span v-if="$store.state.top_head_data['right_button']['text']">{{$store.state.top_head_data['right_button']['text']}}</span> 
           <!-- 绝对定位,垂直水平居中 -->
-          <img class="centered sha" v-else :class="$store.state.top_head_data['right_button']['icon']['class']" :src="$store.state.top_head_data['right_button']['icon']['icon_url']" alt="">
+          <img class="centered" v-else :class="$store.state.top_head_data['right_button']['icon']['class']" :src="$store.state.top_head_data['right_button']['icon']['icon_url']" alt="">
         </div>
     </div>
 </template>
@@ -40,13 +38,13 @@
       },
       /**右边按钮 */
       right_button(_url){
-        console.log(111);
         if(_url){
+          console.log('路由跳转');
           this.$router.push({ path:_url}) /**路由跳转 */
           return false;
         }
         /**如果是模块显示=>切换 */
-       this.$store.commit('head_right_but');
+        this.$store.commit('head_right_but');
 
       },
 

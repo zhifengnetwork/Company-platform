@@ -64,7 +64,7 @@ const state = {
 				class: '',
 				icon_url: '',
 			},
-			/**点击按钮-模块显示 */
+			/**点击按钮-模块显示(如果=>模块显示和路由路径同时存在，路由路径[权重更高])*/
 			show: false,
 			url_data: '',
 		},
@@ -100,11 +100,11 @@ const mutations = {
 	},
 	/**头部-右边-按钮=> show || hide */
 	head_right_but(state) {
-		console.log(6666);
-		if (state.top_head_data['right_button']['url_data']['show']) {
-			state.top_head_data['right_button']['url_data']['show'] = true;
+		console.log('头部-右边-按钮=> show || hide');
+		if (state.top_head_data['right_button']['show']) {
+			state.top_head_data['right_button']['show'] = true;
 		} else {
-			state.top_head_data['right_button']['url_data']['show'] = false;
+			state.top_head_data['right_button']['show'] = false;
 		}
 	},
 	/**分页 loading 显示 */
