@@ -45,6 +45,10 @@ export default {
 	  overflow-x: hidden;
 		
 	}
+<<<<<<< HEAD
+
+=======
+>>>>>>> b5ab473e9fc937d8e48cb91c33fa84844f31459c
 	/* 引入公共头部 */
 	.public_head {
 		padding-top: 88px;

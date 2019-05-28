@@ -25,6 +25,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+// 限时购
+import flashSale from '@/components/home/flashSale/flashSale'
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
@@ -52,24 +54,27 @@ Vue.use(Router)
 export default new Router({
 	/*路由模式*/
 	mode: 'hash',
-  routes: [
-   	{
-	   	path: '/',
-		  redirect: '/login', /**重定向**/
+	routes: [
+		{
+			path: '/',
+			redirect: '/login', /**重定向**/
 			component: (resolve) => require(['@/components/login/login'],resolve) // 懒加载
 		},
+		// 登录
 		{
-	    path: '/login',
-	    name: '/login',
+			path: '/login',
+			name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
+
+		// 首页
 		{
-	    path: '/index',
+			path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
 				{
-		      path: '/index/',  /**首页 */
-		      name: 'home',
+					path: '/index/', 
+					name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
 					children:[
@@ -129,6 +134,8 @@ export default new Router({
 				},
 			]
 		},
+
+		// 拼团
 		{
 			path: '/home/bargain', /**砍一刀 */
 			name: 'bargainirg',
@@ -139,6 +146,8 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
+
+		//拼团订单
 		{
 			path: '/home/groupArea', /**拼团 */
 			name: 'groupArea',
@@ -156,5 +165,13 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/bargain/coupon'],resolve)
 
 		},
+
+		// 限时购
+		{
+			path: '/home/flashSale',
+			name: 'flashSale',
+			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
+		},
+		
 	]
 })
