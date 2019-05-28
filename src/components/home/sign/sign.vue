@@ -15,7 +15,7 @@
 						</div>
 						<!-- <span class="bonus_pools_right">元</span> -->
 				</div>
-					<p class="join_num">当前已有52222222人参加</p>
+		<p class="join_num">当前已有52222222人参加</p>
 		 
 		 <div class="button_ear">
 			  <div class="button_join">
@@ -27,10 +27,15 @@
 				<span class="join_one1">每日打卡</span>
 			  </div>
 		 </div>
+		 <div class="poup">
+
+
+		 </div>
 		 <div class="qiandao_div">
 			 <img src="/static/img/home/punchcard/qiandao.png" class="qiandao_pic"/>
 			 <span class="qiandao_shitian">你已经连续十天签到</span>
 		 </div>
+		 
 		 
 		
 

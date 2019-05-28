@@ -126,6 +126,7 @@ export default new Router({
 				
 			]
 		},
+		//打卡
     {
 			path: '/home/sign',
 			name: 'sign',
