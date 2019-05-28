@@ -27,6 +27,11 @@ import groupArea from '@/components/home/groupArea/groupArea'
 import groupOrder from '@/components/home/groupArea/groupOrder'
 // 限时购
 import flashSale from '@/components/home/flashSale/flashSale'
+//砍一刀
+import bargainirg from '@/components/home/bargain/bargainirg'
+
+//打卡模块
+import sign from '@/components/home/sign/sign'
 
 
 
@@ -108,27 +113,46 @@ export default new Router({
 								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 						}
 					]
-				},
-
-				// 我的
+		    },
 				{
-					path: '/index/user',  
-					name: 'user',
-					component: (resolve) => require(['@/components/user/user'],resolve) 
+		      path: '/index/member',
+		      name: 'member',
+		      component: (resolve) => require(['@/components/member/member'],resolve) 
+				},
+				{
+		      path: '/index/cart',
+		      name: 'cart',
+		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
+				},
+				//用户中心
+		    {
+		      path: '/index/user',  
+		      name: 'user',
+		      component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
 			]
 		},
 
 		// 拼团
 		{
-			path: '/home/groupArea', 
-			name: 'groupArea',
-			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+			path: '/home/bargain', /**砍一刀 */
+			name: 'bargainirg',
+			component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
+		},	
+		{
+			path: '/home/sign',
+			name: 'sign',
+			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 
 		//拼团订单
 		{
-			path: '/home/groupArea/order',
+			path: '/home/groupArea', /**拼团 */
+			name: 'groupArea',
+			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+			},
+		{
+			path: '/home/groupArea/order', /**拼团订单 */
 			name: 'groupOrder',
 			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
 		},
