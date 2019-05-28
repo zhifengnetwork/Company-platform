@@ -17,31 +17,39 @@
 
 <script>
   export default {
-      name: 'page_top_head',
-      /**data引用 vuex的数据 */
-      
-      methods: {
-        /**返回 */
-        return_button(_url){
-          console.log('返回:',_url);
-          if(_url){
-            this.$router.push({ path: _url}) /**路由跳转 */
-          }else {
-            this.$router.go(-1); /** 返回上一层*/
-          }
-        },
-        /**右边按钮 */
-        right_button(_url){
-          if(_url){
-            this.$router.push({ path:_url}) /**路由跳转 */
-            
-          }else {
-            this.$store.state.top_head_data['right_button']['url_data']['show'] = show;
-          }
+    name: 'page_top_head',
+    /**data引用 vuex的数据 */
 
-        },
+    /**组件销毁后调用 */
+    destotyed() {
+      /**头部模块-对应显示调用 */
+      if(this.$store.state.top_head_data['right_button']['url_data']['show'])
+        this.$store.state.top_head_data['right_button']['url_data']['show'] = false;
 
-      }
+    },
+
+    methods: {
+      /**返回 */
+      return_button(_url){
+        console.log('返回:',_url);
+        if(_url){
+          this.$router.push({ path: _url}) /**路由跳转 */
+        }else {
+          this.$router.go(-1); /** 返回上一层*/
+        }
+      },
+      /**右边按钮 */
+      right_button(_url){
+        if(_url){
+          this.$router.push({ path:_url}) /**路由跳转 */
+          return false;
+        }
+        /**如果是模块显示=>切换 */
+       this.$store.commit('head_right_but');
+
+      },
+
+    }
   }
 </script>
 
@@ -59,7 +67,8 @@
     font-size: 30px;
     line-height: 88px;
     letter-spacing: 5px;
-    // font-weight: bold;
+    // font-weight: 580;
+
     
     .head_title 
       color: #333;

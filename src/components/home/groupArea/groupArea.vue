@@ -1,15 +1,19 @@
 <template>
-	<div class="group">
+	<div class="public_head">
 		<headtop></headtop>
-		<div class="content">
-			<div class="top_img">
-				<img src="/static/img/group_area/nav.png" />
-			</div>
-			<div class="box_wrap">
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
+		<div class="group">
+			<div class="content">
+				<div class="top_img">
+					<img src="/static/img/group_area/nav.png" />
+				</div>
+				<div class="box_wrap">
+					<div class="box">
+						<div class="img_wrap">
+							<div class="img">
+								<img src="/static/img/group_area/shop.png" />
+							</div>
+							<div class="time">5月06日-27日</div>
+							<div class="piece">七天爆卖200件</div>
 						</div>
 						<p>青年说是你发手机话费HHSJG</p>
 						<div class="goods_wrap">
@@ -21,11 +25,13 @@
 							<div class="good_3">GO</div>
 						</div>
 					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
+					<div class="box">
+						<div class="img_wrap">
+							<div class="img">
+								<img src="/static/img/group_area/shop.png" />
+							</div>
+							<div class="time">6月06日-27日</div>
+							<div class="piece">七天爆卖200件</div>
 						</div>
 						<p>青年说是你发手机话费HHSJG</p>
 						<div class="goods_wrap">
@@ -37,11 +43,13 @@
 							<div class="good_3">GO</div>
 						</div>
 					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
+					<div class="box">
+						<div class="img_wrap">
+							<div class="img">
+								<img src="/static/img/group_area/shop.png" />
+							</div>
+							<div class="time">1天 02:05:04</div>
+							<div class="piece">七天爆卖200件</div>
 						</div>
 						<p>青年说是你发手机话费HHSJG</p>
 						<div class="goods_wrap">
@@ -53,11 +61,13 @@
 							<div class="good_3">GO</div>
 						</div>
 					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
+					<div class="box">
+						<div class="img_wrap">
+							<div class="img">
+								<img src="/static/img/group_area/shop.png" />
+							</div>
+							<div class="time">10天 02:05:04</div>
+							<div class="piece">七天爆卖200件</div>
 						</div>
 						<p>青年说是你发手机话费HHSJG</p>
 						<div class="goods_wrap">

@@ -175,10 +175,10 @@ import { Dialog } from 'vant';
   
 <style lang="stylus" scoped>
 img 
-   margin 0 auto 
-	display block
-	height 100%
-	width 100%
+   margin 0 auto
+   display block
+   width 100%
+   height 100%
 
 .right-arrow 
     border-bottom: 2px solid #cccccc;

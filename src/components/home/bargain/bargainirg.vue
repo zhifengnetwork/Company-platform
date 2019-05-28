@@ -4,7 +4,7 @@
               <Pheader></Pheader>
         </header>
       <div class="bargain-page">
-           
+            
       </div>
     </div>
 </template>

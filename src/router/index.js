@@ -25,14 +25,11 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
-<<<<<<< HEAD
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
-=======
 //打卡模块
 import sign from '@/components/home/sign/sign'
->>>>>>> 124cf6fdc6c91fd33d1bc209c0dda414179a0b9b
 
 
 
@@ -64,7 +61,6 @@ export default new Router({
 	    name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
-
 		{
 	    path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
@@ -75,42 +71,42 @@ export default new Router({
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
 					children:[
-							// 精选
-							{ 
-									path: '/index/home/choice', 
-									name:'choice',
-									component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
-							},
-							// 9.9包邮
-							{ 
-									path: '/index/home/guarantees', 
-									name:'guarantees',
-									component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
-							},
-							// 男装
-							{ 
-									path: '/index/home/male', 
-									name:'male',
-									component: (resolve) => require(['@/components/home/childrens/male'],resolve)
-							},
-							// 女装
-							{ 
-									path: '/index/home/female', 
-									name:'female',
-									component: (resolve) => require(['@/components/home/childrens/female'],resolve)
-							},
-							// 家居家纺
-							{ 	
-									path: '/index/home/homeTextile', 
-									name:'homeTextile',
-									component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
-							},
-							// 电器
-							{ 
-									path: '/index/home/appliances', 
-									name:'appliances',
-									component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
-							}
+						// 精选
+						{ 
+								path: '/index/home/choice', 
+								name:'choice',
+								component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+						},
+						// 9.9包邮
+						{ 
+								path: '/index/home/guarantees', 
+								name:'guarantees',
+								component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
+						},
+						// 男装
+						{ 
+								path: '/index/home/male', 
+								name:'male',
+								component: (resolve) => require(['@/components/home/childrens/male'],resolve)
+						},
+						// 女装
+						{ 
+								path: '/index/home/female', 
+								name:'female',
+								component: (resolve) => require(['@/components/home/childrens/female'],resolve)
+						},
+						// 家居家纺
+						{ 	
+								path: '/index/home/homeTextile', 
+								name:'homeTextile',
+								component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
+						},
+						// 电器
+						{ 
+								path: '/index/home/appliances', 
+								name:'appliances',
+								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
+						}
 					]
 		    },
 				{
@@ -129,33 +125,28 @@ export default new Router({
 		      name: 'user',
 		      component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
-<<<<<<< HEAD
-				{
-					path: '/home/bargain', /**砍一刀 */
-					name: 'bargainirg',
-					component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
-				},
-=======
-				
 			]
 		},
-    {
+		{
+			path: '/home/bargain', /**砍一刀 */
+			name: 'bargainirg',
+			component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
+		},	
+		{
 			path: '/home/sign',
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 		{
-		path: '/home/groupArea', /**拼团 */
-		name: 'groupArea',
-		component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
-		},
-		//拼团订单
+			path: '/home/groupArea', /**拼团 */
+			name: 'groupArea',
+			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+			},
 		{
-			path: '/home/groupArea/order', /**拼团 */
+			path: '/home/groupArea/order', /**拼团订单 */
 			name: 'groupOrder',
 			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
 		},
->>>>>>> 124cf6fdc6c91fd33d1bc209c0dda414179a0b9b
-    
   ]
+
 })
