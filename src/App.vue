@@ -34,16 +34,12 @@ export default {
 	body {
 		background-color: #f7f7f7;
 	}
-	/*字体库*/
-	/* @font-face{
-		font-family: 'youyuan';
-		src: url("/static/font/youyuan.TTF");
-	} */
+	
 	#app {
 	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
-		/* font-family: 'youyuan'; */
+		
 	}
 	img {
 		display: block;
