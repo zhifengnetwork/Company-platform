@@ -43,6 +43,7 @@ export default {
 	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
+		
 	}
 	/* 引入公共头部 */
 	.public_head {

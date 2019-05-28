@@ -77,33 +77,16 @@
                      </div>
                 </div>
                 <div class="payment-mode">
-                    <div class="mode-list">
+                    <div class="mode-list" v-for="(item,index) in payment" :key="index" @click="selectPay(item,index)">
                         <div class="item-icon">
-                            <img src="/static/img/group_area/order/weixi.png" alt="">
-                            <P>微信支付</P>
+                            <img :src="item.img" alt="">
+                            <P>{{item.name}}</P>
                         </div>
                         <div class="item-cheack">
-                            <img src="/static/img/group_area/order/gou.png" alt="" class="activeIcon">
+                            <img src="/static/img/group_area/order/gou.png" alt="" class="activeIcon" v-if="item.cheack && indexs === index">
                         </div>
                     </div>
-                    <div class="mode-list">
-                        <div class="item-icon">
-                            <img src="/static/img/group_area/order/zfb.png" alt="">
-                            <P>支付宝支付</P>
-                        </div>
-                        <div class="item-cheack">
-                            <!-- <img src="static/img/group_area/order/cheack.png" alt=""> -->
-                        </div>
-                    </div>
-                    <div class="mode-list">
-                        <div class="item-icon">
-                            <img src="/static/img/group_area/order/yn.png" alt="">
-                            <P>银联支付</P>
-                        </div>
-                        <div class="item-cheack">
-                            <!-- <img src="static/img/group_area/order/cheack.png" alt=""> -->
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="payment-mode">
                     <div class="info-page">
@@ -146,7 +129,13 @@ export default {
     data(){
         return{
             //备注
-            message:''
+            message:'',
+            payment:[
+              {id:1,name:'微信支付',cheack:false,img:'/static/img/group_area/order/weixi.png'},
+              {id:2,name:'支付宝支付',cheack:false,img:'/static/img/group_area/order/zfb.png'},
+              {id:3,name:'银联支付',cheack:false,img:'/static/img/group_area/order/yn.png'},
+            ],
+            indexs:0
         }
     },
     methods:{
@@ -158,6 +147,20 @@ export default {
            //减
            submitMinus(){
 
+           },
+           
+           //选择支付方式
+           selectPay(item,index){
+                 this.indexs = index  
+             if(index === this.indexs ){
+                     
+                if (item.cheack) {
+                    item.cheack = false;  
+
+                }else{
+                    item.cheack = true;   
+                }
+             }
            }
     },
     components:{
@@ -201,7 +204,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+img 
+  display block
+  width 100%
+  height 100%
 header
   height 88px
 .right-arrow 
@@ -348,7 +354,6 @@ header
 
 .pro-sku   .sku-num  .buy-num>input
   width 90px
-  height 35px
   color #444
   text-align: center
   border  none
