@@ -84,6 +84,7 @@
 				</div>
 
 			</div>
+			<pageload></pageload>	
 
 		</div>
 
@@ -94,9 +95,12 @@
 <script>
 	/**头部 */
 	import headtop from '@/components/public/page_top_head'
+	/**分页加载--style*/
+	import pageload from '@/components/public/page_load'
 	export default {
 		components: {
 			headtop,
+			pageload,
 		},
 		/*组件实例创建完成，属性已绑定，但DOM还未生成*/
 		created: function(){
@@ -139,7 +143,6 @@
 
 <style lang="stylus" scoped>
 	.group
-		padding: 0 0 65px 0;
 		width: 100%;
 		height: 100%
 		.content

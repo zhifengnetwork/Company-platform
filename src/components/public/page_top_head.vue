@@ -6,6 +6,8 @@
           <!-- 遮盖，返回图标，防止部分手机，点击-图片放大 -->
           <p class="head_return_button" @click.stop="return_button($store.state.top_head_data['return_data']['url_data'])"></p>
         </div>
+        
+
         <span class="head_title" v-if="$store.state.top_head_data['title']['need_model']" :style="$store.state.top_head_data['title']['style']">{{$store.state.top_head_data['title']['name']}}</span>
         <div class="head_right_button" v-if="$store.state.top_head_data['right_button']['need_model']" @click="right_button($store.state.top_head_data['right_button']['url_data'])">
           <span v-if="$store.state.top_head_data['right_button']['text']">{{$store.state.top_head_data['right_button']['text']}}</span> 
@@ -16,9 +18,15 @@
 </template>
 
 <script>
+/**头部-组件 */
   export default {
     name: 'page_top_head',
     /**data引用 vuex的数据 */
+    data(){
+      return {
+        
+      }
+    },
      
     methods: {
       /**返回 */
@@ -60,7 +68,7 @@
     font-size: 30px;
     line-height: 88px;
     letter-spacing: 5px;
-    // font-weight: 580;
+    font-weight: bold;
 
     
     .head_title 
@@ -73,10 +81,13 @@
       z-index: 1;
       width: 10%;
       height: 100%;
+      background-color: transparent;
 
       .head_return_icon
+        display: block;
         width: 19px;
         height: 33px;
+
     // return button
     .head_return_button
       position: absolute;
@@ -86,6 +97,7 @@
       width: 100%;
       height: 100%;
       background-color: transparent;
+      
 
     .head_right_button
       position: absolute;
