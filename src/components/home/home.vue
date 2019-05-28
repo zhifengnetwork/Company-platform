@@ -66,10 +66,8 @@ export default {
 		handleChange (index){
 			this.$router.replace(this.path[index])
 		}
-  	},
-	components:{
-		
-	},
+  	}
+
 };
 </script>
 
