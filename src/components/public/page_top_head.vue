@@ -109,7 +109,8 @@
 
       .head_right_button_icon
         display: block;
-        
+
+      /**垃圾桶=>icon*/  
       .sha
         width: 34px;
         height: 36px;
