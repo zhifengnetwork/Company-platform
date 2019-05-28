@@ -25,7 +25,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
-
+// 限时购
+import flashSale from '@/components/home/flashSale/flashSale'
 
 
 
@@ -46,25 +47,27 @@ Vue.use(Router)
 export default new Router({
 	/*路由模式*/
 	mode: 'hash',
-  routes: [
-   	{
-	   	path: '/',
-		  redirect: '/login', /**重定向**/
+	routes: [
+		{
+			path: '/',
+			redirect: '/login', /**重定向**/
 			component: (resolve) => require(['@/components/login/login'],resolve) // 懒加载
 		},
+		// 登录
 		{
-	    path: '/login',
-	    name: '/login',
+			path: '/login',
+			name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
 
+		// 首页
 		{
-	    path: '/index',
+			path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
 				{
-		      path: '/index/',  /**首页 */
-		      name: 'home',
+					path: '/index/', 
+					name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
 					children:[
@@ -105,25 +108,37 @@ export default new Router({
 									component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 							}
 					]
-		    },
-		    {
-		      path: '/index/user',  
-		      name: 'user',
-		      component: (resolve) => require(['@/components/user/user'],resolve) 
-		    },
-			 ]
-	   	 },
-		  	{
-				path: '/home/groupArea', /**拼团 */
-				name: 'groupArea',
-				component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
 				},
-				//拼团订单
+
+				// 我的
 				{
-					path: '/home/groupArea/order', /**拼团 */
-					name: 'groupOrder',
-					component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+					path: '/index/user',  
+					name: 'user',
+					component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
-    
-  ]
+			]
+		},
+
+		// 拼团
+		{
+			path: '/home/groupArea', 
+			name: 'groupArea',
+			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+		},
+
+		//拼团订单
+		{
+			path: '/home/groupArea/order',
+			name: 'groupOrder',
+			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+		},
+
+		// 限时购
+		{
+			path: '/home/flashSale',
+			name: 'flashSale',
+			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
+		},
+		
+	]
 })
