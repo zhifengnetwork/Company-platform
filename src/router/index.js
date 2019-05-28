@@ -25,9 +25,14 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+<<<<<<< HEAD
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
+=======
+//打卡模块
+import sign from '@/components/home/sign/sign'
+>>>>>>> 124cf6fdc6c91fd33d1bc209c0dda414179a0b9b
 
 
 
@@ -108,29 +113,49 @@ export default new Router({
 							}
 					]
 		    },
+				{
+		      path: '/index/member',
+		      name: 'member',
+		      component: (resolve) => require(['@/components/member/member'],resolve) 
+				},
+				{
+		      path: '/index/cart',
+		      name: 'cart',
+		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
+				},
+				//用户中心
 		    {
 		      path: '/index/user',  
 		      name: 'user',
 		      component: (resolve) => require(['@/components/user/user'],resolve) 
-		    },
-			 ]
-	   	 },
-		  	{
-				path: '/home/groupArea', /**拼团 */
-				name: 'groupArea',
-				component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
 				},
-				//拼团订单
-				{
-					path: '/home/groupArea/order', /**拼团 */
-					name: 'groupOrder',
-					component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
-				},
+<<<<<<< HEAD
 				{
 					path: '/home/bargain', /**砍一刀 */
 					name: 'bargainirg',
 					component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
 				},
+=======
+				
+			]
+		},
+    {
+			path: '/home/sign',
+			name: 'sign',
+			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
+		},
+		{
+		path: '/home/groupArea', /**拼团 */
+		name: 'groupArea',
+		component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+		},
+		//拼团订单
+		{
+			path: '/home/groupArea/order', /**拼团 */
+			name: 'groupOrder',
+			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+		},
+>>>>>>> 124cf6fdc6c91fd33d1bc209c0dda414179a0b9b
     
   ]
 })
