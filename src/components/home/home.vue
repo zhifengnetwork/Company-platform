@@ -133,14 +133,15 @@ export default {
 		.van-tabs
 			left 0
 			top -250px
-			color #ffffff
 		.van-tabs >>> .van-tabs__nav
 			background none
 		.van-tabs >>> .van-hairline--top-bottom::after
 			border-width 0
 		.van-tabs >>> .van-tab
-			color #ffffff
+			color #151515
 			padding 0
+			span.van-ellipsis 	
+				color #ffffff
 		.van-tabs >>> .van-tabs__line
 			background-color #ffffff
 		.van-tabs >>> .van-tabs__wrap
