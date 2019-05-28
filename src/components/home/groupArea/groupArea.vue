@@ -18,11 +18,11 @@
 						<div class="time">5月06日-27日</div>
 						<div class="piece">七天爆卖200件</div>
 					</div>
-					<p>青年说是你发手机话费HHSJG</p>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥99999</div>
+							<div class="meoy">￥<span>99999</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
@@ -36,11 +36,11 @@
 						<div class="time">6月06日-27日</div>
 						<div class="piece">七天爆卖200件</div>
 					</div>
-					<p>青年说是你发手机话费HHSJG</p>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥99999</div>
+							<div class="meoy">￥<span>99999</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
@@ -54,11 +54,11 @@
 						<div class="time">1天 02:05:04</div>
 						<div class="piece">七天爆卖200件</div>
 					</div>
-					<p>青年说是你发手机话费HHSJG</p>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥99999</div>
+							<div class="meoy">￥<span>99999</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
@@ -72,11 +72,11 @@
 						<div class="time">10天 02:05:04</div>
 						<div class="piece">七天爆卖200件</div>
 					</div>
-					<p>青年说是你发手机话费HHSJG</p>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥99999</div>
+							<div class="meoy">￥<span>99999</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
@@ -139,7 +139,6 @@
 
 <style lang="stylus" scoped>
 	.group
-		padding: 0 0 65px 0;
 		width: 100%;
 		height: 100%
 		.content
@@ -199,11 +198,6 @@
 						font-size: 24px;
 						color: #151515;
 						line-height: 35px;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						display: -webkit-box;
-						-webkit-line-clamp: 1;
-						-webkit-box-orient: vertical;
 					.goods_wrap
 						padding: 0 0 20px 11px;
 						width: 346px;
@@ -236,6 +230,7 @@
 						font-size: 16px;
 						color: #fff;
 						text-align: center;
-						line-height: 40px;
+						line-height: 43px;
 						border-radius: 50%;
+						font-weight: 650;
 </style>
