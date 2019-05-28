@@ -19,15 +19,7 @@
   export default {
     name: 'page_top_head',
     /**data引用 vuex的数据 */
-
-    /**组件销毁后调用 */
-    destotyed() {
-      /**头部模块-对应显示调用 */
-      if(this.$store.state.top_head_data['right_button']['url_data']['show'])
-        this.$store.state.top_head_data['right_button']['url_data']['show'] = false;
-
-    },
-
+     
     methods: {
       /**返回 */
       return_button(_url){
@@ -50,6 +42,7 @@
       },
 
     }
+
   }
 </script>
 

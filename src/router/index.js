@@ -25,7 +25,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
-
+//打卡模块
+import sign from '@/components/home/sign/sign'
 
 
 
@@ -122,6 +123,11 @@ export default new Router({
 					component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
 			],
+		},
+    {
+			path: '/home/sign',
+			name: 'sign',
+			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 		{
 			path: '/home/groupArea', 
