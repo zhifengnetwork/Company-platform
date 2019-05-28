@@ -6,7 +6,7 @@
            <div class="gropOrder-page">
                 <div class="site-default page-order">
                     <div class="site-icon">
-                        <img src="static/img/group_area/order/site.png" alt="">
+                        <img src="/static/img/group_area/order/site.png" alt="">
                     </div>
                     <div class="site-msg">
                         <span class="site-name publicEllipsis">王思聪</span>
@@ -17,14 +17,14 @@
                 <div class="site-pro ">
                     <div class="site-list-title">
                         <span>
-                        <img src="static/img/group_area/order/logo.png" alt="" class="logo">
+                        <img src="/static/img/group_area/order/logo.png" alt="" class="logo">
                         </span>
                         <p class="site-shop publicEllipsis">优衣库自营店</p>
                     </div>
                     <div class="pro-ord-info">
                          <div class="pro-list">
                              <div class="item-img">
-                                 <img src="static/img/group_area/order/1.png" alt="">
+                                 <img src="/static/img/group_area/order/1.png" alt="">
                              </div>
                              <div class="item-text">
                                  <p class="text-name apostrophe">连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙</p>
@@ -79,16 +79,16 @@
                 <div class="payment-mode">
                     <div class="mode-list">
                         <div class="item-icon">
-                            <img src="static/img/group_area/order/weixi.png" alt="">
+                            <img src="/static/img/group_area/order/weixi.png" alt="">
                             <P>微信支付</P>
                         </div>
                         <div class="item-cheack">
-                            <img src="static/img/group_area/order/gou.png" alt="" class="activeIcon">
+                            <img src="/static/img/group_area/order/gou.png" alt="" class="activeIcon">
                         </div>
                     </div>
                     <div class="mode-list">
                         <div class="item-icon">
-                            <img src="static/img/group_area/order/zfb.png" alt="">
+                            <img src="/static/img/group_area/order/zfb.png" alt="">
                             <P>支付宝支付</P>
                         </div>
                         <div class="item-cheack">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="mode-list">
                         <div class="item-icon">
-                            <img src="static/img/group_area/order/yn.png" alt="">
+                            <img src="/static/img/group_area/order/yn.png" alt="">
                             <P>银联支付</P>
                         </div>
                         <div class="item-cheack">
@@ -419,7 +419,7 @@ header
 .payment-mode  .mode-list .item-cheack
     width 44px
     height 44px
-    background url('../../../../static\img\group_area\order\cheack.png')
+    background url('/static/img/group_area/order/cheack.png')
     background-size 100%
     display flex
     align-items center
