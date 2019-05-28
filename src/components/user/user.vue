@@ -176,6 +176,8 @@ import { Dialog } from 'vant';
 </script>
   
 <style lang="stylus" scoped>
+img 
+   margin 0 auto
 .right-arrow 
     border-bottom: 2px solid #cccccc;
     border-right: 2px solid #cccccc;
