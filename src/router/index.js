@@ -25,7 +25,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
-
+//打卡模块
+import sign from '@/components/home/sign/sign'
 
 
 
@@ -126,9 +127,9 @@ export default new Router({
 			]
 		},
     {
-			path: '/index/punchcard',
-			name: 'punchcard',
-			component: (resolve) => require(['@/components/home/punchcard'],resolve),
+			path: '/home/sign',
+			name: 'sign',
+			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 		{
 		path: '/home/groupArea', /**拼团 */

@@ -34,6 +34,7 @@
         right_button(_url){
           if(_url){
             this.$router.push({ path:_url}) /**路由跳转 */
+            
           }else {
             this.$store.state.top_head_data['right_button']['url_data']['show'] = show;
           }

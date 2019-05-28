@@ -5,12 +5,9 @@
 </template>
 
 <script>
-import punchcard from '@/components/home/punchcard'
+
 export default {
 	name: 'App',
-	components:{
-		punchcard
-	}
 	
 }
 </script>

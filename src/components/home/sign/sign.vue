@@ -1,9 +1,9 @@
 <template>
 	<div class="max_div">
 		
-		
-         <img  src="../../../static/img/home/punchcard/daka_guize.png" class="daka_guize"/>
-         <img  src="../../../static/img/home/punchcard/ren1.png" class="ren1"/>
+		 <headtop></headtop>
+         <img  src="/static/img/home/punchcard/daka_guize.png" class="daka_guize"/>
+         <img  src="/static/img/home/punchcard/ren1.png" class="ren1"/>
          <div class="guafeng">
               <span class="guafeng_daka">明天14:00-18:00打卡瓜分奖金池</span>
               <img src="/static/img/home/punchcard/loucen.png" class="loucen"/>
@@ -12,23 +12,23 @@
 						<!-- <span class="bonus_pools_left">当前奖池</span> -->
 						<div class="bonus_pools_num">
 							<span class="number">0</span><span class="number">1</span><span class="number">8</span><span class="number">1</span><span class="number">0</span>
-							<p class="join_num">当前已有52222222人参加</p>
 						</div>
 						<!-- <span class="bonus_pools_right">元</span> -->
 				</div>
+					<p class="join_num">当前已有52222222人参加</p>
 		 
 		 <div class="button_ear">
 			  <div class="button_join">
-				<img src="../../../static/img/home/punchcard/blind.png" class="button"/>
+				<img src="/static/img/home/punchcard/blind.png" class="button"/>
 				<span class="join_one">一块钱参与</span>
 			  </div>
 			  <div class="button_join1">
-				<img src="../../../static/img/home/punchcard/blind.png" class="button"/>
+				<img src="/static/img/home/punchcard/blind.png" class="button"/>
 				<span class="join_one1">每日打卡</span>
 			  </div>
 		 </div>
 		 <div class="qiandao_div">
-			 <img src="../../../static/img/home/punchcard/qiandao.png" class="qiandao_pic"/>
+			 <img src="/static/img/home/punchcard/qiandao.png" class="qiandao_pic"/>
 			 <span class="qiandao_shitian">你已经连续十天签到</span>
 		 </div>
 		 
@@ -39,13 +39,54 @@
 </template>
 
 <script>
-	
+/**头部 */
+	import headtop from '@/components/public/page_top_head'
 	export default {
+		name:"sign",
+		components: {
+			headtop,
+		},
 		data(){
 			return {
 				
 			}
-		}
+		},
+		created(){
+			/**头部数据 */
+			var head_obj = {
+				/**整个head的style */
+				head_wrap_style: {
+					background: '',
+				},
+				return_data: {
+					icon: '/static/img/left_icon_fff.png',
+					/*跳转的路由(可以传参)，为空=>返回上一页*/
+					url_data: '',
+				},
+				title: {
+					/**是否-显示该模块 */
+					need_model: true,
+					name: '每日打卡',
+					style: {color:'#fff'}
+				},
+				right_button: {
+					need_model: false,
+					/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
+					text: '按钮',
+					/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
+					icon: {
+						class: '',
+						icon_url: '',
+					},
+					/**点击按钮-模块显示 */
+					show: false,
+					url_data: '',
+				},
+			}
+
+			this.$store.commit('change_head',head_obj)
+
+		},
 	}
 </script>
 
@@ -108,12 +149,39 @@
 		text-align center
 		color white
 		font-size 25px
-		border 1px solid red
 		.bonus_pools_num
-			width 400px
-			border 1px solid green	
-  
-			
+			width 100%
+			margin 0 auto
+			position relative
+      
+    .bonus_pools_num:before
+			content "每日奖池"
+			display inline-block
+			position absolute
+			left .3rem
+
+		.bonus_pools_num:after
+			content "天"
+			display inline-block
+			position absolute
+			right 1.5rem
+		.number 
+			background white
+			margin-right 4px
+			padding .25rem .2rem
+			color rgb(255,73,2)
+			font-size 38px
+			border-radius .06rem	
+	.join_num
+		position absolute
+		left 50%
+		transform translate(-50%,0)
+		top 620px
+		color white
+		font-size 22px
+		
+		
+    
 	.button_ear
 		position relative
 		top 570px
