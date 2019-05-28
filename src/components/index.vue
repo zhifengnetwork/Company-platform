@@ -111,7 +111,7 @@
 
 <style lang="stylus" scoped>
 	.wrap_app 
-		padding-bottom: 98px;
+		padding-bottom: 116px;
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
