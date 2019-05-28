@@ -25,6 +25,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+//砍一刀
+import bargainirg from '@/components/home/bargain/bargainirg'
 
 
 
@@ -123,6 +125,11 @@ export default new Router({
 					path: '/home/groupArea/order', /**拼团 */
 					name: 'groupOrder',
 					component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+				},
+				{
+					path: '/home/bargain', /**砍一刀 */
+					name: 'bargainirg',
+					component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
 				},
     
   ]

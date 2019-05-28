@@ -201,7 +201,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+img 
+  display block
+  width 100%
+  height 100%
 header
   height 88px
 .right-arrow 

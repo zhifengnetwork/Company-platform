@@ -38,11 +38,6 @@ export default {
 	  height: auto;
 	  overflow-x: hidden;
 	}
-	img {
-		display: block;
-		height: 100%;
-		width: 100%;
-	}
 	/* 引入公共头部 */
 	.public_head {
 		padding-top: 88px;

@@ -152,8 +152,6 @@ import { Dialog } from 'vant';
 					   },
 					   
 				   ],
-
-
 			}
 		},
 			methods: {
@@ -177,7 +175,11 @@ import { Dialog } from 'vant';
   
 <style lang="stylus" scoped>
 img 
-   margin 0 auto
+   margin 0 auto 
+	display block
+	height 100%
+	width 100%
+
 .right-arrow 
     border-bottom: 2px solid #cccccc;
     border-right: 2px solid #cccccc;
@@ -201,9 +203,9 @@ img
    width 100%
 
  header>.user-info
-   background #ff4254
    height 322px
-   border-radius 0 0 25px 25px
+   background-image url('../../../static\img\user\back.png');
+   background-size: 100%;
    
 .user-info  .user-box
    padding-top 55px 
@@ -244,12 +246,12 @@ img
 
 .zf-user-info .user-article .user-item
    display flex
-   background #fef8f3
-   height 100%
    border-radius 20px
+   background-image url('../../../static\img\user\backgg.png');
+   background-size: 100%
 
 .user-article .user-item .item-ta
-   width 33.3%
+   width 33.1%
    text-align center
    color #e06f14
    font-size 30px
@@ -264,7 +266,7 @@ img
    font-weight: 600;
 
 .user-article .user-item .item-ta .user-ti
-   font-size 20px
+   font-size 25px
    color #7d3613;
    position relative
    padding  0 10px
@@ -309,7 +311,7 @@ img
     color #979797
     position relative
     margin-right 30px
-    font-size 20px
+    font-size 25px
 
 .user-title	.my-look .right-arrow
    height 10px
@@ -334,8 +336,8 @@ ul .item-tab .item-img
     display block
     position absolute
     border 2px solid #fc822e
-    right 35px
-    top -10px
+    right 35%
+    top -35%
     font-size 20px
     color #fea15a
     background #ffffff
