@@ -27,6 +27,8 @@ import groupArea from '@/components/home/groupArea/groupArea'
 import groupOrder from '@/components/home/groupArea/groupOrder'
 // 限时购
 import flashSale from '@/components/home/flashSale/flashSale'
+// 限时购详情
+import flashDetails from '@/components/home/flashSale/flashDetails'
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
@@ -173,5 +175,12 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
 		},
 		
+		// 限时购详情
+		{
+			path: '/home/flashSale/flashDetails',
+			name: 'flashDetails',
+			component: (resolve) => require(['@/components/home/flashSale/flashDetails'],resolve),
+		},
+
 	]
 })
