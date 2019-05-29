@@ -27,12 +27,14 @@ export default {
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		-webkit-tap-highlight-color: transparent;
 	}
+	
 	html,body,div,p,span,i,input,button,textarea,em,h1,h2,h3,h4,h5,h6,a,form,dl,dt,dd,img {
 		margin: 0;
 		padding: 0;
 	}
 	
   a { text-decoration:none }
+
 	body {
 		background-color: #f7f7f7;
 	}
@@ -41,7 +43,12 @@ export default {
 	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
+		
 	}
+<<<<<<< HEAD
+
+=======
+>>>>>>> b5ab473e9fc937d8e48cb91c33fa84844f31459c
 	/* 引入公共头部 */
 	.public_head {
 		padding-top: 88px;
