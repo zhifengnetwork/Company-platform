@@ -72,7 +72,7 @@ export default {
           return{
                  list:[
                      {id:1,name:'王思聪',pic:'0.1'},
-                     {id:2,name:'王思聪的表',pic:'0.2'},
+                     {id:2,name:'王思聪的表妹',pic:'0.2'},
                      {id:3,name:'王思聪的车',pic:'0.3'},
                      {id:4,name:'王思聪的狗',pic:'0.4'},
                      {id:5,name:'王思聪的手',pic:'0.5'},
@@ -327,6 +327,7 @@ ul .popup-list .popup-p .popup-message
     color #000
     font-size 25px
     font-family: YouYuan;
+    line-height 30px
 
 .item-detail-text   .detail-pric
     display flex
