@@ -69,6 +69,17 @@ const state = {
 			url_data: '',
 		},
 	},
+	/**分页加载 */
+	page_loadding: {
+		/**提示文字 */
+		tips_text: '我是有底线哦~~',
+		/**显示该模块（这里false，全部隐藏） */
+		show: true,
+		/**开始加载=> start,结束加载=> end,失败=>error*/
+		state: 'start',
+		/**样式修改 */
+		style: {}
+	}
 }
 
 /*专门修改state 里面的数据（同步操作）*/
@@ -94,7 +105,11 @@ const mutations = {
 		} else {
 			state.top_head_data['right_button']['url_data']['show'] = false;
 		}
-	}
+	},
+	/**分页 loading 显示 */
+	page_load(state,_styleObj){
+		state.top_head_data = clones(_styleObj);
+	},
 	/* public -e*/
 	
 	
