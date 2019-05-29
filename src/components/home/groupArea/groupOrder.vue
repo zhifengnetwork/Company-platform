@@ -149,18 +149,19 @@ export default {
 
            },
            
-           //选择支付方式
-           selectPay(item,index){
-                 this.indexs = index  
-             if(index === this.indexs ){
-                     
+          //选择支付方式
+          selectPay(item,index){
+            this.indexs = index  
+              if(index === this.indexs ){
                 if (item.cheack) {
-                    item.cheack = false;  
-
+                  item.cheack = false; 
                 }else{
-                    item.cheack = true;   
+                  for (let i = 0; i < this.payment.length; i++) {
+                    this.payment[i].cheack = false;
+                  }
+                  item.cheack = true; 
                 }
-             }
+              }
            }
     },
     components:{
