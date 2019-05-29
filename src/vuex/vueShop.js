@@ -64,11 +64,22 @@ const state = {
 				class: '',
 				icon_url: '',
 			},
-			/**点击按钮-模块显示 */
+			/**点击按钮-模块显示(如果=>模块显示和路由路径同时存在，路由路径[权重更高])*/
 			show: false,
 			url_data: '',
 		},
 	},
+	/**分页加载 */
+	page_loadding: {
+		/**提示文字 */
+		tips_text: '我是有底线哦~~',
+		/**显示该模块（这里false，全部隐藏） */
+		show: true,
+		/**开始加载=> start,结束加载=> end,失败=>error*/
+		state: 'start',
+		/**样式修改 */
+		style: {}
+	}
 }
 
 /*专门修改state 里面的数据（同步操作）*/
@@ -89,12 +100,17 @@ const mutations = {
 	},
 	/**头部-右边-按钮=> show || hide */
 	head_right_but(state) {
-		if (state.top_head_data['right_button']['url_data']['show']) {
-			state.top_head_data['right_button']['url_data']['show'] = true;
+		console.log('头部-右边-按钮=> show || hide');
+		if (state.top_head_data['right_button']['show']) {
+			state.top_head_data['right_button']['show'] = true;
 		} else {
-			state.top_head_data['right_button']['url_data']['show'] = false;
+			state.top_head_data['right_button']['show'] = false;
 		}
-	}
+	},
+	/**分页 loading 显示 */
+	page_load(state,_styleObj){
+		state.top_head_data = clones(_styleObj);
+	},
 	/* public -e*/
 	
 	

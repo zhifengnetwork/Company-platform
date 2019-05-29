@@ -20,19 +20,21 @@ export default {
 
 	.van-dialog .van-button {
 			border: 2px solid #ebedf0;
-	}
+	} 
   
 	* {
 		/*ios 按住出现阴影*/
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		-webkit-tap-highlight-color: transparent;
 	}
+	
 	html,body,div,p,span,i,input,button,textarea,em,h1,h2,h3,h4,h5,h6,a,form,dl,dt,dd,img {
 		margin: 0;
 		padding: 0;
 	}
 	
   a { text-decoration:none }
+
 	body {
 		background-color: #f7f7f7;
 	}
@@ -41,6 +43,7 @@ export default {
 	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
+		
 	}
 	/* 引入公共头部 */
 	.public_head {
