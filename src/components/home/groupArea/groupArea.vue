@@ -10,7 +10,7 @@
 				<img :src="items.iurl" />
 			</div>
 			<div class="box_wrap">
-				<div class="box" v-for="(list) in dcdata" :key="index">
+				<div class="box" v-for="(list,index) in dcdata" :key="index">
 					<div class="img_wrap">
 						<div class="img">
 							<img :src="list.imgurl" />
@@ -109,7 +109,7 @@
 					{id:3,name:'aa',imgurl:'static/img/group_area/shop.png',tiem:'5月06日-27日',pre:'1天 02:05:04',zi:'青年说是你发手机话费HHSJG',cost:99999},
 					{id:4,name:'ae',imgurl:'static/img/group_area/shop.png',tiem:'5月06日-27日',pre:'10天 02:05:04',zi:'青年说是你发手机话费HHSJG',cost:99999}
 				],
-				indexs:[]
+				// indexs:[]	
 				 
 			}
 		},
