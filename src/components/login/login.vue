@@ -11,17 +11,16 @@
 		},
 		mounted(){
 			console.log(789);
-			var that = this;
 			/*axios=>请求 -s*/
-			that.$axios.post("/Puls/puls_goods")
-				.then(function(response) {
-					console.log('成功');
+			this.$axios.post("/Puls/puls_goods",{})
+				.then((res)=>{
+                	console.log('成功');
 				})
-				.catch(function(error) {
+				.catch((err) => {
 					alert('页面请求失败：'+error);
 					console.log(error);
-					
-				});
+				})
+			
 			/*axios=>请求 -e*/
 		},
 	}
