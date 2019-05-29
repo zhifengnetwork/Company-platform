@@ -27,6 +27,8 @@ import groupArea from '@/components/home/groupArea/groupArea'
 import groupOrder from '@/components/home/groupArea/groupOrder'
 //打卡模块
 import sign from '@/components/home/sign/sign'
+// 砍价模块
+import bargain from '@/components/home/bargain/bargain'
 
 
 
@@ -128,6 +130,11 @@ export default new Router({
 			path: '/home/sign',
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
+		},
+		{
+			path: '/home/bargain',
+			name: 'bargain',
+			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
 		},
 		{
 			path: '/home/groupArea', 
