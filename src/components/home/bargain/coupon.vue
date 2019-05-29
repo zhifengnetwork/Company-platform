@@ -7,7 +7,9 @@
             <div class="paper_wrap">
 
                 <div class="unit">
+                    <div class="left_lose">
 
+                    </div>
                 </div>
 
             </div>
@@ -71,8 +73,13 @@
                 .unit
                     margin: 25px auto 0;
                     width: 95%;
-                    height: 210px;
+                    height: 222px;
                     background: url("~/static/img/bargain/lose05.png") no-repeat;
-					// background-size: 100% 100%;
+					//background-size: 100% 100%;
+                        .left_lose
+                            width: 271px;
+                            height: 222px;
+                            background: url("~/static/img/bargain/lose02.png") no-repeat;
+                            background-size: 100% 100%;
         
 </style>
