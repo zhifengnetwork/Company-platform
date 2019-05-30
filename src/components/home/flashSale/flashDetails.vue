@@ -235,6 +235,23 @@
                     </van-tab>
                 </van-tabs>
             </div>
+
+            <!-- 商品规格 -->
+            <div class="sku-wr">
+                <van-sku
+                    v-model="showBase"
+                    :sku="sku"
+                    :goods="goods"
+                    :goods-id="goodsId"
+                    :hide-stock="sku.hide_stock"
+                    :quota="quota"
+                    :quota-used="quotaUsed"
+                    :custom-stepper-config="customStepperConfig"
+                    @buy-clicked="onBuyClicked"
+                    @add-cart="onAddCartClicked"
+                />
+            </div>
+
         </div>
 
         <!-- 底部菜单 -->
