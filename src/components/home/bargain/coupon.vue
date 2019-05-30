@@ -9,7 +9,7 @@
                 <div class="unit" v-for="(item,index) in coupon" :key="index">
 					<!-- <input type="checkbox"/> -->
 					<div class="inp" @click="selectPay(item,index)">
-						<img class="cheack" src="/static/img/group_area/order/gou.png" alt="" v-if="item.cheack " />
+						<img class="cheack" src="/static/img/group_area/order/gou.png" alt="" v-if="item.cheack" />
 					</div>
 					
 					<div class="left_cost">
@@ -179,27 +179,30 @@
 		methods: {
 			delCoupon(){
 				Dialog.confirm({
-					message: '您确定要删除吗？'
+					message: '您确定要删除吗？',
+					cancelButtonColor: '#777777',
+					confirmButtonColor: '#ff112f'
 				}).then(() => {
 					for(var i = this.coupon.length-1; i>=0;i--){
 						var item = this.coupon[i]
-						if(item.cheack){
+						console.log(item.cheack)
+						if(item.cheack === true){
 							var index = this.coupon.indexOf(item)			
 							this.coupon.splice(index,1)
 					 	}	 
 					}
-					//  this.coupon.splice(index)
-					}).catch(() => {
-					// on cancel
-					})
+				//  this.coupon.splice(index)
+				}).catch(() => {
+				// on cancel
+				})
 			},
 			selectPay(item,index){
 				this.indexs = index  
-					if (item.cheack) {
-						item.cheack = false; 
-					}else{
-						item.cheack = true;
-					}
+				if(item.cheack) {
+					item.cheack = false; 
+				} else {
+					item.cheack = true;
+				}
 				
            	}
 		}
@@ -220,6 +223,7 @@
 					width 95%
 					height 222px
 					box-shadow: 0px 0px 7px 0px rgba(208, 208, 208, 0.69)
+					-webkit-box-shadow: 0px 0px 7px 0px rgba(208, 208, 208, 0.69)
 					background url("/static/img/bargain/lase02.png") no-repeat
 					background-size 100% 100%
 					font-size 0
@@ -235,7 +239,7 @@
 							.mi
 								width 62px
 								height 88px
-								font-size 110px
+								font-size 105px
 							.nit
 								font-size 30px
 						.nus
@@ -304,6 +308,7 @@
 				font-size 30px
 				text-align center
 				line-height 88px
-				letter-spacing 5px	
-     	
+				letter-spacing 5px			
+.van-dialog >>> .van-dialog__content >>> .van-dialog__message
+	padding 45px	
 </style>
