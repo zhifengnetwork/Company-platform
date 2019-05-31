@@ -43,7 +43,7 @@
                                 <div class="buy-tt">购买数量</div>
                                 <div class="buy-num">
                                     <a href="javascript:;" class="btn btn-opt-minus" @click="submitMinus">-</a>
-                                    <input type="text" data-min="1" disabled value="1">
+                                    <input type="text" data-min="1" disabled v-model="proNumber" >
                                     <a href="javascript:;" class="btn btn-opt-plus" @click="submitAdd">+</a>
                                 </div>
                             </div>
@@ -73,37 +73,21 @@
                      <div class="pro-totnum">
                           <span class="totol-num">共2件:</span>
                           <span class="totol-text">共计:</span>
-                          <span class="total">￥720.00</span>
+                          <span class="total">￥<span class="total-pp">720.00</span>
+                          </span>
                      </div>
                 </div>
                 <div class="payment-mode">
-                    <div class="mode-list">
+                    <div class="mode-list" v-for="(item,index) in payment" :key="index" @click="selectPay(item,index)">
                         <div class="item-icon">
-                            <img src="/static/img/group_area/order/weixi.png" alt="">
-                            <P>微信支付</P>
+                            <img :src="item.img" alt="">
+                            <P>{{item.name}}</P>
                         </div>
                         <div class="item-cheack">
-                            <img src="/static/img/group_area/order/gou.png" alt="" class="activeIcon">
+                            <img src="/static/img/group_area/order/gou.png" alt="" class="activeIcon" v-if="item.cheack && indexs === index">
                         </div>
                     </div>
-                    <div class="mode-list">
-                        <div class="item-icon">
-                            <img src="/static/img/group_area/order/zfb.png" alt="">
-                            <P>支付宝支付</P>
-                        </div>
-                        <div class="item-cheack">
-                            <!-- <img src="static/img/group_area/order/cheack.png" alt=""> -->
-                        </div>
-                    </div>
-                    <div class="mode-list">
-                        <div class="item-icon">
-                            <img src="/static/img/group_area/order/yn.png" alt="">
-                            <P>银联支付</P>
-                        </div>
-                        <div class="item-cheack">
-                            <!-- <img src="static/img/group_area/order/cheack.png" alt=""> -->
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="payment-mode">
                     <div class="info-page">
@@ -146,24 +130,93 @@ export default {
     data(){
         return{
             //备注
-            message:''
-        }
+            message:'',
+            payment:[
+              {id:1,name:'微信支付',cheack:false,img:'/static/img/group_area/order/weixi.png'},
+              {id:2,name:'支付宝支付',cheack:false,img:'/static/img/group_area/order/zfb.png'},
+              {id:3,name:'余额支付',cheack:false,img:'/static/img/group_area/order/yn.png'},
+            ],
+            //商品选择数量
+            proNumber:1,
+              //确认订单
+               confirm:{
+                   shop:"智丰专营店",
+                   shop_logo:'/static/img/group_area/order/logo.png',
+                   user_info:[
+                            {user_name:'王思聪',tel:18660001245,site:"广东省广州市白云区嘉禾望岗地铁口"}
+                   ],
+                   goods:[
+                            {
+                             goods_id:18,
+                             goods_name:'连衣裙连衣裙连衣裙连衣裙连衣裙连衣裙',
+                             img:'/static/img/group_area/order/1.png',
+                             price:'￥758',
+                             salePrice:"￥566",
+                             goods_count:2,
+                             colorTitle:{},
+                             spec:[
+                               {id:1,name:'颜色'},
+                               {id:2,name:'尺码'}
+                             ],
+                             color:'墨绿色',
+                             size:'L',
+                             sku_id:'454556',
+                             minNumber:1,
+                             maxBuy:100,
+                      }
+                   ],
+                   sumPrice:1000,
+                   count:2,
+                   pay_type:[
+                     {pay_type:1,pay_name:'微信支付',pay_img:'/static/img/group_area/order/weixi.png'},
+                     {pay_type:2,pay_name:'支付宝支付',pay_img:'/static/img/group_area/order/zfb.png'},
+                     {pay_type:3,pay_name:'余额支付',pay_img:'/static/img/group_area/order/yn.png'},
+                   ],
+                   inviter:{
+                      man_number:199,
+                      want_man:1,
+                      surplus_time:1558577988,
+                   }
+               }
+                   
+
+                   
+            
+            }
     },
     methods:{
            //加
            submitAdd(){
-
+               this.proNumber++
            },
 
            //减
            submitMinus(){
-
+               if(this.proNumber>1){
+                 this.proNumber--
+               }
+           },
+           
+          //选择支付方式
+          selectPay(item,index){
+            this.indexs = index  
+              if(index === this.indexs ){
+                if (item.cheack) {
+                  item.cheack = false; 
+                }else{
+                  for (let i = 0; i < this.payment.length; i++) {
+                    this.payment[i].cheack = false;
+                  }
+                  item.cheack = true; 
+                }
+              }
            }
     },
     components:{
         Pheader,
     },
     created(){
+      console.log(this.confirm)
       var obj =  {
         /**整个head的style */
         head_wrap_style: {
@@ -201,7 +254,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+img 
+  display block
+  width 100%
+  height 100%
 header
   height 88px
 .right-arrow 
@@ -256,6 +312,7 @@ header
   font-size 25px
   color #a4a4a4
   max-width 100%
+  line-height 55px
 
 .gropOrder-page .site-pro
   margin-top 18px
@@ -348,7 +405,6 @@ header
 
 .pro-sku   .sku-num  .buy-num>input
   width 90px
-  height 35px
   color #444
   text-align: center
   border  none
@@ -359,7 +415,7 @@ header
   max-width 40%
 
 .pro-sku .delivery .express .express-name
-  font-size 20px
+  font-size 25px
 
 .pro-sku .sku-num .delivery-tt
   max-width 60%
@@ -376,7 +432,7 @@ header
   flex 1
   border none
   border-radius 0
-  border-bottom 2px solid #a4a4a4
+  border-bottom 1.01px solid #efece9
 
 .van-field__control
   font-size 15px
@@ -392,6 +448,10 @@ header
 
 .pro-totnum .total
   color #ff112f
+  font-size 18px
+
+.pro-totnum  .total-pp
+  font-size 30px
 
 .payment-mode
   padding 19px
@@ -441,7 +501,7 @@ header
      text-align right
      
 .payment-mode .info-page .info-item>span 
-    font-size 20px
+    font-size 25px
     margin-right 10px
     max-width 50%
 
@@ -467,11 +527,10 @@ header
 .total-b
     flex 1    
     text-align right
-    line-height 95px
 
 .footer-bottom .total-b  .freight
     margin-right 18px
-    font-size 20px 
+    font-size 24px 
     color #9d9d9d
 
 .footer-bottom .total-b .pirce 

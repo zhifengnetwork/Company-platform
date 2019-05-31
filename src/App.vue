@@ -20,7 +20,7 @@ export default {
 
 	.van-dialog .van-button {
 			border: 2px solid #ebedf0;
-	}
+	} 
   
 	* {
 		/*ios 按住出现阴影*/
@@ -43,6 +43,7 @@ export default {
 	  width: 100%;
 	  height: auto;
 	  overflow-x: hidden;
+		
 	}
 	/* 引入公共头部 */
 	.public_head {

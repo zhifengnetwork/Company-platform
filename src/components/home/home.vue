@@ -29,12 +29,13 @@
 				</van-tab>
 			</van-tabs>
 		</div>
-		
+		<newPeople></newPeople>
   </div>
 </template>
 
 <script>
-
+//新人弹框
+import newPeople from '@/components/public/newPeopleTo.vue'
 export default {
 	name: 'home',
   	data() {
@@ -42,7 +43,7 @@ export default {
 			active:0,
 			selectedId: 0,
 			items: [
-				{label: '精选'},
+				{label: '精选',},
 				{label: '9.9包邮'},
 				{label: '男装'},
 				{label: '女装'},
@@ -66,7 +67,12 @@ export default {
 		handleChange (index){
 			this.$router.replace(this.path[index])
 		}
-  	}
+	},
+
+	components:{
+            //新人弹框
+		    newPeople
+	  }
 };
 </script>
 
@@ -133,14 +139,15 @@ export default {
 		.van-tabs
 			left 0
 			top -250px
-			color #ffffff
 		.van-tabs >>> .van-tabs__nav
 			background none
 		.van-tabs >>> .van-hairline--top-bottom::after
 			border-width 0
 		.van-tabs >>> .van-tab
-			color #ffffff
+			color #151515
 			padding 0
+			span.van-ellipsis 	
+				color #ffffff
 		.van-tabs >>> .van-tabs__line
 			background-color #ffffff
 		.van-tabs >>> .van-tabs__wrap

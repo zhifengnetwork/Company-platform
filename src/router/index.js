@@ -25,8 +25,19 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+// 限时购
+import flashSale from '@/components/home/flashSale/flashSale'
+// 限时购详情
+import flashDetails from '@/components/home/flashSale/flashDetails'
+//砍一刀
+import bargainirg from '@/components/home/bargain/bargainirg'
+
 //打卡模块
 import sign from '@/components/home/sign/sign'
+// 砍价模块
+import bargain from '@/components/home/bargain/bargain'
+//优惠券
+import coupon from '@/components/home/bargain/coupon'
 
 
 
@@ -47,24 +58,27 @@ Vue.use(Router)
 export default new Router({
 	/*路由模式*/
 	mode: 'hash',
-  routes: [
-   	{
-	   	path: '/',
-		  redirect: '/login', /**重定向**/
+	routes: [
+		{
+			path: '/',
+			redirect: '/login', /**重定向**/
 			component: (resolve) => require(['@/components/login/login'],resolve) // 懒加载
 		},
+		// 登录
 		{
-	    path: '/login',
-	    name: '/login',
+			path: '/login',
+			name: '/login',
 			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
+
+		// 首页
 		{
-	    path: '/index',
+			path: '/index',
 			component: (resolve) => require(['@/components/index'],resolve),
 			children: [
 				{
-		      path: '/index/',  /**首页 */
-		      name: 'home',
+					path: '/index/', 
+					name: 'home',
 					component: (resolve) => require(['@/components/home/home'],resolve),
 					redirect:'/index/home/choice',
 					children:[
@@ -105,46 +119,77 @@ export default new Router({
 								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 						}
 					]
+		    },
+				{
+		      path: '/index/member',
+		      name: 'member',
+		      component: (resolve) => require(['@/components/member/member'],resolve) 
 				},
 				{
-					path: '/index/member',
-					name: 'member',
-					component: (resolve) => require(['@/components/member/member'],resolve) 
-				},
-				{
-					path: '/index/cart',
-					name: 'cart',
-					component: (resolve) => require(['@/components/cart/cart'],resolve) 
+		      path: '/index/cart',
+		      name: 'cart',
+		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
 				},
 				//用户中心
-				{
-					path: '/index/user',  
-					name: 'user',
-					component: (resolve) => require(['@/components/user/user'],resolve) 
+		    {
+		      path: '/index/user',  
+		      name: 'user',
+		      component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
-			],
+			]
 		},
-    {
+
+		{
+			path: '/home/bargain', /**砍一刀 */
+			name: 'bargainirg',
+			component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
+		},	
+		{
 			path: '/home/sign',
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 		{
-			path: '/home/groupArea', 
-			name: 'groupArea',
-			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve)
+			path: '/home/bargain',
+			name: 'bargain',
+			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
 		},
 		{
-			path: '/home/groupArea/order',
+			path: '/home/groupArea', /**拼团 */
+			name: 'groupArea',
+			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+		},
+		{
+			path: '/home/groupArea/order', /**拼团订单 */
 			name: 'groupOrder',
-			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve)
+			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
+		},
+		{
+			path: '/home/coupon', // 优惠券
+			name: 'coupon',
+			component: (resolve) => require(['@/components/home/bargain/coupon'],resolve)
 
 		},
 		{
+<<<<<<< HEAD
 			path: '/home/groupArea/Info',
 			name: 'groupInfo',
 			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
 
 		},
+=======
+			path: '/home/flashSale',  // 限时购
+			name: 'flashSale',
+			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
+		},
+		
+		// 限时购详情
+		{
+			path: '/home/flashSale/flashDetails',
+			name: 'flashDetails',
+			component: (resolve) => require(['@/components/home/flashSale/flashDetails'],resolve),
+		},
+
+>>>>>>> a6e1ec19f3abab43392a56bc26359b19c4523bd5
 	]
 })

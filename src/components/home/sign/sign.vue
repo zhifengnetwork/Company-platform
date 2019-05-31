@@ -24,14 +24,28 @@
 			  </div>
 			  <div class="button_join1">
 				<img src="/static/img/home/punchcard/blind.png" class="button"/>
-				<span class="join_one1">每日打卡</span>
+				<span class="join_one1" @click="dika">每日打卡</span>
 			  </div>
 		 </div>
-		 <div class="poup">
-
-
-
+		 <div class="poup" v-show="poup">
+			 <img src="/static/img/home/punchcard/yanhua.png" class="yanhua"/>
+			 <img src="/static/img/home/punchcard/x.png" class="x" @click="x"/>
+             <p class="p1">请在14:00-18:00打卡瓜分</p>
+			 <p class="p2">01:03:20</p>
+			 <p class="p3">打卡倒计时</p>
+			 <p class="p4">已1000人打卡成功</p>
+			 <p class="p5" @click="sure">确定打卡</p>
 		 </div>
+		 <div class="poup" v-show="poup1">
+			 <img src="/static/img/home/punchcard/yanhua.png" class="yanhua"/>
+			 <img src="/static/img/home/punchcard/x.png" class="x" @click="xx"/>
+             <p class="p1">请在14:00-18:00打卡瓜分</p>
+			 <p class="p2">010810</p>
+			 <p class="p3">继续参与打卡</p>
+			 <p class="p4">已1000人打卡成功</p>
+			 <p class="p55">未打卡</p>
+		 </div>
+		 
 		 <div class="qiandao_div">
 			 <img src="/static/img/home/punchcard/qiandao.png" class="qiandao_pic"/>
 			 <span class="qiandao_shitian">你已经连续十天签到</span>
@@ -47,6 +61,7 @@
 <script>
 /**头部 */
 	import headtop from '@/components/public/page_top_head'
+	
 	export default {
 		name:"sign",
 		components: {
@@ -54,6 +69,12 @@
 		},
 		data(){
 			return {
+
+				poup:false,
+				poup1:false
+
+
+				
 				
 			}
 		},
@@ -90,10 +111,39 @@
 				},
 			}
 
-// ddd
 			this.$store.commit('change_head',head_obj)
 
 		},
+		methods:{
+
+			dika:function(){
+				this.poup=true
+			},
+			x:function(){
+				this.poup=false
+			},
+			xx:function(){
+				this.poup1=false
+			},
+			sure:function(){	
+				this.$axios({
+					method: 'post',
+					url: '/api/clock/old_join_clock',
+					data: {
+						
+					}
+					}).then((res) => {
+						console.log(res)
+					}).catch((err) => {
+                     console.log(err) //错误信息
+                      })
+
+			}
+
+
+
+
+		}
 	}
 </script>
 
@@ -187,8 +237,113 @@
 		color white
 		font-size 22px
 		
+	.poup
+		position relative
+		left 0
+		right 0
+		top 407px
+		margin 0 auto
+		width 680px	
+		height 400px
+		border-radius .1rem
+		background-color  white
+		z-index 9
 		
-    
+		.yanhua
+			position absolute
+			top -70px
+			width 100%
+		.x
+			position absolute
+			top 12px
+			right 14px
+			width 42px	
+		.p1
+			text-align center
+			padding-top 40px
+			font-size 30px
+			font-weight bolder
+		.p2	
+			text-align center
+			color rgb(255,21,21)
+			font-size 40px
+			padding-top 16px
+		.p3
+			text-align center
+			font-size 25px
+			padding-top 8px
+
+		.p4	
+			text-align center
+			padding-top 20px
+			color rgb(80,80,80)
+        .p5
+			
+			width 250px
+			height 80px
+			line-height 80px
+			margin 0 auto
+			color white
+			border-radius 17px
+			background rgb(255,73,2)
+			text-align center
+			font-size 30px
+			margin-top 34px
+
+	.poup1
+		position relative
+		left 0
+		right 0
+		top 407px
+		margin 0 auto
+		width 680px	
+		height 400px
+		border-radius .1rem
+		background-color  white
+		z-index 9
+		
+		.yanhua
+			position absolute
+			top -70px
+			width 100%
+		.x
+			position absolute
+			top 12px
+			right 14px
+			width 42px	
+		.p1
+			text-align center
+			padding-top 40px
+			font-size 30px
+			font-weight bolder
+		.p2	
+			text-align center
+			color rgb(255,21,21)
+			font-size 40px
+			padding-top 16px
+		.p3
+			text-align center
+			font-size 25px
+			padding-top 8px
+
+		.p4	
+			text-align center
+			padding-top 20px
+			color rgb(80,80,80)
+        .p55
+			
+			width 250px
+			height 80px
+			line-height 80px
+			margin 0 auto
+			color rgb(198,195,194)
+			border-radius 17px
+			background rgb(148,132,126)
+			text-align center
+			font-size 30px
+			margin-top 34px
+
+
 	.button_ear
 		position relative
 		top 570px
@@ -232,17 +387,21 @@
 				color rgb(255,21,21)
 				font-weight bolder
 .qiandao_div
-	position relative
-	top 600px
-	text-align center
+	position absolute
+	top 820px
+	left 0
+	right 0
+	margin 0 auto
 	height 25px
 	display flex
 	align-item center
 	justify-content center
+	z-index 1
 	.qiandao_pic
 		width 25px
+		
 	.qiandao_shitian
-		padding-left 24px	
+		padding 4px 0 0 24px	
 		height 100%
 		line-height 23px
 		font-size 23px
