@@ -140,5 +140,11 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve)
 
 		},
+		{
+			path: '/home/groupArea/Info',
+			name: 'groupInfo',
+			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
+
+		},
 	]
 })
