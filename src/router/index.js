@@ -34,8 +34,13 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
+<<<<<<< HEAD
+// 砍价模块
+import bargain from '@/components/home/bargain/bargain'
+=======
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
+>>>>>>> 772cc585e668e5b6b0f88f2e68839f787e7de7be
 
 
 
@@ -148,7 +153,16 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 		{
+<<<<<<< HEAD
+			path: '/home/bargain',
+			name: 'bargain',
+			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
+		},
+		{
+			path: '/home/groupArea', 
+=======
 			path: '/home/groupArea', /**拼团 */
+>>>>>>> 772cc585e668e5b6b0f88f2e68839f787e7de7be
 			name: 'groupArea',
 			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
 		},
