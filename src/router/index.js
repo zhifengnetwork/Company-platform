@@ -171,13 +171,12 @@ export default new Router({
 
 		},
 		{
-<<<<<<< HEAD
 			path: '/home/groupArea/Info',
 			name: 'groupInfo',
 			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
 
 		},
-=======
+		{
 			path: '/home/flashSale',  // 限时购
 			name: 'flashSale',
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
@@ -190,6 +189,5 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/flashSale/flashDetails'],resolve),
 		},
 
->>>>>>> a6e1ec19f3abab43392a56bc26359b19c4523bd5
 	]
 })
