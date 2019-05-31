@@ -43,7 +43,7 @@ export default {
 			active:0,
 			selectedId: 0,
 			items: [
-				{label: '精选'},
+				{label: '精选',},
 				{label: '9.9包邮'},
 				{label: '男装'},
 				{label: '女装'},
