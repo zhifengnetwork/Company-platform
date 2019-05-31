@@ -172,6 +172,12 @@ export default new Router({
 
 		},
 		{
+			path: '/home/groupArea/Info',
+			name: 'groupInfo',
+			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
+
+		},
+		{
 			path: '/home/flashSale',  // 限时购
 			name: 'flashSale',
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
