@@ -6,77 +6,24 @@
 	<div class="group">
 		
 		<div class="content">
-			<div class="top_img">
-				<img src="/static/img/group_area/nav.png" />
+			<div class="top_img" v-for="(items,index) in deta" :key="index">
+				<img :src="items.iurl" />
 			</div>
 			<div class="box_wrap">
-				<div class="box">
+				
+				<div class="box" v-for="(list,index) in dcdata" :key="index">
 					<div class="img_wrap">
 						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
+							<img :src="list.imgurl" />
 						</div>
-						<div class="time">5月06日-27日</div>
-						<div class="piece">七天爆卖200件</div>
+						<div class="time">{{list.tiem}}</div>
+						<div class="piece">{{list.pre}}</div>
 					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
+					<p class="publicEllipsis">{{list.zi}}</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
-						</div>
-						<div class="good_2">马上团购</div>
-						<div class="good_3">GO</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
-						</div>
-						<div class="time">6月06日-27日</div>
-						<div class="piece">七天爆卖200件</div>
-					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
-					<div class="goods_wrap">
-						<div class="good_1">
-							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
-						</div>
-						<div class="good_2">马上团购</div>
-						<div class="good_3">GO</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
-						</div>
-						<div class="time">1天 02:05:04</div>
-						<div class="piece">七天爆卖200件</div>
-					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
-					<div class="goods_wrap">
-						<div class="good_1">
-							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
-						</div>
-						<div class="good_2">马上团购</div>
-						<div class="good_3">GO</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
-						</div>
-						<div class="time">10天 02:05:04</div>
-						<div class="piece">七天爆卖200件</div>
-					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
-					<div class="goods_wrap">
-						<div class="good_1">
-							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
+							<div class="meoy">￥<span>{{list.cost}}</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
@@ -99,6 +46,21 @@
 	/**分页加载--style*/
 	import pageload from '@/components/public/page_load'
 	export default {
+		data() {
+			return{
+				deta: [
+					{id:1,name:'eq',iurl:'/static/img/group_area/nav.png'}
+				],
+                dcdata:[
+					{id:1,name:'ad',imgurl:'static/img/group_area/shop.png',tiem:'5月06日-27日',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999},
+					{id:2,name:'as',imgurl:'static/img/group_area/shop.png',tiem:'5月06日-27日',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999},
+					{id:3,name:'aa',imgurl:'static/img/group_area/shop.png',tiem:'1天 02:05:04',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999},
+					{id:4,name:'ae',imgurl:'static/img/group_area/shop.png',tiem:'10天 02:05:04',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999}
+				],
+				// indexs:[]	
+				 
+			}
+		},
 		components: {
 			headtop,
 			pageload,
@@ -150,10 +112,12 @@
 			margin: 0 auto;
 			.top_img
 				margin: 10px 24px 25px 24px;
+				width: 702px;
 				img
 					margin: 0 auto;
 					display: block;
 					max-width: 100%;
+					height: auto;
 					border-radius: 10px;
 			.box_wrap
 				padding: 0 0 0 24px;
@@ -174,13 +138,14 @@
 								margin: 0 auto;
 								display: block;
 								max-width: 100%;
+								height: 100%;
 						.time
 							position: absolute;
 							top: 0;
 							right 0;
 							width: 168px;
 							height: 34px;
-							background: url("~/static/img/group_area/tiem.png") no-repeat;
+							background: url("/static/img/group_area/tiem.png") no-repeat;
 							background-size: 100% 100%;
 							font-size: 18px;
 							color: #fff;
