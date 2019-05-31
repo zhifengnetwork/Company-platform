@@ -21,6 +21,10 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+import { Lazyload } from 'vant';
+
+// options 为可选参数，无则不传
+Vue.use(Lazyload,);
 
 //倒计时
 // Vue.prototype.countdowm = function (itemEnd,CountDown) {

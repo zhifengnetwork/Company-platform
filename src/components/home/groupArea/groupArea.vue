@@ -7,82 +7,28 @@
 		
 		<div class="content">
 			<div class="top_img">
-				<img src="/static/img/group_area/nav.png" />
+				<img :src="baImg+areaListImg" />
 			</div>
 			<div class="box_wrap">
-				<div class="box">
+				<div class="box" v-for="(item,index) in areaList" :key="index">
 					<div class="img_wrap">
 						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
+							<img :src="baImg+item.img" />
 						</div>
-						<div class="time">5月06日-27日</div>
+						<!-- <div class="time">5月06日-27日</div> -->
+						<div class="time">{{item.down}}</div>
 						<div class="piece">七天爆卖200件</div>
 					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
+					<p class="publicEllipsis">{{item.goods_name}}</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
+							<div class="meoy">￥<span>{{item.price}}</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
 					</div>
 				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
-						</div>
-						<div class="time">6月06日-27日</div>
-						<div class="piece">七天爆卖200件</div>
-					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
-					<div class="goods_wrap">
-						<div class="good_1">
-							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
-						</div>
-						<div class="good_2">马上团购</div>
-						<div class="good_3">GO</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
-						</div>
-						<div class="time">1天 02:05:04</div>
-						<div class="piece">七天爆卖200件</div>
-					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
-					<div class="goods_wrap">
-						<div class="good_1">
-							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
-						</div>
-						<div class="good_2">马上团购</div>
-						<div class="good_3">GO</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="img_wrap">
-						<div class="img">
-							<img src="/static/img/group_area/shop.png" />
-						</div>
-						<div class="time">10天 02:05:04</div>
-						<div class="piece">七天爆卖200件</div>
-					</div>
-					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
-					<div class="goods_wrap">
-						<div class="good_1">
-							<div class="num">成团价</div>
-							<div class="meoy">￥<span>99999</span></div>
-						</div>
-						<div class="good_2">马上团购</div>
-						<div class="good_3">GO</div>
-					</div>
-				</div>
-
 			</div>
 			<pageload></pageload>	
 
@@ -98,6 +44,19 @@
 	/**分页加载--style*/
 	import pageload from '@/components/public/page_load'
 	export default {
+		data(){
+               return{
+				    //请求页数
+					page:1,
+
+					//banner
+					areaListImg:'',
+					//渲染列表
+					areaList:[],
+
+					baImg:'http://zfwl.zhifengwangluo.c3w.cc/upload/images/'
+			   }
+		},
 		components: {
 			headtop,
 			pageload,
@@ -136,8 +95,65 @@
 			}
 			/**改变vuex对应头部数据 */
 			this.$store.commit('change_head',style_obj);
-
+		  
+		  //拼团列表
+		  this.ajaxArea()
+		  //拼团倒计时
+		  this.countdowm()
 		},
+		methods:{
+			//拼图列表
+			ajaxArea(){
+				var url="/Groupon/goods_list";
+				var params = new URLSearchParams();
+					params.append('page', this.page);
+				this.$axios({
+					url:url,
+					method:'POST',
+					data:params
+				}).then((result)=>{
+					this.areaListImg = result.data.data.group_img   //banner
+					this.areaList = result.data.data.list           //渲染
+				}).catch((err)=>{
+					   console.log(err)
+				})
+				   
+			},
+			//拼团倒计时
+			countdowm () {
+                        setInterval( ()=> {
+						for (var key in this.areaList) {
+							this.$set(
+							this.areaList[key],"down",''
+							);
+							var start = new Date().getTime()
+							var end = this.areaList[key].end_time*1000;  //  结束日期
+							var differ = end - start
+							var differDate = (Math.floor(differ / 1000 / 60 / 60 / 24))
+
+							var data = new Date(this.areaList[key].start_time*1000)  //开始日期
+							var present = new Date(this.areaList[key].end_time*1000)  //结束日期
+							if(differDate>7){       //如果结束日期大于当前日期7天
+
+								 this.areaList[key]["down"] = (data.getMonth()+1) + "月" + data.getDate() + "日" + '-' + (present.getMonth()+1) + '月' + present.getDate() + "日";
+								 
+							}else{
+								
+								if (differ > 0) {
+									var dd = Math.floor(differ / 1000 / 60 / 60 / 24);
+									var hh = Math.floor((differ / 1000 / 60 / 60) % 24);
+									var mm = Math.floor((differ / 1000 / 60) % 60);
+									var ss = Math.floor((differ / 1000) % 60);
+								}
+								this.areaList[key]["down"] = dd + "天" + hh + "小时" + mm + "分" + ss + "秒";
+							}
+						}
+					}, 1000);
+                },
+		},
+		mounted(){
+			 
+		} 
 	}
 </script>
 
@@ -153,7 +169,9 @@
 					margin: 0 auto;
 					display: block;
 					max-width: 100%;
-					border-radius: 10px;
+					height 100%
+					border-radius 10px
+					
 			.box_wrap
 				padding: 0 0 0 24px;
 				.box
@@ -173,12 +191,14 @@
 								margin: 0 auto;
 								display: block;
 								max-width: 100%;
+								height 100%
 						.time
 							position: absolute;
 							top: 0;
 							right 0;
-							width: 168px;
 							height: 34px;
+							padding 0 10px
+							box-sizing border-box
 							background: url("~/static/img/group_area/tiem.png") no-repeat;
 							background-size: 100% 100%;
 							font-size: 18px;

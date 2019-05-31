@@ -4,10 +4,10 @@
         <div class="banner-pop-up" @click.stop="userClick=false">
                <div class="btn-pop-up">
                     <div class="btn-input">
-                        <input type="text" placeholder="请输入手机号码">
+                        <input type="tel" v-model="phone" placeholder="请输入手机号码" @keyup="telText">
                     </div>
-                    <div class="btn-free">
-                         <button class="haveNot">免费领取</button>
+                    <div class="btn-free btnRed" >
+                         <button class="haveNot " :class="{btnRed:showBtn}" :disabled="showBtn===false">免费领取</button>
                     </div>
                </div>
         </div>
@@ -18,9 +18,25 @@
 export default {
     data(){
         return{
-            popShow:true 
+            //控制弹框显示
+            popShow:true,
+            //手机号
+            phone:'',
+            //免费领取btn高亮
+            showBtn:false
         }
     },
+    methods:{
+        //控制免费领取btn
+        telText(){
+             var mobile=/^[1]([3-9])[0-9]{9}$/
+             if(this.phone!='' && mobile.test(this.phone)){  //如果不等于空并且满足正则
+                 this.showBtn=true
+             }else{
+                 this.showBtn=false
+             }
+        }
+    }
 }
 </script>
 <style lang="stylus" scoped>
@@ -35,23 +51,22 @@ export default {
         z-index: 999;
     .backgImg
         width 100%
-        height 60%
+        height 70%
         // max-height 100%
         margin-top  237px
         margin-bottom 25px
         position relative
     .banner-pop-up
         background url('/static/img/public/qiang.png') no-repeat
-        background-size 100%
+        background-size 100% 100%
         height 100%
         width 100%
     
     .btn-pop-up
-        // position absolute
-        // top 491px
-        // left 0
+        position absolute
+        left 0
+        bottom 120px
         width 100%
-        padding-top 491px
     
     .btn-input
          width 480px
@@ -82,9 +97,11 @@ export default {
          line-height 120px
          width 480px
          border-radius 60px
-         color #eaeaea
+         color #ffffff
          font-size 36px
-
+    
+    .btn-free .btnRed
+         background-color #ff1233
 input::-webkit-input-placeholder 
         color: #bdbdbd;
 

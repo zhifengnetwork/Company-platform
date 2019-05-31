@@ -473,6 +473,7 @@ header
     display flex 
     line-height 50px
     flex 1
+    font-size 25px
 
 .payment-mode  .mode-list .item-icon>img
     width 50px
