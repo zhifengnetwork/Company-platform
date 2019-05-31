@@ -1,9 +1,11 @@
 <template>
     <div class="load_wrap" :style="$store.state.page_loadding['style']" v-show="$store.state.page_loadding['show']">
         <!-- 加载时 -->
-        <p class="load_box" v-if="$store.state.page_loadding['state'] == 'start' ">
-            <span class="start_load">{{$store.state.page_loadding['tips_text']}}</span><i v-show="state == 1">.</i><i v-show="state == 2">.</i><i v-show="state == 3">.</i>
-        </p>
+        <div class="load_box" v-if="$store.state.page_loadding['state'] == 'start' ">
+            <p class="load_box_move_box">
+                <van-loading type="spinner" :style="{color: $store.state.page_loadding['load_icon_color']}" class="load_box_move" /><span class="load_box_move_tips">{{$store.state.page_loadding['tips_text']}}</span>
+            </p>
+        </div>
         <!-- 加载完成 -->
         <p class="load_box" v-if="$store.state.page_loadding['state'] == 'end' ">
             {{$store.state.page_loadding['tips_text']}}
@@ -50,63 +52,22 @@ export default {
             width: 100%;
             height: 100%;
 
-        .start_load:after 
-            content: " ";
-            position: absolute;
-            bottom: 0;
-            z-index: 1;
-            color: #000;
-        //     animation: loading_an 1.5s linear infinite;
-        //     -webkit-animation: loading_an 1.5s linear infinite;
-        //     -moz-animation: loading_an 1.5s linear infinite;
-        //     -ms-animation: loading_an 1.5s linear infinite;
-        // @keyframes loading_an
-        //     0%
-        //         content: " ";
-        //     25%
-        //         content: ".";
-        //     50%
-        //         content: ". .";
-        //     75%
-        //         content: ". . .";
-        //     100%
-        //         content: ".";
+            .load_box_move_box 
+                display: table;
+                margin: 0 auto;
+                height: 100%;
 
-        // @-webkit-keyframes loading_an
-        //     0%
-        //         content: " ";
-        //     25%
-        //         content: ".";
-        //     50%
-        //         content: ". .";
-        //     75%
-        //         content: ". . .";
-        //     100%
-        //         content: ".";
+                .load_box_move 
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
 
-        // @-moz-keyframes loading_an 
-        //     0%
-        //         content: " ";
-        //     25%
-        //         content: ".";
-        //     50%
-        //         content: ". .";
-        //     75%
-        //         content: ". . .";
-        //     100%
-        //         content: ".";
-            
-        // @-ms-keyframes loading_an 
-        //     0%
-        //         content: " ";
-        //     25%
-        //         content: ".";
-        //     50%
-        //         content: ". .";
-        //     75%
-        //         content: ". . .";
-        //     100%
-        //         content: ".";
+                .load_box_move_tips 
+                    display: inline-block;
+                    text-indent: 6px;
+
+        
+        
                     
 
 </style>
