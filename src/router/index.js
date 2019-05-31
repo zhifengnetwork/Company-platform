@@ -135,7 +135,6 @@ export default new Router({
 			]
 		},
 
-		// 拼团
 		{
 			path: '/home/bargain', /**砍一刀 */
 			name: 'bargainirg',
@@ -146,29 +145,24 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
-
-		//拼团订单
 		{
 			path: '/home/groupArea', /**拼团 */
 			name: 'groupArea',
 			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
-			},
+		},
 		{
 			path: '/home/groupArea/order', /**拼团订单 */
 			name: 'groupOrder',
 			component: (resolve) => require(['@/components/home/groupArea/groupOrder'],resolve),
 		},
-		// 优惠券
 		{
-			path: '/home/coupon',
+			path: '/home/coupon', // 优惠券
 			name: 'coupon',
 			component: (resolve) => require(['@/components/home/bargain/coupon'],resolve)
 
 		},
-
-		// 限时购
 		{
-			path: '/home/flashSale',
+			path: '/home/flashSale',  // 限时购
 			name: 'flashSale',
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
 		},

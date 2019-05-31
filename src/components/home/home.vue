@@ -29,12 +29,13 @@
 				</van-tab>
 			</van-tabs>
 		</div>
-		
+		<newPeople></newPeople>
   </div>
 </template>
 
 <script>
-
+//新人弹框
+import newPeople from '@/components/public/newPeopleTo.vue'
 export default {
 	name: 'home',
   	data() {
@@ -66,7 +67,12 @@ export default {
 		handleChange (index){
 			this.$router.replace(this.path[index])
 		}
-  	}
+	},
+
+	components:{
+            //新人弹框
+		    newPeople
+	  }
 };
 </script>
 
