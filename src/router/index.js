@@ -27,11 +27,15 @@ import groupArea from '@/components/home/groupArea/groupArea'
 import groupOrder from '@/components/home/groupArea/groupOrder'
 // 限时购
 import flashSale from '@/components/home/flashSale/flashSale'
+// 限时购详情
+import flashDetails from '@/components/home/flashSale/flashDetails'
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
+// 砍价模块
+import bargain from '@/components/home/bargain/bargain'
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
 
@@ -46,6 +50,12 @@ import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
+
+//邀请朋友
+import invitation from '@/components/invitation'
+
+//生成广告二维码
+import createcode from '@/components/createcode'
 
 
 
@@ -146,6 +156,11 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 		{
+			path: '/home/bargain',
+			name: 'bargain',
+			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
+		},
+		{
 			path: '/home/groupArea', /**拼团 */
 			name: 'groupArea',
 			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
@@ -167,5 +182,24 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
 		},
 		
+		// 限时购详情
+		{
+			path: '/home/flashSale/flashDetails',
+			name: 'flashDetails',
+			component: (resolve) => require(['@/components/home/flashSale/flashDetails'],resolve),
+		},
+		//邀请朋友
+		{
+			path:'/invitation',
+			name:'invitation',
+			component: (resolve) => require(['@/components/invitation'],resolve),
+		},
+		//生成广告二维码
+		{
+			path:'/createcode',
+			name:'createcode',
+			component: (resolve) => require(['@/components/createcode'],resolve),
+		}
+
 	]
 })
