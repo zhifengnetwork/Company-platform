@@ -51,6 +51,12 @@ import cart from '@/components/cart/cart'
 /*我的-模块*/
 import user from '@/components/user/user'
 
+//邀请朋友
+import invitation from '@/components/invitation'
+
+//生成广告二维码
+import createcode from '@/components/createcode'
+
 
 
 Vue.use(Router)
@@ -181,6 +187,18 @@ export default new Router({
 			name: 'flashDetails',
 			component: (resolve) => require(['@/components/home/flashSale/flashDetails'],resolve),
 		},
+		//邀请朋友
+		{
+			path:'/invitation',
+			name:'invitation',
+			component: (resolve) => require(['@/components/invitation'],resolve),
+		},
+		//生成广告二维码
+		{
+			path:'/createcode',
+			name:'createcode',
+			component: (resolve) => require(['@/components/createcode'],resolve),
+		}
 
 	]
 })
