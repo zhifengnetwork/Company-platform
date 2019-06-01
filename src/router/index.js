@@ -176,9 +176,8 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
 		},
 		
-		// 限时购详情
 		{
-			path: '/home/flashSale/flashDetails',
+			path: '/home/flashSale/flashDetails',  /** 限时购详情 */
 			name: 'flashDetails',
 			component: (resolve) => require(['@/components/home/flashSale/flashDetails'],resolve),
 		},
