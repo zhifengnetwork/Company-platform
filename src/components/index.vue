@@ -12,22 +12,24 @@
 					<div class="container bottom_nav_box_left_box">
 						<!-- 项 -->
 						<router-link tag="div" class="container_trem bottom_nav_box_left_trem_box" v-for="(v,i) in data_nav" :to="v.url_data" :key="i" @click.native="style_fun(i)">
-							<p class="bottom_nav_box_left_trem_icon" v-if="v.text == true">
+							<p class="bottom_nav_box_left_trem_icon">
 								<i class="trem_icon" :class="this_state == i ? 'trem_add_icon':'trem_del_icon' "></i>
 							</p>
-							<p class="bottom_nav_box_left_trem_text" :class="this_state == i ? 'bottom_nav_box_left_trem_text_yes':'' "  v-if="v.text == true">{{v.name}}</p>
+							<p class="bottom_nav_box_left_trem_text" :class="this_state == i ? 'bottom_nav_box_left_trem_text_yes':'' " >{{v.name}}</p>
+							<!-- <p class="bottom_nav_box_left_trem_text" :class="this_state == i ? 'bottom_nav_box_left_trem_text_yes':'' "  v-if="v.text == true">{{v.name}}</p> -->
 							<!-- icon -->
-							<i class="member_icon centered" v-if="v.text == false"></i>
+							<!-- <i class="member_icon centered" v-if="v.text == false"></i> -->
 						</router-link>
 					</div>
 				</div>
 				<!-- 右 (logo) -->
 				<div class="bottom_nav_box_right">
-					<router-link to="/index">
-						<p class="bottom_nav_box_right_trem_icon">
+					<router-link to="/index/member">
+						<i class="member_icon centered"></i>
+						<!-- <p class="bottom_nav_box_right_trem_icon">
 							<i class="logo_icon"></i>
 						</p>
-						<p class="bottom_nav_box_right_trem_text">分享</p>
+						<p class="bottom_nav_box_right_trem_text"></p> -->
 					</router-link>
 				</div>
 
@@ -53,26 +55,26 @@
 						url_data: '/index/',
 						/**状态切换-通过index */
 						/* 是否-show-文字 */
-						text: true,
+						// text: true,
 					},
 					{	
-						name: '',
-						url_data: '/index/member',
-						text: false,
+						name: '分类',
+						url_data: '/index/branchClass',
+						// text: false,
 					},
 					{	
 						name: '购物车',
 						url_data: '/index/cart',
-						text: true,
+						// text: true,
 					},
 					{	
 						name: '我的',
 						url_data: '/index/user',
-						text: true,
+						// text: true,
 					},
 				],
 				/**当前四大模块的--路由标识=> 底部的对应style */
-				this_sign: ['home','member','cart','user']
+				this_sign: ['home','branchClass','cart','user']
 			}
 		},
 		
@@ -210,15 +212,23 @@
 						.bottom_nav_box_left_trem_box:nth-child(1) .trem_add_icon
 							background-image: url('/static/img/bottomNav/home_iocn-2.png');
 
-						// 会员 icon
-						.bottom_nav_box_left_trem_box:nth-child(2) .member_icon
+						// 分类 icon（style）
+						.bottom_nav_box_left_trem_box:nth-child(2) .trem_icon
 							display: block;
-							width: 76px;
-							height: 76px;
-							background-image: url('/static/img/bottomNav/member_icon-1.png');
+							margin: 0 auto;
+							width: 45px;
+							height: 45px;
 							background-repeat: no-repeat;
 							background-position: 0 0;
 							background-size: 100%;
+
+						// 分类 icon (未-点击)
+						.bottom_nav_box_left_trem_box:nth-child(2) .trem_del_icon
+							background-image: url('/static/img/bottomNav/class_icon-1.png');
+
+						// 分类 icon(点击)
+						.bottom_nav_box_left_trem_box:nth-child(2) .trem_add_icon
+							background-image: url('/static/img/bottomNav/class_icon-2.png');
 						
 						// 购物车 icon
 						.bottom_nav_box_left_trem_box:nth-child(3) .trem_icon
@@ -257,37 +267,40 @@
 							background-image: url('/static/img/bottomNav/user_icon-2.png');
 
 				.bottom_nav_box_right 
+					position: relative;
 					float: right;
 					width: 22%;
 					height: 100%;
 					border-radius: 42px
 					border: 2px solid #e6e6e6;
 					background-color: #fff;
-
-					.bottom_nav_box_right_trem_icon
-						padding-top: 13px;
-						box-sizing: border-box;
-						-webkit-box-sizing: border-box;
-						-moz-box-sizing: border-box;
-						height: 57%;
-
-					.bottom_nav_box_right_trem_icon .logo_icon 
+					/**会员*/
+					.member_icon
 						display: block;
-						margin: 0 auto;
-						width: 49px;
-						height: 43px;
-						background-image: url('/static/img/login_icon.png');
+						width: 76px;
+						height: 76px;
+						background-image: url('/static/img/bottomNav/member_icon-1.png');
 						background-repeat: no-repeat;
 						background-position: 0 0;
 						background-size: 100%;
+
+					// .bottom_nav_box_right_trem_icon .logo_icon 
+					// 	display: block;
+					// 	margin: 0 auto;
+					// 	width: 49px;
+					// 	height: 43px;
+					// 	background-image: url('/static/img/login_icon.png');
+					// 	background-repeat: no-repeat;
+					// 	background-position: 0 0;
+					// 	background-size: 100%;
 					
-					.bottom_nav_box_right_trem_text
-						width: 100%;
-						height: 43%;
-						font-size: 16px;
-						text-align: center;
-						letter-spacing: 3px;
-						line-height 42px;
-						color: #7b7b7b;
+					// .bottom_nav_box_right_trem_text
+					// 	width: 100%;
+					// 	height: 43%;
+					// 	font-size: 16px;
+					// 	text-align: center;
+					// 	letter-spacing: 3px;
+					// 	line-height 42px;
+					// 	color: #7b7b7b;
 
 </style>

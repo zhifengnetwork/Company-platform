@@ -42,15 +42,17 @@ import coupon from '@/components/home/bargain/coupon'
 // 我的订单
 import order from '@/components/order/order'
 
-
-/*会员-模块*/
-import member from '@/components/member/member'
+/*分类-模块*/
+import branch_class from '@/components/branch_class/branch_class'
 
 /*购物车-模块*/
 import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
+
+/*会员-模块*/
+import member from '@/components/member/member'
 
 //邀请朋友
 import invitation from '@/components/invitation'
@@ -126,22 +128,27 @@ export default new Router({
 								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 						}
 					]
-		    },
-				{
-		      path: '/index/member',
-		      name: 'member',
-		      component: (resolve) => require(['@/components/member/member'],resolve) 
 				},
 				{
-		      path: '/index/cart',
-		      name: 'cart',
-		      component: (resolve) => require(['@/components/cart/cart'],resolve) 
+					path: '/index/branchClass',
+					name: 'branch_class',
+					component: (resolve) => require(['@/components/branch_class/branch_class'],resolve) 
 				},
-				//用户中心
-		    {
-		      path: '/index/user',  
-		      name: 'user',
-		      component: (resolve) => require(['@/components/user/user'],resolve) 
+				{
+					path: '/index/member',
+					name: 'member',
+					component: (resolve) => require(['@/components/member/member'],resolve) 
+				},
+				{
+					path: '/index/cart',
+					name: 'cart',
+					component: (resolve) => require(['@/components/cart/cart'],resolve) 
+				},
+					//用户中心
+				{
+					path: '/index/user',  
+					name: 'user',
+					component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
 			]
 		},
