@@ -35,7 +35,7 @@
 
 <script>
 //新人弹框
-import newPeople from '@/components/public/newPeopleTo.vue'
+import newPeople from '@/components/home/newPeopleTo.vue'
 export default {
 	name: 'home',
 	components:{
