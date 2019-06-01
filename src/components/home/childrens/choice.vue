@@ -314,184 +314,187 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// 轮播图
-.banner
-    .van-swipe
-        border-radius 15px
-        margin-bottom 15px
-        img 
-            width 100%
-
-// 菜单栏目
-.nav-wrap
-    width 100%
-    height 160px
-    background url("~/static/img/home/nav-bg.png") no-repeat 
-    background-size cover
-    margin-bottom 15px
-.nav-wrap >>> .swiper-slide
-    height 160px
-    display flex
-    align-items center
-.nav-wrap >>> .nav-item
-    text-align center
-    margin 0 38px
-    img
-        width 70px
-        height 70px
-        display inline-block
-    span 
-        display block
-        font-size 24px
-        color #fff3ca
-.nav-wrap >>> .swiper-container-horizontal > .swiper-scrollbar
-    width 120px
-    height 6px
-    left 50%
-    margin-left -60px
-    opacity 1
-    background #ffffff
-    border-radius 2px
-.nav-wrap >>> .swiper-scrollbar-drag
-    background-color #ffe679
-    border-radius 2px
-
-// 分类栏目
-.category-wrap
-    background #ffffff
-    border-radius 10px
-    display flex
-    flex-wrap wrap
-    box-shadow 0 0 8px #e6e6e6
-    .cate-item
-        width 50%
-        border-right 1px solid #dadada
-        border-bottom  1px solid #dadada
-        padding 20px
-        box-sizing border-box
-        &:nth-of-type(even)
-            border-right none
-        &:nth-child(3),&:nth-child(4)
-            border-bottom none
-        &:nth-child(2) h3
-            color #fe079e
-        &:nth-child(3) h3
-            color #fe5e07
-        &:nth-child(4) h3
-            color #07a4fe
-        h3
-            font-size 30px
-            color #fe0707
-            font-weight normal
-            
-        p
-            font-size 24px
-            color #353535
-            margin 6px 0
-        .goods-item
-            .img-wrap
+.choice
+    padding 18px 25px 108px
+    box-sizing border-box
+    // 轮播图
+    .banner
+        .van-swipe
+            border-radius 15px
+            margin-bottom 15px
+            img 
                 width 100%
-                height 146px
-                text-align center
-                img 
-                    max-width 100%
-                    max-height 100%
-            .price
-                text-align center
-                height 50px
-                line-height 50px
-                .discount-price
-                    font-size 30px
-                    color #fe0707
-                    .yen
-                        font-size 18px
-                        font-style normal
-                .original-price
-                    text-decoration line-through
-                    color #929292
-// 热卖专区                    
-.hot-sale-area
-    .title
-        height 80px
+
+    // 菜单栏目
+    .nav-wrap
+        width 100%
+        height 160px
+        background url("~/static/img/home/nav-bg.png") no-repeat 
+        background-size cover
+        margin-bottom 15px
+    .nav-wrap >>> .swiper-slide
+        height 160px
         display flex
         align-items center
-        justify-content center
-        &:before
-            content ''
+    .nav-wrap >>> .nav-item
+        text-align center
+        margin 0 38px
+        img
+            width 70px
+            height 70px
+            display inline-block
+        span 
             display block
-            width 101px
-            height 10px
-            background url("/static/img/home/title-before.png") no-repeat
-            background-size cover
-        &:after
-            content ''
-            display block
-            width 101px
-            height 10px
-            background url("/static/img/home/title-after.png") no-repeat
-            background-size cover
-        h3
-            margin 0 10px
-            font-size 30px
-            font-weight normal
-            color #292929
-    .hot-list
+            font-size 24px
+            color #fff3ca
+    .nav-wrap >>> .swiper-container-horizontal > .swiper-scrollbar
+        width 120px
+        height 6px
+        left 50%
+        margin-left -60px
+        opacity 1
+        background #ffffff
+        border-radius 2px
+    .nav-wrap >>> .swiper-scrollbar-drag
+        background-color #ffe679
+        border-radius 2px
+
+    // 分类栏目
+    .category-wrap
+        background #ffffff
+        border-radius 10px
         display flex
         flex-wrap wrap
-        .goods-item
-            width 49%
-            margin-right 10px
-            padding 8px
+        box-shadow 0 0 8px #e6e6e6
+        .cate-item
+            width 50%
+            border-right 1px solid #dadada
+            border-bottom  1px solid #dadada
+            padding 20px
             box-sizing border-box
-            background-color #ffffff
-            margin-bottom 10px
-            box-shadow 0 0 8px #e6e6e6
             &:nth-of-type(even)
-                margin-right 0
-            .img-wrap
-                width 100%
-                height 333px
-                text-align center
-                img 
-                    max-width 100%
-                    max-height 100%
-                    display inline-block
+                border-right none
+            &:nth-child(3),&:nth-child(4)
+                border-bottom none
+            &:nth-child(2) h3
+                color #fe079e
+            &:nth-child(3) h3
+                color #fe5e07
+            &:nth-child(4) h3
+                color #07a4fe
             h3
-                width 100%
-                height 40px
-                line-height 40px
-                font-size 24px
+                font-size 30px
+                color #fe0707
                 font-weight normal
-                background-color #fcf3f4
-                border-radius 15px
-                margin-bottom 10px
-                padding 0 20px
-                box-sizing border-box
-                overflow hidden 
-                white-space nowrap 
-                text-overflow ellipsis
-            .line2
-                color #ff112f
-                display flex
-                justify-content space-between
-                align-items center
+                
+            p
+                font-size 24px
+                color #353535
+                margin 6px 0
+            .goods-item
+                .img-wrap
+                    width 100%
+                    height 146px
+                    text-align center
+                    img 
+                        max-width 100%
+                        max-height 100%
                 .price
-                    font-size 30px
-                    .yen
-                        font-style normal
-                        font-size 18px
-                .share-gold
-                    .share-sign
-                        height 36px
-                        line-height 36px
+                    text-align center
+                    height 50px
+                    line-height 50px
+                    .discount-price
+                        font-size 30px
+                        color #fe0707
+                        .yen
+                            font-size 18px
+                            font-style normal
+                    .original-price
+                        text-decoration line-through
+                        color #929292
+    // 热卖专区                    
+    .hot-sale-area
+        .title
+            height 80px
+            display flex
+            align-items center
+            justify-content center
+            &:before
+                content ''
+                display block
+                width 101px
+                height 10px
+                background url("/static/img/home/title-before.png") no-repeat
+                background-size cover
+            &:after
+                content ''
+                display block
+                width 101px
+                height 10px
+                background url("/static/img/home/title-after.png") no-repeat
+                background-size cover
+            h3
+                margin 0 10px
+                font-size 30px
+                font-weight normal
+                color #292929
+        .hot-list
+            display flex
+            flex-wrap wrap
+            .goods-item
+                width 49%
+                margin-right 10px
+                padding 8px
+                box-sizing border-box
+                background-color #ffffff
+                margin-bottom 10px
+                box-shadow 0 0 8px #e6e6e6
+                &:nth-of-type(even)
+                    margin-right 0
+                .img-wrap
+                    width 100%
+                    height 333px
+                    text-align center
+                    img 
+                        max-width 100%
+                        max-height 100%
                         display inline-block
-                        padding 0px 5px
-                        background-color #fd5014
-                        color #ffffff
-                        font-size 24px
-                        font-style normal
-                        border-radius 5px
-                        
+                h3
+                    width 100%
+                    height 40px
+                    line-height 40px
+                    font-size 24px
+                    font-weight normal
+                    background-color #fcf3f4
+                    border-radius 15px
+                    margin-bottom 10px
+                    padding 0 20px
+                    box-sizing border-box
+                    overflow hidden 
+                    white-space nowrap 
+                    text-overflow ellipsis
+                .line2
+                    color #ff112f
+                    display flex
+                    justify-content space-between
+                    align-items center
+                    .price
+                        font-size 30px
+                        .yen
+                            font-style normal
+                            font-size 18px
+                    .share-gold
+                        .share-sign
+                            height 36px
+                            line-height 36px
+                            display inline-block
+                            padding 0px 5px
+                            background-color #fd5014
+                            color #ffffff
+                            font-size 24px
+                            font-style normal
+                            border-radius 5px
+                            
 
                     
 

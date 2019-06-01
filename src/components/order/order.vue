@@ -30,6 +30,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -55,6 +59,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -80,6 +88,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -104,6 +116,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -131,6 +147,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -156,6 +176,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -183,6 +207,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -207,6 +235,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -233,6 +265,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -258,6 +294,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -285,6 +325,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -310,6 +354,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>Haoduoyi2018秋季新品女装 欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣欧美宽松休闲套头卫衣</h3>
+                                    <div class="good-sku">
+                                        <span class="sku-coll">颜色:蓝色；尺寸:M码</span>
+                                        <span class="price">￥368</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="total-bar">
@@ -326,6 +374,11 @@
                         </div>
                     </li>
                 </ul>
+
+                 <!-- 数据加载完提示 -->
+                <div class="end-wrap">
+                    <p>我是有底线哦~~</p>
+                </div>
 
                 <!-- 无数据 -->
                 <div class="none" style="display:none">
@@ -440,6 +493,7 @@ export default {
             if(this.ispage){
                 var url = '/Order/order_list'
                 var params = new URLSearchParams()
+               
                 params.append('type', type)
                 params.append('page', this.page)
                 this.$axios({
@@ -525,6 +579,17 @@ export default {
                             display -webkit-box
                             -webkit-line-clamp 2
                             -webkit-box-orient vertical
+                            margin-bottom 15px
+                        .good-sku
+                            color #151515
+                            font-size 24px
+                            display flex
+                            justify-content space-between
+                            .sku-coll
+                                font-size 22px
+                        .count
+                            text-align right 
+                            font-size 24px
                 .total-bar
                     height 40px
                     color #6f6f6f
@@ -567,6 +632,11 @@ export default {
                             color #f20c0c
                             border-color #f20c0c
                             background-color #faf8f5
+            .end-wrap
+                font-size 18px
+                color #888888
+                text-align center
+                margin 30px auto
             .none
                 text-align center
                 margin-top 70px

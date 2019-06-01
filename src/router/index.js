@@ -11,6 +11,8 @@ import login from '@/components/login/login'
 import home from '@/components/home/home'
 //精选
 import choice from '@/components/home/childrens/choice'
+// 首页子公共组件
+import subBase from '@/components/home/childrens/subBase'
 //9.9包邮
 import guarantees from '@/components/home/childrens/guarantees'
 //男装
@@ -41,6 +43,8 @@ import coupon from '@/components/home/bargain/coupon'
 
 // 我的订单
 import order from '@/components/order/order'
+// 退货
+import returnGoods from '@/components/order/returnGoods'
 
 /*分类-模块*/
 import branch_class from '@/components/branch_class/branch_class'
@@ -93,9 +97,15 @@ export default new Router({
 					children:[
 						// 精选
 						{ 
-								path: '/index/home/choice', 
-								name:'choice',
-								component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+							path: '/index/home/choice', 
+							name:'choice',
+							component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+						},
+						// 子公共组件
+						{ 
+							path: '/index/home/subBase', 
+							name:'subBase',
+							component: (resolve) => require(['@/components/home/childrens/subBase'],resolve) 
 						},
 						// 9.9包邮
 						{ 
@@ -144,12 +154,13 @@ export default new Router({
 					name: 'cart',
 					component: (resolve) => require(['@/components/cart/cart'],resolve) 
 				},
-					//用户中心
+				//用户中心
 				{
 					path: '/index/user',  
 					name: 'user',
-					component: (resolve) => require(['@/components/user/user'],resolve) 
-				},
+					component: (resolve) => require(['@/components/user/user'],resolve),
+				}
+				
 			]
 		},
 
@@ -219,6 +230,19 @@ export default new Router({
 			name: 'order',
 			component: (resolve) => require(['@/components/order/order'],resolve),
 		},
+		// 退货
+		{
+			path: '/order/returnGoods',
+			name: 'returnGoods',
+			component: (resolve) => require(['@/components/order/returnGoods'],resolve),
+		},
+		// 退款申请
+		{
+			path: '/order/returnRequest',
+			name: 'returnRequest',
+			component: (resolve) => require(['@/components/order/returnRequest'],resolve),
+		},
+
 
 	]
 })

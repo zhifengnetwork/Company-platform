@@ -89,6 +89,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 数据加载完提示 -->
+                <div class="end-wrap">
+                    <p>我是有底线哦~~</p>
+                </div>
+
             </div>
 
         </div>
@@ -217,5 +223,10 @@ export default {
                     position absolute
                     right 20px
                     bottom 20px
+        .end-wrap
+            font-size 18px
+            color #888888
+            text-align center
+            margin 30px auto
 
 </style>
