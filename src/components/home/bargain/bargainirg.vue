@@ -116,31 +116,33 @@ export default {
                    var obj =  {
                         /**整个head的style */
                         head_wrap_style: {
-                        background: '#fff',
+                            background: '#fff',
                         },
                         return_data: {
-                        icon: '/static/img/public/left_icon_555.png',
-                        /*跳转的路由(可以传参)，为空=>返回上一页*/
-                        url_data: '',
+                            icon: '/static/img/public/left_icon_555.png',
+                            /*跳转的路由(可以传参)，为空=>返回上一页*/
+                            url_data: '',
                         },
                         title: {
-                        /**是否-显示该模块 */
-                        need_model: true,
-                        name: '砍一刀',
-                        style: {color:'#333'}
+                            /**是否-显示该模块 */
+                            need_model: true,
+                            name: '砍一刀',
+                            style: {color:'#333'}
                         },
                         right_button: {
-                        need_model: false,
-                        /**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
-                        text: '按钮',
-                        /**图标=>内联失效(只能在头部组件style设置样式，传class名) */
-                        icon: {
-                            class: '',
-                            icon_url: '',
-                        },
-                        /**点击按钮-模块显示 */
-                        show: false,
-                        url_data: '',
+                            need_model: false,
+                            /**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
+                            text: '按钮',
+                            /**切换-模块（显隐），更换text */
+			                change_text: '',
+                            /**图标=>内联失效(只能在头部组件style设置样式，传class名) */
+                            icon: {
+                                class: '',
+                                icon_url: '',
+                            },
+                            /**点击按钮-模块显示 */
+                            show: false,
+                            url_data: '',
                         }
                     }
                 this.$store.commit('change_head',obj);
@@ -170,6 +172,8 @@ export default {
                     need_model: false,
                     /**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
                     text: '按钮',
+                    /**切换-模块（显隐），更换text */
+			        change_text: '',
                     /**图标=>内联失效(只能在头部组件style设置样式，传class名) */
                     icon: {
                         class: '',
