@@ -163,6 +163,8 @@
 					need_model: true,
 					/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
 					text: '',
+					/**切换-模块（显隐），更换text */
+			        change_text: '',
 					/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
 					icon: {
 						class: 'sha',

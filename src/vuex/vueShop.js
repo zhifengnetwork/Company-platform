@@ -45,21 +45,23 @@ const state = {
 			background: '',
 		},
 		return_data: {
+			/**是否-显示该模块 */
 			need_model: true,
 			icon: '/static/img/public/left_icon_555.png',
 			/*跳转的路由(可以传参)，为空=>返回上一页*/
 			url_data: '',
 		},
 		title: {
-			/**是否-显示该模块 */
 			need_model: true,
 			name: '标题',
 			style: {color:'#333'}
 		},
 		right_button: {
 			need_model: false,
-			/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
+			/**通过判断是否值=>为空=> 来控制文字（权重高）和图片的显隐 */
 			text: '按钮',
+			/**切换-模块（显隐），更换text */
+			change_text: '',
 			/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
 			icon: {
 				class: '',
