@@ -46,16 +46,16 @@ export default {
     data(){
         return{
               bannerList:[
-                  { id:1,img:"static/img/friend/code/banner.png"},
-                  { id:2,img:"static/img/friend/code/banner1.png"},
-                  { id:3,img:"static/img/friend/code/banner2.png"},
-                  { id:4,img:"static/img/friend/code/banner3.png"},
-                  { id:5,img:"static/img/friend/code/banner4.png"},
+                  { id:1,img:"/static/img/friend/code/banner.png"},
+                  { id:2,img:"/static/img/friend/code/banner1.png"},
+                  { id:3,img:"/static/img/friend/code/banner2.png"},
+                  { id:4,img:"/static/img/friend/code/banner3.png"},
+                  { id:5,img:"/static/img/friend/code/banner4.png"},
               ],
               shareList:[
-                    {id:1,name:'微信好友',img:'static/img/friend/WeChat.png'},
-                    {id:2,name:'分享朋友圈',img:'static/img/friend/friend.png'},
-                    {id:3,name:'保存图片',img:'static/img/friend/download.png'},
+                    {id:1,name:'微信好友',img:'/static/img/friend/WeChat.png'},
+                    {id:2,name:'分享朋友圈',img:'/static/img/friend/friend.png'},
+                    {id:3,name:'保存图片',img:'/static/img/friend/download.png'},
                   ],
             //生成的二维码海报
               imgUrl:'',
@@ -71,15 +71,15 @@ export default {
         draw(index){
                 var that = this;
                     html2canvas(that.$refs.box[index]).then(function(canvas) {
-                    that.imgUrl = canvas.toDataURL("image/jpeg")
-                    that.bannerList[index].img = canvas.toDataURL("image/jpeg")
+                    that.imgUrl = canvas.toDataURL("image/jpg")
+                    that.bannerList[index].img = canvas.toDataURL("image/jpg")
                 });
          },
           //下载图片
          fileDownload() {
                 var that = this;
                     html2canvas(that.$refs.box[this.indexImg]).then(function(canvas) {
-                    that.imgUrl = canvas.toDataURL("image/jpeg")
+                    that.imgUrl = canvas.toDataURL("image/jpg")
                     });
                     var alink = document.createElement("a");
                     alink.href = this.imgUrl;

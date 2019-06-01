@@ -30,7 +30,8 @@ export default {
         //控制免费领取btn
         telText(){
              var mobile=/^[1]([3-9])[0-9]{9}$/
-             if(this.phone!='' && mobile.test(this.phone)){  //如果不等于空并且满足正则
+             if(this.phone!='' && mobile.test(this.phone)){  
+                 //如果不等于空并且满足正则
                  this.showBtn=true
              }else{
                  this.showBtn=false

@@ -144,9 +144,9 @@ export default new Router({
 				},
 			]
 		},
-
+		/**砍一刀 */
 		{
-			path: '/home/bargain', /**砍一刀 */
+			path: '/home/bargainirg', 
 			name: 'bargainirg',
 			component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
 		},	
@@ -155,6 +155,7 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
+		// 砍价模块
 		{
 			path: '/home/bargain',
 			name: 'bargain',
