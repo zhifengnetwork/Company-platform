@@ -20,37 +20,38 @@
                 </div>
                </div>
                <div class="page-main">
-                   <div class="bargain-list">
+                   <div class="bargain-list" v-for="(item,index) in bargainList" :key="index" :data-goId="item.goods_id">
                        <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
+                           <img :src="baImg+item.img" alt="">
                        </div>
                        <div class="item-detail-text">
                             <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
+                                <router-link to="" class="name-text apostrophe">{{item.goods_name}}</router-link>
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
                                           <div class="price-red">
                                                   ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
+                                              <span class="red-rbn">{{item.surplus_amount}}</span>
+                                              <span class="red-original">￥{{item.price}}</span>
                                           </div>
-                                          <div class="schedule">
+                                          <div class="schedule" v-if="item.is_chopper===1">
                                               <van-progress
                                                 color="#ff0b13"
-                                                :percentage="50"
+                                                :percentage="item.div"
                                                 pivot-text=''
                                                 />
                                           </div>
                                           <div class="over-time">
                                               <span>距离结束:</span>
-                                              <span class="tiem-text publicEllipsis">{{CountDown}}</span>
+                                              <span class="tiem-text publicEllipsis">{{item.down}}</span>
                                           </div>
                                   </div>
                                   <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
+                                        <p class="btn-kan" v-if="item.is_chopper===1">继续砍</p>
+                                        <p class="btn-kan" v-if="item.is_chopper===0">砍一刀</p>
+                                        <p class="kan-pir publicEllipsis" v-if="item.is_chopper===1">已砍{{item.already_amount}}元</p>
+                                        <span class="kan-take publicEllipsis">已有{{item.participants}}参与人</span>
                                   </div>
                             </div>
                        </div>
@@ -70,6 +71,7 @@ import { Swipe, SwipeItem,} from 'vant';
 export default {
       data(){
           return{
+                 show:1,
                  list:[
                      {id:1,name:'王思聪',pic:'0.1'},
                      {id:2,name:'王思聪的表妹',pic:'0.2'},
@@ -78,17 +80,13 @@ export default {
                      {id:5,name:'王思聪的手',pic:'0.5'},
                  ],
                  CountDown:'',
-                 lisTime:[
-                      {
-                          time:1559187280,
-                      },
-                      {
-                          time:1559169280,
-                      },
-                      {
-                          time:1559151280,
-                      },
-                 ],
+                 //显示页码
+                 page:1,
+                 //渲染列表
+                 bargainList:[],
+                 //图片路径
+                 baImg:'http://zfwl.zhifengwangluo.c3w.cc/upload/images/',
+                 
 
                  //T通告
                  animate:false
@@ -99,8 +97,15 @@ export default {
       },
           created(){
                  this.defaultHeader() //默认头部
-                 this.countdowm(1559187280)
+                 
                  setInterval (this.showMarquee, 2000) //通告
+                 //请求列表
+                 this.CutaKnife()
+                 //倒计时
+                 setInterval(()=>{
+                 this.countdowm()
+                 },1000)
+                 
     },
     methods:{
           //移动到一定位置 头部导航更换样式
@@ -176,14 +181,33 @@ export default {
                     }
                 }
                 this.$store.commit('change_head',obj);
+          },
+          //CutaKnife 砍一刀列表渲染
+        CutaKnife(){
+              var url = "chopper/goods_list"
+              var params = new URLSearchParams();
+                  params.append('token', '');
+                  params.append('page', this.page);
+				this.$axios({
+					url:url,
+					method:'get',
+					data:params
+				}).then((result)=>{
+                    this.bargainList = result.data.data.data
+				}).catch((err)=>{
+					console.log(err)
+			}) 
         },
 
         //砍一刀 距离结束时间
-                countdowm (itemEnd) {
-                        let self = this
-                        let timer = setInterval(function () {
+        countdowm () {
+                        let timer = setInterval( ()=> {
+                            for (var key in this.bargainList) {
+                                this.$set(
+                                this.bargainList[key],"down",''
+                                );
                             let nowTime = new Date().getTime()
-                            let endTime = new Date(itemEnd)*1000
+                            let endTime = new Date(this.bargainList[key].end_time)*1000
                             let t = endTime - nowTime
                             if (t > 0) {
                                 let day = Math.floor(t / 86400000)
@@ -203,28 +227,29 @@ export default {
                                 if (day <= 0 && hour <= 0) {
                                     format = `${min}:${sec}`
                                 }
-                                self.CountDown = format
+                                this.bargainList[key]["down"] = format
                             } else {
                                 clearInterval(timer)
-                                self.CountDown = 'over'
+                                this.bargainList[key]["down"] = 'over'
+                            }
                             }
                         }, 1000)
-                },
+          },
 
-            //通告
-            showMarquee: function () {
+        //通告
+        showMarquee: function () {
                 this.animate = true;
                 setTimeout (() => {
                     this.list.push (this.list[ 0 ]);
                     this.list.shift ();
                     this.animate = false;
                 }, 500);
-
-            }
+            },
     },
     mounted(){     
                 var _this = this;
                 window.addEventListener('scroll',this.scrolljia,true)
+                
         },
 }
 </script>
@@ -322,6 +347,7 @@ ul .popup-list .popup-p .popup-message
 .bargain-list .item-detail-text .name
     font-size 25px
     color #000
+    height 54px
 
 .item-detail-text .name .name-text
     color #000

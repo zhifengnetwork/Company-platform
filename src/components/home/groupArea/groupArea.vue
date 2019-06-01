@@ -6,24 +6,24 @@
 	<div class="group">
 		
 		<div class="content">
-			<div class="top_img" v-for="(items,index) in deta" :key="index">
-				<img :src="items.iurl" />
+			<div class="top_img">
+				<img :src="baImg+areaListImg" />
 			</div>
 			<div class="box_wrap">
 				
-				<div class="box" v-for="(list,index) in dcdata" :key="index">
+				<div class="box" v-for="(list,index) in areaList" :key="index">
 					<div class="img_wrap">
 						<div class="img">
-							<img :src="list.imgurl" />
+							<img :src="baImg+list.img" />
 						</div>
-						<div class="time">{{list.tiem}}</div>
-						<div class="piece">{{list.pre}}</div>
+						<div class="time">{{list.down}}</div>
+						<div class="piece">七天爆卖200件</div>
 					</div>
-					<p class="publicEllipsis">{{list.zi}}</p>
+					<p class="publicEllipsis">{{list.goods_name}}</p>
 					<div class="goods_wrap">
 						<div class="good_1">
 							<div class="num">成团价</div>
-							<div class="meoy">￥<span>{{list.cost}}</span></div>
+							<div class="meoy">￥<span>{{list.price}}</span></div>
 						</div>
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
@@ -47,18 +47,15 @@
 	import pageload from '@/components/public/page_load'
 	export default {
 		data() {
-			return{
-				deta: [
-					{id:1,name:'eq',iurl:'/static/img/group_area/nav.png'}
-				],
-                dcdata:[
-					{id:1,name:'ad',imgurl:'static/img/group_area/shop.png',tiem:'5月06日-27日',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999},
-					{id:2,name:'as',imgurl:'static/img/group_area/shop.png',tiem:'5月06日-27日',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999},
-					{id:3,name:'aa',imgurl:'static/img/group_area/shop.png',tiem:'1天 02:05:04',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999},
-					{id:4,name:'ae',imgurl:'static/img/group_area/shop.png',tiem:'10天 02:05:04',pre:'七天爆卖200件',zi:'青年说是你发手机话费HHSJG',cost:99999}
-				],
-				// indexs:[]	
-				 
+			return {
+				//请求页数
+				page:1,
+				//banner
+				areaListImg:'',
+				//渲染列表
+				areaList:[],
+
+				baImg:'http://zfwl.zhifengwangluo.c3w.cc/upload/images/'	 
 			}
 		},
 		components: {
@@ -99,6 +96,58 @@
 			}
 			/**改变vuex对应头部数据 */
 			this.$store.commit('change_head',style_obj);
+			//拼团列表
+			this.ajaxArea();
+			//拼团倒计时
+		  	this.countdowm();
+		},
+		methods:{
+			//拼图列表
+			ajaxArea() {
+				var url="/Groupon/goods_list";
+				var params = new URLSearchParams();
+					params.append('page', this.page);
+				this.$axios({
+					url:url,
+					method:'get',
+					data:params
+				}).then((result)=>{
+					this.areaListImg = result.data.data.group_img;   //banner
+					this.areaList = result.data.data.list;           //渲染
+				}).catch((err)=>{
+					console.log(err);
+				})
+				   
+			},
+			//拼团倒计时
+			countdowm () {
+				setInterval( ()=> {
+					for (var key in this.areaList) {
+						this.$set(
+							this.areaList[key],"down",''
+						);
+						var start = new Date().getTime();
+						var end = this.areaList[key].end_time*1000;  //  结束日期
+						var differ = end - start;
+						var differDate = (Math.floor(differ / 1000 / 60 / 60 / 24));
+
+						var data = new Date(this.areaList[key].start_time*1000);  //开始日期
+						var present = new Date(this.areaList[key].end_time*1000);  //结束日期
+						if(differDate>7){
+							//如果结束日期大于当前日期7天
+							this.areaList[key]["down"] = (data.getMonth()+1) + "月" + data.getDate() + "日" + '-' + (present.getMonth()+1) + '月' + present.getDate() + "日";							
+						}else{							
+							if (differ > 0) {
+								var dd = Math.floor(differ / 1000 / 60 / 60 / 24);
+								var hh = Math.floor((differ / 1000 / 60 / 60) % 24);
+								var mm = Math.floor((differ / 1000 / 60) % 60);
+								var ss = Math.floor((differ / 1000) % 60);
+							}
+							this.areaList[key]["down"] = dd + "天" + hh + "小时" + mm + "分" + ss + "秒";
+						}
+					}
+				}, 1000);
+			},
 
 		},
 	}
@@ -140,10 +189,10 @@
 								max-width: 100%;
 								height: 100%;
 						.time
+							padding: 0 10px;
 							position: absolute;
 							top: 0;
 							right 0;
-							width: 168px;
 							height: 34px;
 							background: url("/static/img/group_area/tiem.png") no-repeat;
 							background-size: 100% 100%;
