@@ -205,8 +205,7 @@ export default new Router({
 			path:'/createcode',
 			name:'createcode',
 			component: (resolve) => require(['@/components/createcode'],resolve),
-		}
-
+		},
 		// 订单列表
 		{
 			path: '/order',
