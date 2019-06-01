@@ -299,21 +299,64 @@
 
         </div>
         
-        <!-- 商品规格 -->
-        <div class="sku-wrap">
+        <!-- 商品规格1 -->
+        <div class="sku-wrap" style="display:none">
             <van-actionsheet v-model="skuShow" title="商品规格">
                 <div class="sku-content">
+                    <!-- 尺寸 -->
                     <div class="sku-row">
                         <div class="sku-row-title">尺寸</div>
                         <div class="sku-row-con">
-                            <span class="sku-row-item">S</span>
+                            <span class="sku-row-item active">S</span>
                             <span class="sku-row-item">M</span>
                             <span class="sku-row-item">L</span>
                         </div>
                     </div>
+
+                    <!-- 颜色 -->
+                    <div class="sku-row">
+                        <div class="sku-row-title">颜色分类</div>
+                        <div class="sku-row-con">
+                            <span class="sku-row-item active">墨绿色</span>
+                            <span class="sku-row-item">粉红色</span>
+                            <span class="sku-row-item">红色</span>
+                            <span class="sku-row-item">黑色</span>
+                        </div>
+                    </div>
+
+                    <!-- 颜色分类 -->
+                    <div class="sku-row">
+                        <div class="sku-row-title" style="padding-bottom:.25rem">购买数量</div>
+                        <div class="stepper">
+                            <van-stepper v-model="value" />
+                        </div>
+                    </div>
+
+                    <!-- 按钮 -->
+                    <button class="confirmBtn" @click="confirm()">确定</button>
+
                 </div>
             </van-actionsheet>
         </div>
+
+        <!-- 商品规格2 -->
+        <van-sku
+            v-model="showBase"
+            :sku="sku"
+            :goods="sku.goods"
+        >
+            <template slot="sku-actions" slot-scope="props">
+                <div class="van-sku-actions">
+                    <van-button
+                        square
+                        size="large"
+                        type="danger"
+                    >
+                        确定
+                    </van-button>
+                </div>
+            </template>
+        </van-sku>
 
         <!-- 底部菜单 -->
         <div class="bottom-bar">
@@ -345,13 +388,14 @@
 <script>
 import Vue from 'vue'
 import AreaList from './area'
-import {GoodsAction,GoodsActionBigBtn,GoodsActionMiniBtn,Toast, } from 'vant'
+import {GoodsAction,GoodsActionBigBtn,GoodsActionMiniBtn,Toast,Sku } from 'vant'
 
 Vue.use(
     GoodsAction,
     GoodsActionBigBtn,
     GoodsActionMiniBtn,
     Toast,
+    Sku 
     )
 
 export default {
@@ -371,6 +415,69 @@ export default {
             areaList:AreaList,// 指定数据源
             couponShow:false,//优惠券上拉菜单
             skuShow:false,//规格
+            value: 1,//步进器默认值
+
+            
+            showBase:false,
+            sku: {
+                // 所有sku规格类目与其值的从属关系，比如商品有颜色和尺码两大类规格，颜色下面又有红色和蓝色两个规格值。
+                // 可以理解为一个商品可以有多个规格类目，一个规格类目下可以有多个规格值。
+                tree: [
+                    {
+                        k: '颜色', // skuKeyName：规格类目名称
+                        v: [
+                            {
+                            id: '30349', // skuValueId：规格值 id
+                            name: '红色', // skuValueName：规格值名称
+                            imgUrl: 'https://img.yzcdn.cn/1.jpg' // 规格类目图片，只有第一个规格类目可以定义图片
+                            },
+                            {
+                            id: '1215',
+                            name: '蓝色',
+                            imgUrl: 'https://img.yzcdn.cn/2.jpg'
+                            }
+                        ],
+                        k_s: 's1' // skuKeyStr：sku 组合列表（下方 list）中当前类目对应的 key 值，value 值会是从属于当前类目的一个规格值 id
+                    },
+                    {
+                        k: '尺码',
+                        v: [
+                            {
+                                id: '1193',
+                                name: 'S',
+                            },
+                            {
+                                id: '222',
+                                name: 'M',
+                            }
+                        ],
+                        k_s: 's2'
+                    }
+                ],
+                // 所有 sku 的组合列表，比如红色、M 码为一个 sku 组合，红色、S 码为另一个组合
+                list: [
+                    {
+                    id: 2259, // skuId，下单时后端需要
+                    price: 100, // 价格（单位分）
+                    s1: '1215', // 规格类目 k_s 为 s1 的对应规格值 id
+                    s2: '1193', // 规格类目 k_s 为 s2 的对应规格值 id
+                    s3: '0', // 最多包含3个规格值，为0表示不存在该规格
+                    stock_num: 110 // 当前 sku 组合对应的库存
+                    }
+                ],
+                price: '1.00', // 默认价格（单位元）
+                stock_num: 227, // 商品总库存
+                collection_id: 2261, // 无规格商品 skuId 取 collection_id，否则取所选 sku 组合对应的 id
+                none_sku: false, // 是否无规格商品
+                hide_stock: false, // 是否隐藏剩余库存
+                goods: {
+                    // 商品标题
+                    title: '测试商品',
+                    // 默认商品 sku 缩略图
+                    picture: 'https://img.yzcdn.cn/2.jpg'
+                },
+            },
+
         }
     },
     methods:{
@@ -389,8 +496,19 @@ export default {
         },
         // 显示规格
         handleBtn(){
-            this.skuShow = true
-        }  
+            // this.skuShow = true
+            this.showBase = true
+        },
+        // 关闭规格选择
+        close(){
+            this.skuShow = false
+        },
+        // 商品规格选择确定
+        confirm(){
+            this.close()
+        }
+
+
     }
 }
 </script>
@@ -630,18 +748,43 @@ export default {
         .sku-content
             padding 0 25px
             box-sizing border-box
-            .sku-row-title
-                font-size 30px
-                color #151515
-            .sku-row-con
-                .sku-row-item
-                    width 160px
-                    height 40px
-                    line-height 40px
-                    background-color #f3f3f3
-                    text-align center
-                    display inline-block
-                
+            .sku-row
+                border-bottom 1px solid #e6e6e6
+                position relative
+                .sku-row-title
+                    font-size 30px
+                    color #151515
+                    margin 30px auto
+                .sku-row-con
+                    .sku-row-item
+                        width 160px
+                        height 40px
+                        line-height 40px
+                        background-color #f3f3f3
+                        text-align center
+                        margin-right 100px
+                        margin-bottom 28px
+                        display inline-block
+                        border-radius 8px
+                        &.active
+                            background-color #ff0000
+                            color #ffffff
+                        &:nth-child(3n+3)
+                            margin-right 0
+                .stepper
+                    position absolute
+                    right 0
+                    top 0
+                        
+            .confirmBtn
+                width 100%
+                height 50px
+                line-height 50px
+                border none
+                border-radius 20px
+                color #ffffff
+                background linear-gradient(to right, #ff2d10 , #fa1c2c)
+                margin 30px auto 10px
 
     .bottom-bar
         .van-goods-action

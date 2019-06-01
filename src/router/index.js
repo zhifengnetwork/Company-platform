@@ -39,7 +39,8 @@ import bargain from '@/components/home/bargain/bargain'
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
 
-
+// 我的订单
+import order from '@/components/order/order'
 
 
 /*会员-模块*/
@@ -177,6 +178,12 @@ export default new Router({
 
 		},
 		{
+			path: '/home/groupArea/Info',
+			name: 'groupInfo',
+			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
+
+		},
+		{
 			path: '/home/flashSale',  // 限时购
 			name: 'flashSale',
 			component: (resolve) => require(['@/components/home/flashSale/flashSale'],resolve),
@@ -199,6 +206,13 @@ export default new Router({
 			name:'createcode',
 			component: (resolve) => require(['@/components/createcode'],resolve),
 		}
+
+		// 订单列表
+		{
+			path: '/order',
+			name: 'order',
+			component: (resolve) => require(['@/components/order/order'],resolve),
+		},
 
 	]
 })
