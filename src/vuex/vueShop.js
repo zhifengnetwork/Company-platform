@@ -102,10 +102,11 @@ const mutations = {
 	head_right_but(state) {
 		console.log('头部-右边-按钮=> show || hide');
 		if (state.top_head_data['right_button']['show']) {
-			state.top_head_data['right_button']['show'] = true;
-		} else {
 			state.top_head_data['right_button']['show'] = false;
-		}
+		} else {
+			state.top_head_data['right_button']['show'] = true;
+		}	
+	
 	},
 	/**分页 loading 显示 */
 	page_load(state,_styleObj){

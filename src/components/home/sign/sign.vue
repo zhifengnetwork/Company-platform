@@ -116,21 +116,21 @@
 		},
 		methods:{
 
-			dika:function(){
+			dika(){
 				this.poup=true
 			},
-			x:function(){
+			x(){
 				this.poup=false
 			},
-			xx:function(){
+			xx(){
 				this.poup1=false
 			},
-			sure:function(){	
+			sure(){	
 				this.$axios({
 					method: 'post',
-					url: '/api/clock/old_join_clock',
+					url: '/clock/old_join_clock',
 					data: {
-						
+						token: '123456'
 					}
 					}).then((res) => {
 						console.log(res)

@@ -32,16 +32,13 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
-<<<<<<< HEAD
 // 砍价模块
-import bargain from '@/components/home/bargain/bargain'
-=======
+import bargaindetail from '@/components/home/bargain/bargaindetail'
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
->>>>>>> 772cc585e668e5b6b0f88f2e68839f787e7de7be
 
-
-
+// puls会员专区
+import memberarea from '@/components/home/memberarea/memberarea'
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -152,18 +149,19 @@ export default new Router({
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
 
-		//拼团订单
+		//砍价详情
 		{
-<<<<<<< HEAD
-			path: '/home/bargain',
+			path: '/home/bargain/bargaindetail',
 			name: 'bargain',
-			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
+			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
 		{
-			path: '/home/groupArea', 
-=======
+			path: '/home/memberarea/memberareal',
+			name: 'memberarea',
+			component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
+		},
+		{
 			path: '/home/groupArea', /**拼团 */
->>>>>>> 772cc585e668e5b6b0f88f2e68839f787e7de7be
 			name: 'groupArea',
 			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
 			},
