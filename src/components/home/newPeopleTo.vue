@@ -1,5 +1,6 @@
 <template>
     <div class="chose-panel" v-show="popShow" @click="popShow=false" @touchmove.prevent>
+    <!-- <div class="chose-panel" v-show="popShow" @touchmove.prevent> -->
      <div class="backgImg">
         <div class="banner-pop-up" @click.stop="userClick=true">
                <div class="btn-pop-up">
@@ -57,7 +58,7 @@ export default {
         margin-bottom 25px
         position relative
     .banner-pop-up
-        background url('/static/img/home/qiang.png') no-repeat
+        background url('/static/img/home/new_red_package.png') no-repeat
         background-size 100% 100%
         height 100%
         width 100%
