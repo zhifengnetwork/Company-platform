@@ -35,9 +35,13 @@
 
 <script>
 //新人弹框
-import newPeople from '@/components/public/newPeopleTo.vue'
+import newPeople from '@/components/home/newPeopleTo.vue'
 export default {
 	name: 'home',
+	components:{
+		//新人弹框
+		newPeople
+	},
   	data() {
 		return {
 			active:0,
@@ -69,10 +73,7 @@ export default {
 		}
 	},
 
-	components:{
-            //新人弹框
-		    newPeople
-	  }
+
 };
 </script>
 

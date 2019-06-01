@@ -41,7 +41,7 @@
 <script>
 import { Lazyload } from 'vant';
 //二维码和图片合成的海报
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 export default {
     data(){
         return{
