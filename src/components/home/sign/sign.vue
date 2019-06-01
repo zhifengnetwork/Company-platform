@@ -86,7 +86,8 @@
 					background: '',
 				},
 				return_data: {
-					icon: '/static/img/left_icon_fff.png',
+					need_model: true,
+					icon: '/static/img/public/left_icon_fff.png',
 					/*跳转的路由(可以传参)，为空=>返回上一页*/
 					url_data: '',
 				},
