@@ -1,15 +1,14 @@
 <template>
-    <div class="guarantees">
-        9.9包邮
-    </div>
+    <div>分类</div>
 </template>
 
 <script>
 export default {
-     
+    name: 'branch_class',
 }
 </script>
 
 <style lang="stylus" scoped>
-
+    
 </style>
+

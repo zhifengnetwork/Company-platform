@@ -9,279 +9,54 @@
                         <img src="static/img/bargain/lo.png" alt="" class="banner-right">
                     </div>
                       <div class="popup-box">
-                    <van-swipe :autoplay="5000" vertical  :show-indicators="false" :loop="true">
-                        <van-swipe-item v-for="item in list" :key="item.id">
-                                               <ul class="popup-info">
-                                                   <li class="popup-list">
-                                                        <p class="popup-p">
-                                                            <img src="static/img/user/0001.jpg" alt="" class="popup-head">
-                                                            <span class="popup-message publicEllipsis">{{item.name}}的表砍了{{item.pic}}元</span>
-                                                        </p>
-                                                    </li>
-                                               </ul> 
-                        </van-swipe-item>
-                    </van-swipe>
-                        <!-- <li class="popup-list">
+                    <ul class="popup-info " :class="{marquee_top:animate}">
+                        <li class="popup-list"  v-for="item in list" :key="item.id">
                             <p class="popup-p">
                                 <img src="static/img/user/0001.jpg" alt="" class="popup-head">
-                                <span class="popup-message publicEllipsis">王思聪的表砍了0.5元</span>
+                                <span class="popup-message publicEllipsis">{{item.name}}的表砍了{{item.pic}}元</span>
                             </p>
                         </li>
-                        <li class="popup-list">
-                            <p class="popup-p">
-                                <img src="static/img/user/0001.jpg" alt="" class="popup-head">
-                                <span class="popup-message publicEllipsis">王思聪的表砍了0.5元</span>
-                            </p>
-                        </li> -->
-                    <!-- </ul> -->
+                    </ul>
                 </div>
                </div>
                <div class="page-main">
-                   <div class="bargain-list">
+                   <div class="bargain-list" v-for="(item,index) in bargainList" :key="index" :data-goId="item.goods_id">
                        <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
+                           <img :src="baImg+item.img" alt="">
                        </div>
                        <div class="item-detail-text">
                             <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
+                                <router-link to="" class="name-text apostrophe">{{item.goods_name}}</router-link>
                             </div>
                             <div class="detail-pric">
                                   <div class="price">
                                           <div class="price-red">
                                                   ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
+                                              <span class="red-rbn">{{item.surplus_amount}}</span>
+                                              <span class="red-original">￥{{item.price}}</span>
                                           </div>
-                                          <div class="schedule">
+                                          <div class="schedule" v-if="item.is_chopper===1">
                                               <van-progress
                                                 color="#ff0b13"
-                                                :percentage="50"
+                                                :percentage="item.div"
                                                 pivot-text=''
                                                 />
                                           </div>
                                           <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
+                                              <span>距离结束:</span>
+                                              <span class="tiem-text publicEllipsis">{{item.down}}</span>
                                           </div>
                                   </div>
                                   <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
+                                        <p class="btn-kan" v-if="item.is_chopper===1">继续砍</p>
+                                        <p class="btn-kan" v-if="item.is_chopper===0">砍一刀</p>
+                                        <p class="kan-pir publicEllipsis" v-if="item.is_chopper===1">已砍{{item.already_amount}}元</p>
+                                        <span class="kan-take publicEllipsis">已有{{item.participants}}参与人</span>
                                   </div>
                             </div>
                        </div>
                    </div>
-                   <div class="bargain-list">
-                       <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
-                       </div>
-                       <div class="item-detail-text">
-                            <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
-                            </div>
-                            <div class="detail-pric">
-                                  <div class="price">
-                                          <div class="price-red">
-                                                  ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
-                                          </div>
-                                          <div class="schedule">
-                                              <van-progress
-                                                color="#ff0b13"
-                                                :percentage="50"
-                                                pivot-text=''
-                                                />
-                                          </div>
-                                          <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
-                                          </div>
-                                  </div>
-                                  <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
-                                  </div>
-                            </div>
-                       </div>
-                   </div>
-                   <div class="bargain-list">
-                       <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
-                       </div>
-                       <div class="item-detail-text">
-                            <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
-                            </div>
-                            <div class="detail-pric">
-                                  <div class="price">
-                                          <div class="price-red">
-                                                  ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
-                                          </div>
-                                          <div class="schedule">
-                                              <van-progress
-                                                color="#ff0b13"
-                                                :percentage="50"
-                                                pivot-text=''
-                                                />
-                                          </div>
-                                          <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
-                                          </div>
-                                  </div>
-                                  <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
-                                  </div>
-                            </div>
-                       </div>
-                   </div>
-                   <div class="bargain-list">
-                       <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
-                       </div>
-                       <div class="item-detail-text">
-                            <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
-                            </div>
-                            <div class="detail-pric">
-                                  <div class="price">
-                                          <div class="price-red">
-                                                  ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
-                                          </div>
-                                          <div class="schedule">
-                                              <van-progress
-                                                color="#ff0b13"
-                                                :percentage="50"
-                                                pivot-text=''
-                                                />
-                                          </div>
-                                          <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
-                                          </div>
-                                  </div>
-                                  <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
-                                  </div>
-                            </div>
-                       </div>
-                   </div>
-                   <div class="bargain-list">
-                       <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
-                       </div>
-                       <div class="item-detail-text">
-                            <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
-                            </div>
-                            <div class="detail-pric">
-                                  <div class="price">
-                                          <div class="price-red">
-                                                  ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
-                                          </div>
-                                          <div class="schedule">
-                                              <van-progress
-                                                color="#ff0b13"
-                                                :percentage="50"
-                                                pivot-text=''
-                                                />
-                                          </div>
-                                          <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
-                                          </div>
-                                  </div>
-                                  <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
-                                  </div>
-                            </div>
-                       </div>
-                   </div>
-                   <div class="bargain-list">
-                       <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
-                       </div>
-                       <div class="item-detail-text">
-                            <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
-                            </div>
-                            <div class="detail-pric">
-                                  <div class="price">
-                                          <div class="price-red">
-                                                  ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
-                                          </div>
-                                          <div class="schedule">
-                                              <van-progress
-                                                color="#ff0b13"
-                                                :percentage="50"
-                                                pivot-text=''
-                                                />
-                                          </div>
-                                          <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
-                                          </div>
-                                  </div>
-                                  <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
-                                  </div>
-                            </div>
-                       </div>
-                   </div>
-                   <div class="bargain-list">
-                       <div class="item-proImg">
-                           <img src="static/img/group_area/order/1.png" alt="">
-                       </div>
-                       <div class="item-detail-text">
-                            <div class="name">
-                                <router-link to="" class="name-text apostrophe">你不想吃几口不将就看吧金把把把把把把把把把把把卡金卡金卡金卡金卡金卡金卡</router-link>
-                            </div>
-                            <div class="detail-pric">
-                                  <div class="price">
-                                          <div class="price-red">
-                                                  ￥
-                                              <span class="red-rbn">360.00</span>
-                                              <span class="red-original">￥700.00</span>
-                                          </div>
-                                          <div class="schedule">
-                                              <van-progress
-                                                color="#ff0b13"
-                                                :percentage="50"
-                                                pivot-text=''
-                                                />
-                                          </div>
-                                          <div class="over-time">
-                                              距离结束:
-                                              <span class="tiem-text publicEllipsis">23:23:55</span>
-                                          </div>
-                                  </div>
-                                  <div class="bargain-btn">
-                                        <p class="btn-kan ">砍一刀</p>
-                                        <p class="kan-pir publicEllipsis">已砍66元</p>
-                                        <span class="kan-take publicEllipsis">已有4453参与人</span>
-                                  </div>
-                            </div>
-                       </div>
-                   </div>
+                   
                </div>
       </div>
     </div>
@@ -296,20 +71,41 @@ import { Swipe, SwipeItem,} from 'vant';
 export default {
       data(){
           return{
+                 show:1,
                  list:[
                      {id:1,name:'王思聪',pic:'0.1'},
-                     {id:2,name:'王思聪的表',pic:'0.2'},
+                     {id:2,name:'王思聪的表妹',pic:'0.2'},
                      {id:3,name:'王思聪的车',pic:'0.3'},
                      {id:4,name:'王思聪的狗',pic:'0.4'},
                      {id:5,name:'王思聪的手',pic:'0.5'},
-                 ]
+                 ],
+                 CountDown:'',
+                 //显示页码
+                 page:1,
+                 //渲染列表
+                 bargainList:[],
+                 //图片路径
+                 baImg:'http://zfwl.zhifengwangluo.c3w.cc/upload/images/',
+                 
+
+                 //T通告
+                 animate:false
           }
       },
       components:{
           Pheader
       },
           created(){
-                this.defaultHeader() //默认头部
+                 this.defaultHeader() //默认头部
+                 
+                 setInterval (this.showMarquee, 2000) //通告
+                 //请求列表
+                 this.CutaKnife()
+                 //倒计时
+                 setInterval(()=>{
+                 this.countdowm()
+                 },1000)
+                 
     },
     methods:{
           //移动到一定位置 头部导航更换样式
@@ -323,7 +119,7 @@ export default {
                         background: '#fff',
                         },
                         return_data: {
-                        icon: '/static/img/left_icon_555.png',
+                        icon: '/static/img/public/left_icon_555.png',
                         /*跳转的路由(可以传参)，为空=>返回上一页*/
                         url_data: '',
                         },
@@ -360,7 +156,7 @@ export default {
                     background: '',
                     },
                     return_data: {
-                    icon: '/static/img/left_icon_fff.png',
+                    icon: '/static/img/public/left_icon_fff.png',
                     /*跳转的路由(可以传参)，为空=>返回上一页*/
                     url_data: '',
                     },
@@ -385,11 +181,75 @@ export default {
                     }
                 }
                 this.$store.commit('change_head',obj);
-        }
+          },
+          //CutaKnife 砍一刀列表渲染
+        CutaKnife(){
+              var url = "chopper/goods_list"
+              var params = new URLSearchParams();
+                  params.append('token', '');
+                  params.append('page', this.page);
+				this.$axios({
+					url:url,
+					method:'get',
+					data:params
+				}).then((result)=>{
+                    this.bargainList = result.data.data.data
+				}).catch((err)=>{
+					console.log(err)
+			}) 
+        },
+
+        //砍一刀 距离结束时间
+        countdowm () {
+                        let timer = setInterval( ()=> {
+                            for (var key in this.bargainList) {
+                                this.$set(
+                                this.bargainList[key],"down",''
+                                );
+                            let nowTime = new Date().getTime()
+                            let endTime = new Date(this.bargainList[key].end_time)*1000
+                            let t = endTime - nowTime
+                            if (t > 0) {
+                                let day = Math.floor(t / 86400000)
+                                let hour = Math.floor((t / 3600000) % 24)
+                                let min = Math.floor((t / 60000) % 60)
+                                let sec = Math.floor((t / 1000) % 60)
+                                hour = hour < 10 ? '0' + hour : hour
+                                min = min < 10 ? '0' + min : min
+                                sec = sec < 10 ? '0' + sec : sec
+                                let format = ''
+                                if (day > 0) {
+                                    format = `${day}:${hour}:${min}:${sec}`
+                                }
+                                if (day <= 0 && hour > 0) {
+                                    format = `${hour}:${min}:${sec}`
+                                }
+                                if (day <= 0 && hour <= 0) {
+                                    format = `${min}:${sec}`
+                                }
+                                this.bargainList[key]["down"] = format
+                            } else {
+                                clearInterval(timer)
+                                this.bargainList[key]["down"] = 'over'
+                            }
+                            }
+                        }, 1000)
+          },
+
+        //通告
+        showMarquee: function () {
+                this.animate = true;
+                setTimeout (() => {
+                    this.list.push (this.list[ 0 ]);
+                    this.list.shift ();
+                    this.animate = false;
+                }, 500);
+            },
     },
     mounted(){     
                 var _this = this;
                 window.addEventListener('scroll',this.scrolljia,true)
+                
         },
 }
 </script>
@@ -416,21 +276,17 @@ img
     height 90px
     width 90px
 .popup-box
-    height 160px
+    height 140px
     width 500px
     position absolute
     bottom 0
     left 0
-    .van-swipe
-        height 160px!important
-    .van-swipe-item
-        max-width 500px
-        height 80px!important
+    overflow hidden
  .popup-info
     margin-left 24px
     margin-bottom 16px
     max-width 500px
-    height 60px
+    // height 60px
     // position absolute
     // left 0
     // bottom 0 
@@ -443,6 +299,10 @@ img
     border-radius 10px
     line-height 60px
     margin-bottom 10px
+
+.marquee_top 
+    transition: all 0.5s;
+    margin-top: -70px;
 
 ul .popup-list .popup-p
     height 100%
@@ -487,11 +347,13 @@ ul .popup-list .popup-p .popup-message
 .bargain-list .item-detail-text .name
     font-size 25px
     color #000
+    height 54px
 
 .item-detail-text .name .name-text
     color #000
     font-size 25px
     font-family: YouYuan;
+    line-height 30px
 
 .item-detail-text   .detail-pric
     display flex
@@ -519,6 +381,11 @@ ul .popup-list .popup-p .popup-message
 .detail-pric .price .over-time
     font-size 24px
     font-weight: normal
+    display flex
+
+.detail-pric .price .over-time>span
+    display inline-block
+    width 47%
 
 .detail-pric .price  .schedule
     padding-bottom 20px

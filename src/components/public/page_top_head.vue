@@ -1,7 +1,7 @@
 <template>
     <!-- 默认: 透明底 -->
     <div class="head_wrap" :style="$store.state.top_head_data['head_wrap_style']">
-        <div class="head_return_box">
+        <div class="head_return_box" v-if="$store.state.top_head_data['return_data']['need_model']">
           <img class="head_return_icon centered" :src="$store.state.top_head_data['return_data']['icon']" alt="">
           <!-- 遮盖，返回图标，防止部分手机，点击-图片放大 -->
           <p class="head_return_button" @click.stop="return_button($store.state.top_head_data['return_data']['url_data'])"></p>

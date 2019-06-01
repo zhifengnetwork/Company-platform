@@ -29,20 +29,25 @@
 				</van-tab>
 			</van-tabs>
 		</div>
-		
+		<newPeople></newPeople>
   </div>
 </template>
 
 <script>
-
+//新人弹框
+import newPeople from '@/components/home/newPeopleTo.vue'
 export default {
 	name: 'home',
+	components:{
+		//新人弹框
+		newPeople
+	},
   	data() {
 		return {
 			active:0,
 			selectedId: 0,
 			items: [
-				{label: '精选'},
+				{label: '精选',},
 				{label: '9.9包邮'},
 				{label: '男装'},
 				{label: '女装'},
@@ -66,7 +71,9 @@ export default {
 		handleChange (index){
 			this.$router.replace(this.path[index])
 		}
-  	}
+	},
+
+
 };
 </script>
 
