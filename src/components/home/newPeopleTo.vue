@@ -57,7 +57,7 @@ export default {
         margin-bottom 25px
         position relative
     .banner-pop-up
-        background url('/static/img/public/qiang.png') no-repeat
+        background url('/static/img/home/qiang.png') no-repeat
         background-size 100% 100%
         height 100%
         width 100%
