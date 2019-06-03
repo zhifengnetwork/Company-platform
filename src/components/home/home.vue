@@ -58,19 +58,29 @@ export default {
 				activeColor: '#ffffff'
 			},
 			path: [
-				'/index/home/choice', 
-				'/index/home/guarantees', 
-				'/index/home/male', 
-				'/index/home/female', 
-				'/index/home/homeTextile', 
-				'/index/home/appliances'
-			]
+				'/index/home/choice',
+				'/index/home/subBase',  
+				// '/index/home/guarantees', 
+				// '/index/home/male', 
+				// '/index/home/female', 
+				// '/index/home/homeTextile', 
+				// '/index/home/appliances'
+			],
+			nowIndex:0,
+			type:this.$route.query.type,
+			ispage:true,//是否请求数据
 		}
 	},
 	methods: {
 		handleChange (index){
-			this.$router.replace(this.path[index])
-		}
+			// this.$router.replace(this.path[index])
+			if (index === 0) {
+				this.$router.push('/index/home/choice')
+			}else{
+				this.$router.push('/index/home/subBase?type=' +index)
+            }
+		},
+		
 	},
 
 
@@ -159,9 +169,7 @@ export default {
 			font-size 30px
 		.van-tabs >>> .van-tabs__wrap--scrollable .van-tab
 			flex-basis: 17% !important
-		.van-tabs >>> .van-tab__pane
-			padding 0 25px
-			box-sizing border-box	
+		
 
 
 			
