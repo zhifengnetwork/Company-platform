@@ -68,16 +68,21 @@ export default new Router({
 	/*路由模式*/
 	mode: 'hash',
 	routes: [
+	// 	{
+	// 		path: '/',
+	// 		redirect: '/login', /**重定向**/
+	// 		component: (resolve) => require(['@/components/login/login'],resolve) // 懒加载
+	// 	},
+	// 	// 登录
+	// 	{
+	// 		path: '/login',
+	// 		name: '/login',
+	// 		component: (resolve) => require(['@/components/login/login'],resolve)
+	// 	},
 		{
 			path: '/',
-			redirect: '/login', /**重定向**/
+			redirect: '/index', /**重定向**/
 			component: (resolve) => require(['@/components/login/login'],resolve) // 懒加载
-		},
-		// 登录
-		{
-			path: '/login',
-			name: '/login',
-			component: (resolve) => require(['@/components/login/login'],resolve)
 		},
 
 		// 首页
