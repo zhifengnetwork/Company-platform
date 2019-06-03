@@ -50,8 +50,14 @@ import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
-/*我的-申请供应商*/
-import ApplicationSupplier from '@/components/user/ApplicationSupplier'
+/*申请供应商*/
+import ApplicationSupplier from '@/components/user/my/ApplicationSupplier'
+/*账户余额*/
+import TheAccountBalance from '@/components/user/my/TheAccountBalance'
+/*充值金额*/
+import TopUpAmount from '@/components/user/my/TopUpAmount'
+/*账户提现*/
+import withdrawal from '@/components/user/my/withdrawal'
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -163,7 +169,25 @@ export default new Router({
 		{
 			path: '/index/user/ApplicationSupplier',  
 			name: 'ApplicationSupplier',
-			component: (resolve) => require(['@/components/user/ApplicationSupplier'],resolve) 
+			component: (resolve) => require(['@/components/user//my/ApplicationSupplier'],resolve) 
+		},
+		// 账户余额
+		{
+			path: '/index/user/TheAccountBalance',  
+			name: 'TheAccountBalance',
+			component: (resolve) => require(['@/components/user//my/TheAccountBalance'],resolve) 
+		},
+		// 充值金额
+		{
+			path: '/index/user/TopUpAmount',  
+			name: 'TopUpAmount',
+			component: (resolve) => require(['@/components/user//my/TopUpAmount'],resolve) 
+		},
+		// 账户提现
+		{
+			path: '/index/user/withdrawal',  
+			name: 'withdrawal',
+			component: (resolve) => require(['@/components/user//my/withdrawal'],resolve) 
 		},
 		/**砍一刀 */
 		{

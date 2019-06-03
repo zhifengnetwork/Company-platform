@@ -1,16 +1,15 @@
 <template>
-	<div class="sup_wrap">
-		<div class="public_head">
-            <headtop></headtop>
+	<div class="wit_wrap">
+		<div class="public_head head">
+            <HeadTop></HeadTop>
         </div>
         
-		
 	</div>
 </template>
 
 <script>
 	/**头部 */
-	import headtop from '@/components/public/page_top_head'
+	import HeadTop from '@/components/public/page_top_head'
 	export default {
 		data() {
 			return{
@@ -18,7 +17,7 @@
 			}
 		},
 		components: {
-			headtop,
+			HeadTop,
 		},
 		/*组件实例创建完成，属性已绑定，但DOM还未生成*/
 		created: function(){
@@ -36,7 +35,7 @@
 				title: {
 					/**是否-显示该模块 */
 					need_model: true,
-					name: '申请供应商',
+					name: '账户提现',
 					style: {color:'#151515'}
 				},
 				right_button: {
@@ -60,9 +59,11 @@
 
 		},
 		methods: {
+             
 		}
 	}
 </script>
 
-<style>
+<style lang="stylus" scoped>
+
 </style>
