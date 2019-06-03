@@ -1,8 +1,8 @@
 <template>
     <div class="chose-panel" v-show="popShow" @click="popShow=false" @touchmove.prevent>
-    <!-- <div class="chose-panel" v-show="popShow" @touchmove.prevent> -->
-     <div class="backgImg">
-        <div class="banner-pop-up" @click.stop="userClick=true">
+        <!-- <div class="chose-panel" v-show="popShow" @touchmove.prevent> -->
+        <div class="backgImg">
+            <div class="banner-pop-up" @click.stop="userClick=true">
                <div class="btn-pop-up">
                     <div class="btn-input">
                         <input type="tel" v-model="phone" placeholder="请输入手机号码" @keyup="telText">
@@ -11,8 +11,8 @@
                          <button class="haveNot " :class="{btnRed:showBtn}" :disabled="showBtn===false">免费领取</button>
                     </div>
                </div>
+            </div>
         </div>
-    </div>
    </div>
 </template>
 <script>
@@ -20,23 +20,67 @@ export default {
     data(){
         return{
             //控制弹框显示
-            popShow:true,
+            popShow: true,
             //手机号
-            phone:'',
+            phone: '',
             //免费领取btn高亮
-            showBtn:false
+            showBtn: false,
+            /**微信端--授权地址（后台传入） */
+            author_url: null,
+            /**授权或的code */
+            this_code: null,
+
         }
+    },
+    mounted: function(){
+        /**当前的url */
+        var this_url = window.location.href;
+        /**判断是否-授权回来,传回的code参数 */
+        if(this_url.indexOf('code=') != -1){
+            // alert(window.location.href);
+            this_url.split('code=')[1];
+            alert( this_url.split('code=')[1]);
+        }else {
+            /*axios=>请求 -s*/
+            this.$axios.post("user/login")
+                .then((res)=>{
+                    console.log('成功',res['data']);
+                    /**未授权过 */
+                    if(res['data']['status']){
+                        /**微信端--授权地址 */
+                        this.author_url = res['data']['data'];
+                        this.isWeiXin(); 
+                    }
+                
+                })
+                .catch((err) => {
+                    alert('页面请求失败：'+error);
+                    console.log(error);
+                })
+        }
+        /*axios=>请求 -e*/
     },
     methods:{
         //控制免费领取btn
         telText(){
-             var mobile=/^[1]([3-9])[0-9]{9}$/
-             if(this.phone!='' && mobile.test(this.phone)){  
-                 //如果不等于空并且满足正则
+             var mobile=/^[1]([3-9])[0-9]{9}$/;
+             if(this.phone!='' && mobile.test(this.phone)){  //如果不等于空并且满足正则
                  this.showBtn=true
              }else{
                  this.showBtn=false
              }
+        },
+        /**判断当前是否-微信端 */
+        isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                // alert('微信端');
+                window.location.href = this.author_url;
+                return true;
+            } else {
+                // alert('不是-微信端22');
+                return false;
+            }
         }
     }
 }

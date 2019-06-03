@@ -50,6 +50,8 @@ import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
+/*我的-申请供应商*/
+import ApplicationSupplier from '@/components/user/ApplicationSupplier'
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -156,6 +158,12 @@ export default new Router({
 					component: (resolve) => require(['@/components/user/user'],resolve) 
 				},
 			]
+		},
+		// 申请供应商
+		{
+			path: '/index/user/ApplicationSupplier',  
+			name: 'ApplicationSupplier',
+			component: (resolve) => require(['@/components/user/ApplicationSupplier'],resolve) 
 		},
 		/**砍一刀 */
 		{
