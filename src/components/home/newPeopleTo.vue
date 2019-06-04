@@ -46,9 +46,15 @@ export default {
         /**授权-也是写在 会话存储 里 */
         window.sessionStorage.setItem("token", token_data);
         console.log("token: ",window.sessionStorage.getItem("token"));
-        /**弹框-蒙版 隐藏 */
-        this.popShow = false;
-        return false;
+        /**改 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
+        if(window.sessionStorage.getItem("this_router")){
+            window.location.href = window.sessionStorage.getItem("this_router");
+        }else {
+            /**弹框-蒙版 隐藏 */
+            this.popShow = false;
+            return false;
+        }
+        
         /**写死 token 上线删掉 -e*/
 
 
@@ -94,10 +100,17 @@ export default {
                              * 因为 每次进入都要授权，所以用会话存储
                              * 存储token;
                              * **/
-                            window.sessionStorage.setItem("token", _res['data']['data']['token']);    
-                            /**弹框-蒙版 隐藏 */
-                            this.popShow = false;
-                            return false;
+                            window.sessionStorage.setItem("token", _res['data']['data']['token']);  
+                            window.sessionStorage.setItem("this_router",window.location.href)
+                            /**改 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
+                            if(window.sessionStorage.getItem("this_router")){
+                                window.location.href = window.sessionStorage.getItem("this_router");
+                            } else {
+                                /**弹框-蒙版 隐藏 */
+                                this.popShow = false;
+                                return false;   
+                            } 
+                           
                         }
                         /**未-绑定手机 */
                         if(_res['data']['data']['is_checked'] == 0){
@@ -188,8 +201,14 @@ export default {
                      * 存储token;
                      * **/
                     window.sessionStorage.setItem("token", _data['data']['data']['token']);
-                    /**弹框-蒙版 隐藏 */
-                    this.popShow = false;
+                    /**改 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
+                    if(window.sessionStorage.getItem("this_router")){
+                        window.location.href = window.sessionStorage.getItem("this_router");
+                    } else {
+                        /**弹框-蒙版 隐藏 */
+                        this.popShow = false;
+                    } 
+                   
                 })
                 .catch((_err) => {
                     alert('手机绑定请求-失败：'+_err);
