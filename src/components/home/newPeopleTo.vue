@@ -40,19 +40,27 @@ export default {
         }
     },
     mounted: function(){
+
+        /**写死 token 上线删掉 -s*/
+        var token_data = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEQyIsImlhdCI6MTU1OTYzOTg3MCwiZXhwIjoxNTU5Njc1ODcwLCJ1c2VyX2lkIjo3Nn0.YUQ3hG3TiXzz_5U594tLOyGYUzAwfzgDD8jZFY9n1WA"
+        /**授权-也是写在 会话存储 里 */
+        window.sessionStorage.setItem("token", token_data);
+        console.log("token: ",window.sessionStorage.getItem("token"));
+        /**弹框-蒙版 隐藏 */
+        this.popShow = false;
+        return false;
+        /**写死 token 上线删掉 -e*/
+
+
         /**当前的url */
         var this_url = window.location.href;
         /**
          * 1、判断是否-授权回来,传回的code参数 。
          * 2、绑定成功后。
          * **/
-        // alert('token:::'+window.sessionStorage.getItem("token"));
-        alert("当前url::"+this_url);
-        alert('token:::'+window.sessionStorage.getItem("token"));
-        /**判断在 sessionStorage 是否存在 token,同时请求返回的token不是undefined */
+        /**判断在 sessionStorage 是否存在 token,同时请求后台-返回的token不是undefined */
         if(window.sessionStorage.getItem("token") && window.sessionStorage.getItem("token") != undefined){
             this.power_data['_token'] = window.sessionStorage.getItem("token");
-            alert('会话存储，有token::'+ this.power_data['_token']);
             /**弹框-蒙版 隐藏 */
             this.popShow = false;
             return false;
@@ -61,9 +69,7 @@ export default {
         /**返回的url有code，但token为空 => 退出软件，重新进入(会话存储) */
         // if(this_url.indexOf('code=') != -1 && this.power_data['_token'] == null){
         if(this_url.indexOf('code=') != -1){
-            /**url的string */
-            // alert(this_url);
-            /**想要截取 code的值（还用start值） */
+            /**url的string =>截取 code的值（还用start值） */
             var ginseng_str = this_url.split('code=')[1];
              /**code值 */
             var code_val = ginseng_str.split('&state=')[0];
@@ -72,23 +78,18 @@ export default {
             if(this_url.split('token=')[1]){
                 token_val = this_url.split('token=')[1];
             }
-           
-            alert('code:'+code_val);
+            // alert('code:'+code_val);
             /*授权成功后 axios=>请求 -s*/
             this.$axios.post("/user/get_code",{
                 code: code_val
                 })
                 .then((_res)=>{
-                    console.log('授权成功后-请求:',_res['data']['data']);
-                    alert('授权成功后-请求--状态:'+_res['data']['data']['is_checked']);
-
+                    // alert('授权成功后-请求--状态:'+_res['data']['data']['is_checked']);
                     /**请求数据的状态 */
                     if(_res['data']['status'] == 1){
                         /**已-绑定手机 */
                         if(_res['data']['data']['is_checked'] == 1){
-                            alert('已-绑定手机，token:'+ _res['data']['data']['token'])
-                            /**绑定手机-蒙版-默认：隐藏 */
-                            // this.phone_box = false;
+                            // alert('已-绑定手机，token:'+ _res['data']['data']['token'])
                             /**
                              * 因为 每次进入都要授权，所以用会话存储
                              * 存储token;
@@ -100,7 +101,7 @@ export default {
                         }
                         /**未-绑定手机 */
                         if(_res['data']['data']['is_checked'] == 0){
-                            alert('未-绑定手机'+_res['data']['data']['id'])
+                            // alert('未-绑定手机'+_res['data']['data']['id'])
                             /**绑定手机-蒙版 显示 */
                             this.phone_box = true;
                             /** 
@@ -124,13 +125,12 @@ export default {
             /*授权成功后 axios=>请求 -e*/
 
         } else { 
-        // } else if(this.power_data['_token'] == null) { 
-            /**如果会话存储--存在 token  */
+        // } else if(this.power_data['_token'] == null) {   /**如果会话存储--存在 token  */
             /*axios=>请求 -s*/
             this.$axios.post("user/login")
                 .then((res)=>{
                     console.log('进入页面请求-成功:',res['data']['data']);
-                    alert('进入页面请求-成功:'+ res['data']['data']);
+                    // alert('进入页面请求-成功:'+ res['data']['data']);
                     /**未-授权过 */
                     if(res['data']['status']){
                         /**微信端--授权地址 */
@@ -182,7 +182,7 @@ export default {
                 mobile: this.phone,
             })
                 .then((_data) => {
-                    alert('手机绑定请求-成功token::'+_data['data']['data']['token']);
+                    // alert('手机绑定请求-成功token::'+_data['data']['data']['token']);
                     /**
                      * 因为 每次进入都要授权，所以用会话存储
                      * 存储token;
@@ -196,7 +196,7 @@ export default {
                     console.log(_err);
                 })
             /*未绑定=> axios=>请求 -e*/
-        }
+        },
 
     }
 }
