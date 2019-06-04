@@ -12,11 +12,15 @@
             <!-- 限时购列表 -->
             <div class="flash-sale-list">
                 <div class="goods-item">
-                    <div class="img-wrap">
-                        <img src="/static/img/flashSale/00flash-sale-img01.png" />
-                    </div>
+                    <router-link to="/home/flashSale/flashDetails">
+                        <div class="img-wrap">
+                            <img src="/static/img/flashSale/00flash-sale-img01.png" />
+                        </div>
+                    </router-link>
                     <div class="text">
-                        <h3>自然堂化妆品补水防晒虎虎生风副书记粉红色看自然堂化妆品补水防晒自然堂化妆品补水防晒自然堂化妆品补水防晒</h3>
+                        <router-link to="/home/flashSale/flashDetails">
+                            <h3>自然堂化妆品补水防晒虎虎生风副书记粉红色看自然堂化妆品补水防晒自然堂化妆品补水防晒自然堂化妆品补水防晒</h3>
+                        </router-link>
                         <div class="price">
                             <span class="discount-price"><i class="yen">￥</i>360.00</span>
                             <span class="original-price">￥700.00</span>
@@ -108,6 +112,12 @@ export default {
     components: {
         headtop
     },
+    data(){
+        return{
+            //请求页数
+			page:1,
+        }
+    },
     /*组件实例创建完成，属性已绑定，但DOM还未生成*/
     created: function(){
         /**head=>style */
@@ -146,6 +156,28 @@ export default {
         this.$store.commit('change_head',style_obj);
 
     },
+    mounted(){
+        this.requestData()
+    },
+    methods:{
+        // 请求数据
+        requestData(){
+            let url = "/Goods/limited_list"
+            let params = new URLSearchParams()
+                params.append('page', this.page)
+            this.$axios({
+                url:url,
+                method:'get',
+                data:params
+            })
+            .then( (res) =>{
+                console.log(res)
+            })
+            .catch((error) =>{
+                console.log(error)
+            })
+        }
+    }
 
 }
 </script>

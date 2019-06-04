@@ -3,16 +3,15 @@
         <!-- <iframe id="mapPage" width="100%" height="700px" frameborder=0
             src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
         </iframe> -->
-        <iframe id="mapPage" width="100%" height="700px" frameborder=0
-            src="https://apis.map.qq.com/tools/locpicker?search=1&policy=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
-        </iframe>
+        <div class="map">
+            <iframe id="mapPage" width="100%" height="700px" frameborder=0
+                src="https://apis.map.qq.com/tools/locpicker?search=1&policy=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
+            </iframe>
+        </div>
     </div>
 </template>
-<script type="text/javascript" src="https://apis.map.qq.com/tools/geolocation/min?key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp"></script>
- <script type="text/javascript" src="//3gimg.qq.com/lightmap/components/locationPicker2/js/main-62c2e3b971.js"></script>
 
 <script>
-
 export default {
     name:'selectPoint',
     data(){
@@ -67,7 +66,7 @@ export default {
     },
     mounted(){
         
-    }
+    },
 
 }
 </script>
@@ -81,6 +80,7 @@ body
     .selectPoint
         min-height 100vh
         background-color #ffffff
+
     
 
             
