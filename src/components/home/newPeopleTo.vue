@@ -13,7 +13,6 @@
                </div>
             </div>
         </div>
-        {{data_val}}
    </div>
 </template>
 <script>
@@ -34,11 +33,9 @@ export default {
                 author_url: null,
                 /**未-绑定手机id */
                 not_phone_id: null,
-                
+                /**授权后的token */
+                _token: null,
             },
-            /**删除改key */
-            data_val: '',
-           
 
         }
     },
@@ -50,7 +47,20 @@ export default {
          * 2、绑定成功后。
          * **/
         // alert('token:::'+window.sessionStorage.getItem("token"));
-        if(this_url.indexOf('code=') != -1 ){
+        alert("当前url::"+this_url);
+        alert('token:::'+window.sessionStorage.getItem("token"));
+        /**判断在 sessionStorage 是否存在 token,同时请求返回的token不是undefined */
+        if(window.sessionStorage.getItem("token") && window.sessionStorage.getItem("token") != undefined){
+            this.power_data['_token'] = window.sessionStorage.getItem("token");
+            alert('会话存储，有token::'+ this.power_data['_token']);
+            /**弹框-蒙版 隐藏 */
+            this.popShow = false;
+            return false;
+        }
+        
+        /**返回的url有code，但token为空 => 退出软件，重新进入(会话存储) */
+        // if(this_url.indexOf('code=') != -1 && this.power_data['_token'] == null){
+        if(this_url.indexOf('code=') != -1){
             /**url的string */
             // alert(this_url);
             /**想要截取 code的值（还用start值） */
@@ -70,39 +80,41 @@ export default {
                 })
                 .then((_res)=>{
                     console.log('授权成功后-请求:',_res['data']['data']);
-                    /**<<< 删除11 */
-                    this.data_val = _res['data'];
-                    /**删除11  >>>*/
-                    // alert('授权成功后-请求1:'+_res['data']);
-                    alert('授权成功后-请求2:'+_res['data']['data']);
-                    if(+_res['data']['status'] == -2){
-                        alert('授权失败！')
-                    }
-                    /**已-绑定手机 */
-                    if(_res['data']['data']['is_checked'] == 1){
-                        alert('已-绑定手机'+ _res['data']['data']['token'])
-                        /**绑定手机-蒙版-默认：隐藏 */
-                        // this.phone_box = false;
-                        /**
-                         * 因为 每次进入都要授权，所以用会话存储
-                         * 存储token;
-                         * **/
-                        window.sessionStorage.setItem("token", _res['data']['data']['token']);    
-                        /**弹框-蒙版 隐藏 */
-                        this.popShow = false;
+                    alert('授权成功后-请求--状态:'+_res['data']['data']['is_checked']);
+
+                    /**请求数据的状态 */
+                    if(_res['data']['status'] == 1){
+                        /**已-绑定手机 */
+                        if(_res['data']['data']['is_checked'] == 1){
+                            alert('已-绑定手机，token:'+ _res['data']['data']['token'])
+                            /**绑定手机-蒙版-默认：隐藏 */
+                            // this.phone_box = false;
+                            /**
+                             * 因为 每次进入都要授权，所以用会话存储
+                             * 存储token;
+                             * **/
+                            window.sessionStorage.setItem("token", _res['data']['data']['token']);    
+                            /**弹框-蒙版 隐藏 */
+                            this.popShow = false;
+                            return false;
+                        }
+                        /**未-绑定手机 */
+                        if(_res['data']['data']['is_checked'] == 0){
+                            alert('未-绑定手机'+_res['data']['data']['id'])
+                            /**绑定手机-蒙版 显示 */
+                            this.phone_box = true;
+                            /** 
+                             * 存储-未绑定手机的id => 用来绑定时的参数之一。
+                             * **/
+                            this.power_data['not_phone_id'] =  _res['data']['data']['id'];
+                            return false;
+                        }
+                    } else {
+                        /**没数据 */
+                        alert(_res['data']['msg']);
                         return false;
-                    }
-                     /**未-绑定手机 */
-                    if(_res['data']['data']['is_checked'] == 0){
-                        alert('未-绑定手机'+_res['data']['data']['id'])
-                        /**绑定手机-蒙版 显示 */
-                        this.phone_box = true;
-                        /** 
-                         * 存储-未绑定手机的id => 用来绑定时的参数之一。
-                         * **/
-                        this.power_data['not_phone_id'] =  _res['data']['data']['id'];
-                        return false;
-                    }
+                        
+                    } 
                     
                 })
                 .catch((_error) => {
@@ -111,8 +123,9 @@ export default {
                 })
             /*授权成功后 axios=>请求 -e*/
 
-
-        } else {
+        } else { 
+        // } else if(this.power_data['_token'] == null) { 
+            /**如果会话存储--存在 token  */
             /*axios=>请求 -s*/
             this.$axios.post("user/login")
                 .then((res)=>{
@@ -130,7 +143,8 @@ export default {
                     console.log(error);
                 })
             /*axios=>请求 -e*/
-        }
+
+        } 
         
     },
     methods:{
@@ -162,20 +176,20 @@ export default {
         },
         /**绑定手机的请求 */
         not_phone_rq() {
-            
             /*未绑定=> axios=>请求 -s*/
             this.$axios.post("user/binding_mob",{
                 id: this.power_data['not_phone_id'],
                 mobile: this.phone,
             })
-                .then((_data)=>{
-                    alert('手机绑定请求-成功:',_data['data']['data']);
-                     /**
+                .then((_data) => {
+                    alert('手机绑定请求-成功token::'+_data['data']['data']['token']);
+                    /**
                      * 因为 每次进入都要授权，所以用会话存储
                      * 存储token;
                      * **/
-                    window.sessionStorage.setItem("token", _res['data']['data']['token']);    
-                    
+                    window.sessionStorage.setItem("token", _data['data']['data']['token']);
+                    /**弹框-蒙版 隐藏 */
+                    this.popShow = false;
                 })
                 .catch((_err) => {
                     alert('手机绑定请求-失败：'+_err);
