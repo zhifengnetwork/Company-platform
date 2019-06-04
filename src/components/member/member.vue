@@ -240,6 +240,7 @@
             border-radius 10px
             margin-top 15px
             border 1px solid rgb(230,230,230)
+            height 274px
 
             .tou
                 width 270px
@@ -269,7 +270,6 @@
                 float left
                 background: #ffecca;
                 color: #d36616;
-                width 240px
                 height 50px
                 line-height 50px
                 text-align center
@@ -285,6 +285,7 @@
                 margin-left 280px
                 .left
                     display inline-block
+                    margin-top -17px
                     .shop_jiage
                         color red
                         font-size 32px
