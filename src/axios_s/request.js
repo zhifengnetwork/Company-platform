@@ -21,13 +21,13 @@ axios.interceptors.request.use(
 		// 		'Content-Type': 'application/x-www-form-urlencoded'
 		// 	}
 		// }
-		//  //发起请求时，取消掉当前正在进行的相同请求
-		//  if (promiseArr[config.url]) {
-		// 	promiseArr[config.url]('操作取消')
-		// 	promiseArr[config.url] = cancel
-		// } else {
-		// 	promiseArr[config.url] = cancel
-		// }
+		 //发起请求时，取消掉当前正在进行的相同请求
+		if (promiseArr[config.url]) {
+			promiseArr[config.url]('操作取消')
+			promiseArr[config.url] = cancel
+		} else {
+			promiseArr[config.url] = cancel
+		}
 		return config
 	},
 	error => {
