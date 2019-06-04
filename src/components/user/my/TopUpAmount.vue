@@ -12,11 +12,11 @@
 
                 <div class="list_wrap">
                     <ul class="list">
-                        <li v-for="(item,index) in payment" :key="index" @click="selectPay(item,index)">
+                        <li v-for="(item,index) in payment" :key="index" @click="cur=index" :class="{active:cur==index}">
                             <div class="red">￥{{item.jin}}</div>
                             <div class="into">到账{{item.e}}元</div>
 
-                            <div class="hook_wrap" v-if="item.cheack && indexs === index"></div>
+                            <div class="hook_wrap" v-show="cur==index"></div>
                         </li>
                     </ul>
                 </div>
@@ -39,13 +39,15 @@
 		data() {
 			return{
                 payment:[
-                    {id:1,jin:'50',e:'100',cheack:false},
-                    {id:2,jin:'100',e:'150',cheack:false},
-                    {id:3,jin:'200',e:'350',cheack:false},
-                    {id:4,jin:'500',e:'950',cheack:false},
-                    {id:5,jin:'1000',e:'1850',cheack:false},
-                    {id:6,jin:'2000',e:'3500',cheack:false},
+                    {id:1,jin:'50',e:'100'},
+                    {id:2,jin:'100',e:'150'},
+                    {id:3,jin:'200',e:'350'},
+                    {id:4,jin:'500',e:'950'},
+                    {id:5,jin:'1000',e:'1850'},
+                    {id:6,jin:'2000',e:'3500'},
                 ],
+                //默认选中第一个
+                cur: 0 
 			}
 		},
 		components: {
@@ -91,20 +93,20 @@
 
 		},
 		methods: {
-            //选择支付金额
-            selectPay(item,index){
-                this.indexs = index  
-                if(index === this.indexs ){
-                    if (item.cheack) {                            
-                        item.cheack = false;  
-                    } else {
-                        for (let i = 0; i < this.payment.length; i++) {
-                            this.payment[i].cheack = false;
-                        }
-                            item.cheack = true;   
-                    }
-                }
-            },
+            // //选择支付金额
+            // selectPay(item,index){
+            //     this.indexs = index  
+            //     if(index === this.indexs ){
+            //         if (item.cheack) {                            
+            //             item.cheack = false;  
+            //         } else {
+            //             for (let i = 0; i < this.payment.length; i++) {
+            //                 this.payment[i].cheack = false;
+            //             }
+            //                 item.cheack = true;   
+            //         }
+            //     }
+            // },
 		}
 	}
 </script>
@@ -180,7 +182,8 @@
                     color #fff
                     font-size 26px
                     text-align center
-                    line-height 80px   
+                    line-height 80px
+                    letter-spacing 4px   
                 .map_wrap
                     margin 10px 0 50px
                     img

@@ -51,13 +51,21 @@ import cart from '@/components/cart/cart'
 /*我的-模块*/
 import user from '@/components/user/user'
 /*申请供应商*/
-import ApplicationSupplier from '@/components/user/my/ApplicationSupplier'
+import applicationSupplier from '@/components/user/my/applicationSupplier'
 /*账户余额*/
-import TheAccountBalance from '@/components/user/my/TheAccountBalance'
+import theAccountBalance from '@/components/user/my/theAccountBalance'
 /*充值金额*/
-import TopUpAmount from '@/components/user/my/TopUpAmount'
+import topUpAmount from '@/components/user/my/topUpAmount'
 /*账户提现*/
 import withdrawal from '@/components/user/my/withdrawal'
+/*输入支付宝提现*/
+import alipay from '@/components/user/my/alipay'
+/*提现明细*/
+import theWithdrawal from '@/components/user/my/theWithdrawal'
+/*充值明细*/
+import topUpDetail from '@/components/user/my/topUpDetail'
+/*账单明细*/
+import billingDetails from '@/components/user/my/billingDetails'
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -167,27 +175,51 @@ export default new Router({
 		},
 		// 申请供应商
 		{
-			path: '/index/user/ApplicationSupplier',  
-			name: 'ApplicationSupplier',
-			component: (resolve) => require(['@/components/user//my/ApplicationSupplier'],resolve) 
+			path: '/index/user/applicationSupplier',  
+			name: 'applicationSupplier',
+			component: (resolve) => require(['@/components/user/my/applicationSupplier'],resolve) 
 		},
 		// 账户余额
 		{
-			path: '/index/user/TheAccountBalance',  
-			name: 'TheAccountBalance',
-			component: (resolve) => require(['@/components/user//my/TheAccountBalance'],resolve) 
+			path: '/index/user/theAccountBalance',  
+			name: 'theAccountBalance',
+			component: (resolve) => require(['@/components/user/my/theAccountBalance'],resolve) 
+		},
+		// 提现明细
+		{
+			path: '/index/user/theWithdrawal',  
+			name: 'theWithdrawal',
+			component: (resolve) => require(['@/components/user/my/theWithdrawal'],resolve) 
+		},
+		// 充值明细
+		{
+			path: '/index/user/topUpDetail',  
+			name: 'topUpDetail',
+			component: (resolve) => require(['@/components/user/my/topUpDetail'],resolve) 
+		},
+		// 账单明细
+		{
+			path: '/index/user/billingDetails',  
+			name: 'billingDetails',
+			component: (resolve) => require(['@/components/user/my/billingDetails'],resolve) 
 		},
 		// 充值金额
 		{
-			path: '/index/user/TopUpAmount',  
-			name: 'TopUpAmount',
-			component: (resolve) => require(['@/components/user//my/TopUpAmount'],resolve) 
+			path: '/index/user/topUpAmount',  
+			name: 'topUpAmount',
+			component: (resolve) => require(['@/components/user/my/topUpAmount'],resolve) 
 		},
 		// 账户提现
 		{
 			path: '/index/user/withdrawal',  
 			name: 'withdrawal',
-			component: (resolve) => require(['@/components/user//my/withdrawal'],resolve) 
+			component: (resolve) => require(['@/components/user/my/withdrawal'],resolve) 
+		},
+		// 输入支付宝提现
+		{
+			path: '/index/user/alipay',  
+			name: 'alipay',
+			component: (resolve) => require(['@/components/user/my/alipay'],resolve) 
 		},
 		/**砍一刀 */
 		{
