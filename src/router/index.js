@@ -78,8 +78,7 @@ import invitation from '@/components/invitation'
 //生成广告二维码
 import createcode from '@/components/createcode'
 
-// 产品规格选择
-// import guige from "@/components/home/bargain/guige"
+
 
 
 Vue.use(Router)
@@ -223,11 +222,7 @@ export default new Router({
 			name: 'bargainmingxi',
 			component: (resolve) => require(['@/components/home/bargain/bargainmingxi'],resolve),
 		},
-		// {
-		// 	path: '/home/bargain/guige',
-		// 	name: 'guige',
-		// 	component: (resolve) => require(['@/components/home/bargain/guige'],resolve),
-		// },
+		
 		//砍价详情
 		{
 			path: '/home/bargain/bargaindetail',
