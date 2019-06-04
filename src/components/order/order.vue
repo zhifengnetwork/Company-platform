@@ -491,7 +491,7 @@ export default {
                 type = "dpj"
             }
             if(this.ispage){
-                var url = '/Order/order_list'
+                var url = 'Order/order_list'
                 var params = new URLSearchParams()
                
                 params.append('type', type)

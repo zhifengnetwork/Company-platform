@@ -43,8 +43,14 @@ import coupon from '@/components/home/bargain/coupon'
 
 // 我的订单
 import order from '@/components/order/order'
+// 去评价
+import evaluate from '@/components/order/evaluate'
+// 退款申请
+import returnRequest from '@/components/order/returnRequest'
 // 退货
 import returnGoods from '@/components/order/returnGoods'
+
+
 
 /*分类-模块*/
 import branch_class from '@/components/branch_class/branch_class'
@@ -54,6 +60,13 @@ import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
+
+// 收货地址
+import addressView from '@/components/user/address/address'
+// 添加收货地址
+import addAddress from '@/components/user/address/addAddress'
+// 地址选点
+import selectPoint from '@/components/user/address/selectPoint'
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -230,6 +243,12 @@ export default new Router({
 			name: 'order',
 			component: (resolve) => require(['@/components/order/order'],resolve),
 		},
+		// 去评价
+		{
+			path: '/order/evaluate',
+			name: 'evaluate',
+			component: (resolve) => require(['@/components/order/evaluate'],resolve),
+		},
 		// 退货
 		{
 			path: '/order/returnGoods',
@@ -242,6 +261,25 @@ export default new Router({
 			name: 'returnRequest',
 			component: (resolve) => require(['@/components/order/returnRequest'],resolve),
 		},
+		// 收货地址
+		{
+			path: '/user/address',
+			name: 'addressView',
+			component: (resolve) => require(['@/components/user/address/address'],resolve),
+		},
+		// 添加收货地址
+		{
+			path: '/user/addAddress',
+			name: 'addAddress',
+			component: (resolve) => require(['@/components/user/address/addAddress'],resolve),
+		},
+		// 地址选点
+		{
+			path: '/user/selectPoint',
+			name: 'selectPoint',
+			component: (resolve) => require(['@/components/user/address/selectPoint'],resolve),
+		},
+	
 
 
 	]
