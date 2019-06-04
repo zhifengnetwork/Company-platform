@@ -34,13 +34,15 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
+// 打卡明细
+import bargainmingxi from "@/components/home/bargain/bargainmingxi"
 // 砍价模块
 import bargaindetail from '@/components/home/bargain/bargaindetail'
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
 
-// puls会员专区
-import memberarea from '@/components/home/memberarea/memberarea'
+// // puls会员专区
+// import memberarea from '@/components/home/memberarea/memberarea'
 
 import bargain from '@/components/home/bargain/bargain'
 // 我的订单
@@ -54,6 +56,18 @@ import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
+// 我的团队
+import mylist from '@/components/user/mylist'
+// 团队列表
+import tuandui_table from "@/components/user/tuandui_table"
+// 佣金列表
+import commissionlist from "@/components/user/commissionlist"
+// 业绩明细
+import yejilist from "@/components/user/yejilist"
+// 预计收益
+import shouyilist from "@/components/user/shouyilist"
+//查看订单
+import lookorder from "@/components/user/lookorder"
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -64,6 +78,8 @@ import invitation from '@/components/invitation'
 //生成广告二维码
 import createcode from '@/components/createcode'
 
+// 产品规格选择
+// import guige from "@/components/home/bargain/guige"
 
 
 Vue.use(Router)
@@ -153,15 +169,45 @@ export default new Router({
 					name: 'cart',
 					component: (resolve) => require(['@/components/cart/cart'],resolve) 
 				},
-					//用户中心
+				//用户中心
 				{
 					path: '/index/user',  
 					name: 'user',
-					component: (resolve) => require(['@/components/user/user'],resolve) 
-				},
+					component: (resolve) => require(['@/components/user/user'],resolve),
+
+				}												
 			]
 		},
-
+        {
+			path: '/user/mylist',  
+			name: 'mylist',
+			component: (resolve) => require(['@/components/user/mylist'],resolve)
+		},
+		{
+			path: '/user/mylist/tuandui_table',  
+			name: 'tuandui_table',
+			component: (resolve) => require(['@/components/user/tuandui_table'],resolve)
+		}, 
+		{
+			path: '/user/mylist/commissionlist',  
+			name: 'commissionlist',
+			component: (resolve) => require(['@/components/user/commissionlist'],resolve)
+		},
+		{
+			path: '/user/mylist/yejilist',  
+			name: 'yejilist',
+			component: (resolve) => require(['@/components/user/yejilist'],resolve)
+		},
+		{
+			path: '/user/mylist/shouyilist',  
+			name: 'shouyilist',
+			component: (resolve) => require(['@/components/user/shouyilist'],resolve)
+		},
+		{
+			path: '/user/mylist/lookorder',  
+			name: 'lookorder',
+			component: (resolve) => require(['@/components/user/lookorder'],resolve)
+		},
 		{
 			path: '/home/bargain', /**砍一刀 */
 			name: 'bargainirg',
@@ -172,18 +218,27 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
-
+		{
+			path: '/home/bargain/bargainmingxi',
+			name: 'bargainmingxi',
+			component: (resolve) => require(['@/components/home/bargain/bargainmingxi'],resolve),
+		},
+		// {
+		// 	path: '/home/bargain/guige',
+		// 	name: 'guige',
+		// 	component: (resolve) => require(['@/components/home/bargain/guige'],resolve),
+		// },
 		//砍价详情
 		{
 			path: '/home/bargain/bargaindetail',
 			name: 'bargain',
 			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
-		{
-			path: '/home/memberarea/memberareal',
-			name: 'memberarea',
-			component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
-		},
+		// {
+		// 	path: '/home/memberarea/memberarea',
+		// 	name: 'memberarea',
+		// 	component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
+		// },
 		{
 			path: '/home/groupArea', /**拼团 */
 			name: 'groupArea',
