@@ -114,6 +114,7 @@
 				}).then((result)=>{
 					this.areaListImg = result.data.data.group_img;   //banner
 					this.areaList = result.data.data.list;           //渲染
+					console.log(this.areaList)
 				}).catch((err)=>{
 					console.log(err);
 				})

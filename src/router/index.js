@@ -122,33 +122,33 @@ export default new Router({
 						},
 						// 9.9包邮
 						{ 
-								path: '/index/home/guarantees', 
-								name:'guarantees',
-								component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
+							path: '/index/home/guarantees', 
+							name:'guarantees',
+							component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
 						},
 						// 男装
 						{ 
-								path: '/index/home/male', 
-								name:'male',
-								component: (resolve) => require(['@/components/home/childrens/male'],resolve)
+							path: '/index/home/male', 
+							name:'male',
+							component: (resolve) => require(['@/components/home/childrens/male'],resolve)
 						},
 						// 女装
 						{ 
-								path: '/index/home/female', 
-								name:'female',
-								component: (resolve) => require(['@/components/home/childrens/female'],resolve)
+							path: '/index/home/female', 
+							name:'female',
+							component: (resolve) => require(['@/components/home/childrens/female'],resolve)
 						},
 						// 家居家纺
 						{ 	
-								path: '/index/home/homeTextile', 
-								name:'homeTextile',
-								component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
+							path: '/index/home/homeTextile', 
+							name:'homeTextile',
+							component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
 						},
 						// 电器
 						{ 
-								path: '/index/home/appliances', 
-								name:'appliances',
-								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
+							path: '/index/home/appliances', 
+							name:'appliances',
+							component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 						}
 					]
 				},
