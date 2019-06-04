@@ -93,12 +93,12 @@ export default {
     -moz-box-sizing border-box
     -webkit-box-sizing border-box
     border-radius 10px
-    border 2px solid #ccc
+    border-right 2px solid #ccc
     background #fff
 .branck_tab_list
     display block
-    height 100px
-    line-height 100px
+    height 80px
+    line-height 80px
     text-align center
     background #fff
 .branck_tabItem
