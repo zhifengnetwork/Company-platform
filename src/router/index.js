@@ -35,6 +35,11 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 //打卡模块
 import sign from '@/components/home/sign/sign'
 // 砍价模块
+import bargaindetail from '@/components/home/bargain/bargaindetail'
+
+// puls会员专区
+import memberarea from '@/components/home/memberarea/memberarea'
+
 import bargain from '@/components/home/bargain/bargain'
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
@@ -168,10 +173,17 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
+
+		//砍价详情
 		{
-			path: '/home/bargain',
-			name: 'bargain',
-			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
+			path: '/home/bargain/bargaindetail',
+			name: 'bargaindetail',
+			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
+		},
+		{
+			path: '/home/memberarea/memberareal',
+			name: 'memberarea',
+			component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
 		},
 		{
 			path: '/home/groupArea', /**拼团 */

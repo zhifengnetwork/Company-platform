@@ -22,7 +22,7 @@
 /**头部-组件 */
   export default {
     name: 'page_top_head',
-    /**data引用 vuex的数据 */
+    /*data引用 vuex的数据*/
     data(){
       return {
         
@@ -62,7 +62,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index 1;
+    z-index 45;
     width: 100%;
     height: 88px;
     background-color: transparent;
