@@ -205,9 +205,8 @@
 					item.cheack = false; 
 				} else {
 					item.cheack = true;
-				}
-				
-           	}
+				}	
+           	},
 		}
 	}
 </script>
