@@ -44,12 +44,12 @@
         </div>
         <!-- 商品区域 -->
         <div class="shop_ear">
-               
+             <!-- style="margin-left:30px;background: #ffecca;"   -->
             <div class="shop">
                  <img src="/static/img/home/memberarea/1.jpg" class="tou"/>
                  <p class="shop_title">自然堂化妆品补水防晒虎虎生风副书记粉红色好看的撒几何</p>
                  <p class="shop_dec">颜色：红色 黄色</p>
-                 <p class="shop_puls">下单即送199PLUS会员</p>
+                 <div class="shop_puls"><p class="shop_puls_son">下单即送199PLUS会员</p></div>
                  <div class="shop_kucun">
                      <p class="left">
                          <span class="shop_jiage">￥360.00</span>
@@ -63,7 +63,7 @@
                  <img src="/static/img/home/memberarea/1.jpg" class="tou"/>
                  <p class="shop_title">自然堂化妆品补水防晒虎虎生风副书记粉红色好看的撒几何</p>
                  <p class="shop_dec">颜色：红色 黄色</p>
-                 <p class="shop_puls">下单即送199PLUS会员</p>
+                  <div class="shop_puls"><p class="shop_puls_son">下单即送199PLUS会员</p></div>
                  <div class="shop_kucun">
                      <p class="left">
                          <span class="shop_jiage">￥360.00</span>
@@ -77,7 +77,7 @@
                  <img src="/static/img/home/memberarea/1.jpg" class="tou"/>
                  <p class="shop_title">自然堂化妆品补水防晒虎虎生风副书记粉红色好看的撒几何</p>
                  <p class="shop_dec">颜色：红色 黄色</p>
-                 <p class="shop_puls">下单即送199PLUS会员</p>
+                  <div class="shop_puls"><p class="shop_puls_son">下单即送199PLUS会员</p></div>
                  <div class="shop_kucun">
                      <p class="left">
                          <span class="shop_jiage">￥360.00</span>
@@ -246,6 +246,7 @@
                 width 270px
                 display inline-block
                 border-radius 10px
+                float left
             .shop_title
                 float right
                 width 5.2rem
@@ -264,28 +265,30 @@
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical
-                margin-top -200px
+                padding-top 8px
+                // margin-top -200px
                 color rgb(140,140,140)
             .shop_puls
                 float left
-                background: #ffecca;
-                color: #d36616;
-                height 50px
-                line-height 50px
-                text-align center
-                margin-top -150px
-                border-radius 20px
-                margin-left 280px
+                padding-top 10px
+                height 60px
+                padding-left 10px
+                .shop_puls_son 
+                    color: #d36616;
+                    height 50px
+                    line-height 50px
+                    text-align center
+                    border-radius 20px    
+                    background #ffecca
+                    padding 0 12px
             .shop_kucun
                 float left
                 width 240px
                 height 50px
-                margin-top -70px
                 border-radius 20px
-                margin-left 280px
                 .left
                     display inline-block
-                    margin-top -17px
+                    padding-left 7px
                     .shop_jiage
                         color red
                         font-size 32px
