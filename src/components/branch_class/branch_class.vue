@@ -1,7 +1,7 @@
 <template>
     <div class="branch">
         <div class="branch_title">
-            <img class="branch_title_img" src="static/img/getinto_share_icon.png" alt="">
+            <img class="branch_title_img" src="static/img/public/getinto_share_icon.png" alt="">
         </div>
         <div class="branck_nav">
             <ul class="branck_tab">
