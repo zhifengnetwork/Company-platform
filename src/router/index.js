@@ -85,8 +85,13 @@ import withdrawal from '@/components/user/withdrawal'
 import addressView from '@/components/user/address/address'
 // 添加收货地址
 import addAddress from '@/components/user/address/addAddress'
+// 编辑收货地址
+import editAddress from '@/components/user/address/editAddress'
 // 地址选点
 import selectPoint from '@/components/user/address/selectPoint'
+// 绑定手机号码
+import bindingTel from '@/components/user/bindingTel'
+
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -326,11 +331,23 @@ export default new Router({
 			name: 'addAddress',
 			component: (resolve) => require(['@/components/user/address/addAddress'],resolve),
 		},
+		// 修改收货地址
+		{
+			path: '/user/editAddress',
+			name: 'editAddress',
+			component: (resolve) => require(['@/components/user/address/editAddress'],resolve),
+		},
 		// 地址选点
 		{
 			path: '/user/selectPoint',
 			name: 'selectPoint',
 			component: (resolve) => require(['@/components/user/address/selectPoint'],resolve),
+		},
+		// 手机号码绑定
+		{
+			path: '/user/bindingTel',
+			name: 'selectPoint',
+			component: (resolve) => require(['@/components/user/bindingTel'],resolve),
 		},
 	
 
