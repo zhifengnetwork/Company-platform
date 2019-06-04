@@ -8,10 +8,10 @@
                         <img v-lazy="image.img" />
                         <div class="code-icon">
                             <div class="code-box">
-                                <img src="static/img/user/0001.jpg" alt="">
+                                <img src="/static/img/user/0001.jpg" alt="">
                             </div>
                             <div class="code-text">
-                                <img src="static/img/friend/code/text.png" alt="">
+                                <img src="/static/img/friend/code/text.png" alt="">
                             </div>
                        </div>
                        </div>

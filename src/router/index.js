@@ -97,10 +97,10 @@ import bindingTel from '@/components/user/bindingTel'
 import member from '@/components/member/member'
 
 //邀请朋友
-import invitation from '@/components/invitation'
+import invitation from '@/components/sub_page/invitation'
 
 //生成广告二维码
-import createcode from '@/components/createcode'
+import createcode from '@/components/sub_page/createcode'
 
 
 
@@ -116,11 +116,11 @@ export default new Router({
 	// 		component: (resolve) => require(['@/components/login/login'],resolve) // 懒加载
 	// 	},
 	// 	// 登录
-	// 	{
-	// 		path: '/login',
-	// 		name: '/login',
-	// 		component: (resolve) => require(['@/components/login/login'],resolve)
-	// 	},
+	//	{
+	//		path: '/login',
+	//		name: '/login',
+	//		component: (resolve) => require(['@/components/login/login'],resolve)
+	//	},
 		{
 			path: '/',
 			redirect: '/index', /**重定向**/
@@ -285,15 +285,15 @@ export default new Router({
 		},
 		//邀请朋友
 		{
-			path:'/invitation',
+			path:'/sub_page/invitation',
 			name:'invitation',
-			component: (resolve) => require(['@/components/invitation'],resolve),
+			component: (resolve) => require(['@/components/sub_page/invitation'],resolve),
 		},
 		//生成广告二维码
 		{
-			path:'/createcode',
+			path:'/sub_page/createcode',
 			name:'createcode',
-			component: (resolve) => require(['@/components/createcode'],resolve),
+			component: (resolve) => require(['@/components/sub_page/createcode'],resolve),
 		},
 		// 订单列表
 		{
