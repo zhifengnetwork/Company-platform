@@ -1,7 +1,7 @@
 <template>
     <div class="grop-order-main-wrap">
           <header class="public_head">  
-              <Pheader  ></Pheader>
+              <Pheader></Pheader>
           </header>
            <div class="gropOrder-page">
                 <div class="site-default page-order">
@@ -78,7 +78,7 @@
                      </div>
                 </div>
                 <div class="payment-mode">
-                    <div class="mode-list" v-for="(item,index) in payment" :key="index" @click="selectPay(item,index)">
+                    <!-- <div class="mode-list" v-for="(item,index) in payment" :key="index" @click="selectPay(item,index)">
                         <div class="item-icon">
                             <img :src="item.img" alt="">
                             <P>{{item.name}}</P>
@@ -86,10 +86,27 @@
                         <div class="item-cheack">
                             <img src="/static/img/group_area/order/gou.png" alt="" class="activeIcon" v-if="item.cheack && indexs === index">
                         </div>
+                    </div> -->
+                  <div class="mode-list">
+                    <div class="item-icon">
+                      <span class="not">使用钱包</span>
+                      <span class="up">充值有优惠</span>
                     </div>
+                    <div class="sum">
+                      <span>余额：</span>
+                      <span>0.00</span>
+                    </div>
+                  </div>
+                  <div class="ked">
+                    <van-switch
+                      v-model="checked"
+                      active-color="#fafafa"
+                      inactive-color="#f44"
+                    />
+                  </div>  
                     
                 </div>
-                <div class="payment-mode">
+                <!-- <div class="payment-mode">
                     <div class="info-page">
                         <div class="info-item publicEllipsis">
                             <span class="invite">邀请好友</span>
@@ -112,7 +129,7 @@
                             <span class="right-invite surplus">23:13:56</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
            </div>
            <div class="footer-bottom">
                    <div class="total-b">
@@ -121,6 +138,16 @@
                       <a href="javascript:;" class="freight">免运费</a>
                    </div>
                    <button  class="buyBtn">立即付款</button>
+           </div>
+           <!-- 弹框 -->
+           <div class="popup_wrap" v-show="popShow" @click="popShow=false" @touchmove.prevent>
+             <div class="up">
+               <div class="gain">恭喜获得优惠券</div>
+               <div class="cou">
+                 <span class="cou_num">5</span>
+                 <span class="cou_it">元</span>
+               </div>
+             </div>
            </div>
     </div>
 </template>
@@ -177,8 +204,10 @@ export default {
                       want_man:1,
                       surplus_time:1558577988,
                    }
-               }
-                   
+               },
+              checked: true,
+              //控制弹框显示
+              popShow:true,    
 
                    
             
@@ -456,35 +485,31 @@ header
   font-size 30px
 
 .payment-mode
-  padding 19px
+  padding 20px 20px 20px 30px 
   border 1.11px solid #efece9
   border-radius 10px
   margin-bottom 10px
-
 .payment-mode  .mode-list
-  height 50px
-  display flex
-  justify-content space-between
-  margin-bottom 29px
-
+ display inline-block
+.payment-mode  .mode-list .num
+  font-size 22px
+  color #151515
+  font-weight 600
+  line-height 40px
+.ked
+  display inline-block
+  float right  
 .payment-mode  .mode-list .item-icon
-    width 30%
-    display flex 
-    line-height 50px
-    flex 1
-
-.payment-mode  .mode-list .item-icon>img
-    width 50px
-    height 50px
-    margin-right 10px
-
-.payment-mode  .mode-list .item-cheack
-    width 44px
-    height 44px
-    background url('/static/img/group_area/order/cheack.png')
-    background-size 100%
-    display flex
-    align-items center
+   line-height 45px
+.payment-mode  .mode-list .item-icon .not
+   margin-right 24px
+   font-size 24px
+   color #151515   
+   font-weight 600
+.payment-mode  .mode-list .item-icon .up
+   font-size 20px
+   color #f70a0a   
+   font-weight 600
  .item-cheack .activeIcon
     width 25px
     height 20px
@@ -514,24 +539,33 @@ header
     color #f70a0a
 
 .footer-bottom
-    display flex
+    // display flex
+    position fixed
+    bottom 0
+    left 0
+    display inline-block
+    float right
+    width 100%
+    background #fff
     line-height 90px
-    margin-bottom 24px
     border 1.1px solid #efece9
-    position relative
-    padding 20px
+    padding 20px 20px 20px 35px
     box-sizing border-box
+    -webkit-box-sizing border-box
+    box-shadow: 0px 0px 5px 0px #cccccc;
+    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
 .footer-bottom .total-b>a
     display inline-block
     color #000
     font-size 30px
     font-weight 600
 .total-b
-    flex 1    
+    // flex 1 
+    display inline-block    
     text-align right
 
 .footer-bottom .total-b  .freight
-    margin-right 18px
+    margin 0 18px 0 45px
     font-size 24px 
     color #9d9d9d
 
@@ -541,6 +575,7 @@ header
     margin-left 32px
 
 .footer-bottom .buyBtn
+    float right 
     background #f70a0a
     color #ffffff
     width 177px
@@ -549,4 +584,35 @@ header
     text-align center
     font-size 32px
     border 0
+.popup_wrap
+  position absolute
+  top 0
+  left 0
+  z-index 55
+  width 100%
+  height 100%
+  background rgba(0,0,0,0.5)
+.popup_wrap .up
+  padding 552px 0 0
+  margin 169px 0 0
+  width 100%
+  height 955px
+  background url('/static/img/group_area/order/bounced.png') no-repeat
+  background-size 100% 100%
+  text-align center
+  box-sizing border-box
+  -webkit-box-sizing border-box
+.popup_wrap .up .gain
+	font-size 44px
+	color #ffeb61
+	box-shadow 0px 0px 15px 0px rgba(209, 32, 32, 0.59)
+  font-family PingFang-SC-Bold
+.cou
+	color #ffdb7b
+	box-shadow 0px 0px 15px 0px rgba(209, 32, 32, 0.59)
+  font-family DINPro-Bold
+.cou_num
+  font-size 130px    
+.cou_it
+  font-size 50px
 </style>

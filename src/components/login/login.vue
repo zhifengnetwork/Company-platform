@@ -16,7 +16,7 @@
 				.then((res)=>{
                 	console.log('成功');
 				})
-				.catch((err) => {
+				.catch((error) => {
 					alert('页面请求失败：'+error);
 					console.log(error);
 				})
