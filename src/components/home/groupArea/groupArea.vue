@@ -29,6 +29,60 @@
 						<div class="good_3">GO</div>
 					</div>
 				</div>
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="/static/img/group_area/shop.png" />
+						</div>
+						<div class="time">10天 02:05:04</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥<span>99999</span></div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="/static/img/group_area/shop.png" />
+						</div>
+						<div class="time">10天 02:05:04</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥<span>99999</span></div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="img_wrap">
+						<div class="img">
+							<img src="/static/img/group_area/shop.png" />
+						</div>
+						<div class="time">10天 02:05:04</div>
+						<div class="piece">七天爆卖200件</div>
+					</div>
+					<p class="publicEllipsis">青年说是你发手机话费HHSJG</p>
+					<div class="goods_wrap">
+						<div class="good_1">
+							<div class="num">成团价</div>
+							<div class="meoy">￥<span>99999</span></div>
+						</div>
+						<div class="good_2">马上团购</div>
+						<div class="good_3">GO</div>
+					</div>
+				</div>
 
 			</div>
 			

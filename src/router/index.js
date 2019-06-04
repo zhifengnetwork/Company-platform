@@ -4,8 +4,10 @@ import Router from 'vue-router'
 /*底部导航-盒子模块*/
 import index from '@/components/index'
 
+
 /*登录-模块*/
 import login from '@/components/login/login'
+
 
 /*首页-模块*/
 import home from '@/components/home/home'
@@ -19,62 +21,71 @@ import male from '@/components/home/childrens/male'
 import female from '@/components/home/childrens/female'
 //家纺家居
 import homeTextile from '@/components/home/childrens/homeTextile'
-// 电器
+//电器
 import appliances from '@/components/home/childrens/appliances'
-// 拼团专区
+
+//拼团专区
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
-// 限时购
+
+//限时购
 import flashSale from '@/components/home/flashSale/flashSale'
-// 限时购详情
+//限时购详情
 import flashDetails from '@/components/home/flashSale/flashDetails'
+
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
-// 砍价模块
-import bargain from '@/components/home/bargain/bargain'
+
+//砍价模块
+import bargaindetail from '@/components/home/bargain/bargaindetail'
+
+
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
 
-// 我的订单
+//我的订单
 import order from '@/components/order/order'
+
 
 /*分类-模块*/
 import branch_class from '@/components/branch_class/branch_class'
 
+
 /*购物车-模块*/
 import cart from '@/components/cart/cart'
+
 
 /*我的-模块*/
 import user from '@/components/user/user'
 /*申请供应商*/
-import applicationSupplier from '@/components/user/my/applicationSupplier'
+import applicationSupplier from '@/components/user/applicationSupplier'
 /*账户余额*/
-import theAccountBalance from '@/components/user/my/theAccountBalance'
+import theAccountBalance from '@/components/user/theAccountBalance'
 /*充值金额*/
-import topUpAmount from '@/components/user/my/topUpAmount'
+import topUpAmount from '@/components/user/topUpAmount'
 /*账户提现*/
-import withdrawal from '@/components/user/my/withdrawal'
+import withdrawal from '@/components/user/withdrawal'
 /*输入支付宝提现*/
-import alipay from '@/components/user/my/alipay'
+import alipay from '@/components/user/alipay'
 /*提现明细*/
-import theWithdrawal from '@/components/user/my/theWithdrawal'
+import theWithdrawal from '@/components/user/theWithdrawal'
 /*充值明细*/
-import topUpDetail from '@/components/user/my/topUpDetail'
+import topUpDetail from '@/components/user/topUpDetail'
 /*账单明细*/
-import billingDetails from '@/components/user/my/billingDetails'
+import billingDetails from '@/components/user/billingDetails'
 
 /*会员-模块*/
 import member from '@/components/member/member'
 
 //邀请朋友
-import invitation from '@/components/invitation'
+import invitation from '@/components/sub_page/invitation'
 
 //生成广告二维码
-import createcode from '@/components/createcode'
+import createcode from '@/components/sub_page/createcode'
 
 
 
@@ -173,53 +184,55 @@ export default new Router({
 				},
 			]
 		},
+
+		
 		// 申请供应商
 		{
 			path: '/index/user/applicationSupplier',  
 			name: 'applicationSupplier',
-			component: (resolve) => require(['@/components/user/my/applicationSupplier'],resolve) 
+			component: (resolve) => require(['@/components/user/applicationSupplier'],resolve) 
 		},
 		// 账户余额
 		{
 			path: '/index/user/theAccountBalance',  
 			name: 'theAccountBalance',
-			component: (resolve) => require(['@/components/user/my/theAccountBalance'],resolve) 
+			component: (resolve) => require(['@/components/user/theAccountBalance'],resolve) 
 		},
 		// 提现明细
 		{
-			path: '/index/user/theWithdrawal',  
+			path: '/user/theWithdrawal',  
 			name: 'theWithdrawal',
-			component: (resolve) => require(['@/components/user/my/theWithdrawal'],resolve) 
+			component: (resolve) => require(['@/components/user/theWithdrawal'],resolve) 
 		},
 		// 充值明细
 		{
-			path: '/index/user/topUpDetail',  
+			path: '/user/topUpDetail',  
 			name: 'topUpDetail',
-			component: (resolve) => require(['@/components/user/my/topUpDetail'],resolve) 
+			component: (resolve) => require(['@/components/user/topUpDetail'],resolve) 
 		},
 		// 账单明细
 		{
-			path: '/index/user/billingDetails',  
+			path: '/user/billingDetails',  
 			name: 'billingDetails',
-			component: (resolve) => require(['@/components/user/my/billingDetails'],resolve) 
+			component: (resolve) => require(['@/components/user/billingDetails'],resolve) 
 		},
 		// 充值金额
 		{
 			path: '/index/user/topUpAmount',  
 			name: 'topUpAmount',
-			component: (resolve) => require(['@/components/user/my/topUpAmount'],resolve) 
+			component: (resolve) => require(['@/components/user/topUpAmount'],resolve) 
 		},
 		// 账户提现
 		{
-			path: '/index/user/withdrawal',  
+			path: '/user/withdrawal',  
 			name: 'withdrawal',
-			component: (resolve) => require(['@/components/user/my/withdrawal'],resolve) 
+			component: (resolve) => require(['@/components/user/withdrawal'],resolve) 
 		},
 		// 输入支付宝提现
 		{
 			path: '/index/user/alipay',  
 			name: 'alipay',
-			component: (resolve) => require(['@/components/user/my/alipay'],resolve) 
+			component: (resolve) => require(['@/components/user/alipay'],resolve) 
 		},
 		/**砍一刀 */
 		{
@@ -232,11 +245,12 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
-		// 砍价模块
+
+		//砍价详情
 		{
-			path: '/home/bargain',
-			name: 'bargain',
-			component: (resolve) => require(['@/components/home/bargain/bargain'],resolve),
+			path: '/home/bargain/bargaindetail',
+			name: 'bargaindetail',
+			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
 		{
 			path: '/home/groupArea', /**拼团 */
@@ -273,15 +287,15 @@ export default new Router({
 		},
 		//邀请朋友
 		{
-			path:'/invitation',
+			path:'/sub_page/invitation',
 			name:'invitation',
-			component: (resolve) => require(['@/components/invitation'],resolve),
+			component: (resolve) => require(['@/components/sub_page/invitation'],resolve),
 		},
 		//生成广告二维码
 		{
-			path:'/createcode',
+			path:'/sub_page/createcode',
 			name:'createcode',
-			component: (resolve) => require(['@/components/createcode'],resolve),
+			component: (resolve) => require(['@/components/sub_page/createcode'],resolve),
 		},
 		// 订单列表
 		{

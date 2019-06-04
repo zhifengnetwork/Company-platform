@@ -26,7 +26,7 @@
                         <div class="top-up">充值金额</div>
                     </router-link>
                     <!-- 提现 -->
-                    <router-link to="/index/user/withdrawal">
+                    <router-link to="/user/withdrawal">
                         <div class="draw">提现</div>
                     </router-link>    
                 </div>
@@ -34,21 +34,21 @@
                 <!-- 明细 -->
                 <div class="detail_wrap">
                     <!-- 提现 -->
-                    <router-link to="/index/user/theWithdrawal">
+                    <router-link to="/user/theWithdrawal">
                         <div class="dep">
                             <div class="the">提现明细</div>
                             <div class="icon"></div>
                         </div>
                     </router-link>
                     <!-- 充值 -->
-                    <router-link to="/index/user/topUpDetail">
+                    <router-link to="/user/topUpDetail">
                         <div class="dep">
                             <div class="the">充值明细</div>
                             <div class="icon"></div>
                         </div>
                     </router-link>    
                     <!-- 账单 -->
-                    <router-link to="/index/user/billingDetails">
+                    <router-link to="/user/billingDetails">
                         <div class="dep">
                             <div class="the">账单明细</div>
                             <div class="icon"></div>
@@ -68,14 +68,16 @@
 	/**头部 */
 	import Headtop from '@/components/public/page_top_head'
 	export default {
+        name: 'theAccountBalance',
+        components: {
+			Headtop,
+		},
 		data() {
 			return{
                 
 			}
 		},
-		components: {
-			Headtop,
-		},
+	
 		/*组件实例创建完成，属性已绑定，但DOM还未生成*/
 		created: function(){
 			/**head=>style */

@@ -36,6 +36,7 @@
     /**头部 */
 	import HeadTop from '@/components/public/page_top_head'
 	export default {
+        name: 'topUpAmount',
 		data() {
 			return{
                 payment:[

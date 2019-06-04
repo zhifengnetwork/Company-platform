@@ -75,6 +75,10 @@
 	/**头部 */
 	import HeadTop from '@/components/public/page_top_head'
 	export default {
+		name: 'withdrawal',
+		components: {
+			HeadTop,
+		},
 		data() {
 			return{
 				pay:[
@@ -89,9 +93,7 @@
                 cur: 0
 			}
 		},
-		components: {
-			HeadTop,
-		},
+		
 		/*组件实例创建完成，属性已绑定，但DOM还未生成*/
 		created: function(){
 			/**head=>style */

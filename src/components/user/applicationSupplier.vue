@@ -32,14 +32,16 @@
 	/**头部 */
 	import headtop from '@/components/public/page_top_head'
 	export default {
+		name: 'applicationSupplier',
+		components: {
+			headtop,
+		},
 		data() {
 			return{
                 
 			}
 		},
-		components: {
-			headtop,
-		},
+		
 		/*组件实例创建完成，属性已绑定，但DOM还未生成*/
 		created: function(){
 			/**head=>style */

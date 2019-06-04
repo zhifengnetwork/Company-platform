@@ -8,7 +8,7 @@
 
                 <div class="unit" v-for="(item,index) in coupon" :key="index">
 					<!-- <input type="checkbox"/> -->
-					<div class="inp" @click="selectPay(item,index)">
+					<div class="inp" @click="selectPay(item,index)" v-show="$store.state['top_head_data']['right_button']['show']">
 						<img class="cheack" src="/static/img/group_area/order/gou.png" alt="" v-if="item.cheack" />
 					</div>
 					
@@ -115,7 +115,7 @@
 					</div>
                 </div> -->
 				<!-- 删除按钮 -->
-				<div class="remove_btn" @click="delCoupon">删除</div>
+				<div class="remove_btn" @click="delCoupon" v-show="$store.state['top_head_data']['right_button']['show']">删除</div>
             </div>
         </div>
     </div>
@@ -310,7 +310,5 @@
 				font-size 30px
 				text-align center
 				line-height 88px
-				letter-spacing 5px			
-.van-dialog >>> .van-dialog__content >>> .van-dialog__message
-	padding 45px	
+				letter-spacing 5px	
 </style>
