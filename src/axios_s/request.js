@@ -10,16 +10,15 @@ axios.interceptors.request.use(
 	config => {
 		//请求之前重新拼装url
 		config.url = root + config.url;
-		// config.baseURL = '/api' // 本地环境axios => 
 		config.withCredentials = true // 允许携带token ,这个是解决跨域产生的相关问题
 		config.timeout = 1000 // 超时时间
-		let token = window.sessionStorage.getItem("token");
-		if(token) {
-			config.headers = {
-				'Authorization': token,
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
-		}
+		// let token = window.sessionStorage.getItem("token");
+		// if(token) {
+		// 	config.headers = {
+		// 		'Authorization': token,
+		// 		'Content-Type': 'application/x-www-form-urlencoded'
+		// 	}
+		// }
 		//发起请求时，取消掉当前正在进行的相同请求
 		if (promiseArr[config.url]) {
 			promiseArr[config.url]('操作取消')
@@ -44,7 +43,10 @@ axios.interceptors.response.use(
 			}).then(() => {
 				window.sessionStorage.setItem("token",null);
 				console.log('token,初始化: ',window.sessionStorage.getItem("token"));
-				router.replace({  //跳转到首页 页面
+				/**存储当前路由 */
+				window.sessionStorage.setItem("this_router",window.location.href)
+				console.log('存储当前路由 this_router: ',window.sessionStorage.getItem("this_router"));
+				router.replace({  	
 					path: '/index',
 				})
 			})
