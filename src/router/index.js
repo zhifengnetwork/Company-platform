@@ -30,6 +30,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+// 拼团详情
+import groupInfo from '@/components/home/groupArea/groupInfo'
 
 //限时购
 import flashSale from '@/components/home/flashSale/flashSale'
@@ -57,8 +59,6 @@ import evaluate from '@/components/order/evaluate'
 import returnRequest from '@/components/order/returnRequest'
 // 退货
 import returnGoods from '@/components/order/returnGoods'
-
-
 
 
 /*分类-模块*/
