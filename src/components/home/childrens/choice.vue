@@ -55,7 +55,9 @@
 
         <!-- 分类 -->
         <div class="category-wrap">
+            
             <div class="cate-item" v-for="item in cateData">
+                <router-link :to="item.url">
                 <h3>{{item.cateTit}}</h3>
                 <p>{{item.cateDec}}</p>
                 <div class="goods-item">
@@ -67,6 +69,7 @@
                         <span class="original-price">￥{{item.originalPrice | toFix}}</span>
                     </div>
                 </div>
+                </router-link>
             </div>
             <!-- <div class="cate-item">
                 <h3>新人专区</h3>
@@ -237,6 +240,7 @@ export default {
             // 分类菜单
             cateData:[
                 {
+                    url:'/index/home/choice',
                     cateTit:"新人专区",
                     cateDec:"15元特惠",
                     cateImg:"/static/img/home/00newborn-zone-img01.png",
@@ -244,6 +248,7 @@ export default {
                     originalPrice:"852"
                 },
                 {
+                    url:'/home/groupArea',
                     cateTit:"拼团",
                     cateDec:"八人拼团 团长免单",
                     cateImg:"/static/img/home/00Assemble-img01.png",
@@ -251,13 +256,15 @@ export default {
                     originalPrice:"8852"
                 },
                 {
+                    url:'/home/bargain',
                     cateTit:"砍一刀",
                     cateDec:"邀请我好友砍一砍",
                     cateImg:"/static/img/home/00newborn-zone-img01.png",
                     discountPrice:"365",
                     originalPrice:"852"
                 },
-                {
+                {   
+                    url:'/home/flashSale',
                     cateTit:"限时购",
                     cateDec:"朋友时间不等人",
                     cateImg:"/static/img/home/00Assemble-img01.png",
