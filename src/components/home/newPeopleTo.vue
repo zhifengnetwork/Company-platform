@@ -49,7 +49,8 @@ export default {
          * 1、判断是否-授权回来,传回的code参数 。
          * 2、绑定成功后。
          * **/
-        if(this_url.indexOf('code=') != -1){
+        // alert('token:::'+window.sessionStorage.getItem("token"));
+        if(this_url.indexOf('code=') != -1 ){
             /**url的string */
             // alert(this_url);
             /**想要截取 code的值（还用start值） */
@@ -169,6 +170,11 @@ export default {
             })
                 .then((_data)=>{
                     alert('手机绑定请求-成功:',_data['data']['data']);
+                     /**
+                     * 因为 每次进入都要授权，所以用会话存储
+                     * 存储token;
+                     * **/
+                    window.sessionStorage.setItem("token", _res['data']['data']['token']);    
                     
                 })
                 .catch((_err) => {

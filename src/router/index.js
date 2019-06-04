@@ -4,8 +4,10 @@ import Router from 'vue-router'
 /*底部导航-盒子模块*/
 import index from '@/components/index'
 
+
 /*登录-模块*/
 import login from '@/components/login/login'
+
 
 /*首页-模块*/
 import home from '@/components/home/home'
@@ -19,42 +21,55 @@ import male from '@/components/home/childrens/male'
 import female from '@/components/home/childrens/female'
 //家纺家居
 import homeTextile from '@/components/home/childrens/homeTextile'
-// 电器
+//电器
 import appliances from '@/components/home/childrens/appliances'
-// 拼团专区
+
+//拼团专区
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
-// 限时购
+
+//限时购
 import flashSale from '@/components/home/flashSale/flashSale'
-// 限时购详情
+//限时购详情
 import flashDetails from '@/components/home/flashSale/flashDetails'
+
 //砍一刀
 import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
-// 砍价模块
+
+//砍价模块
 import bargaindetail from '@/components/home/bargain/bargaindetail'
 
-// puls会员专区
-import memberarea from '@/components/home/memberarea/memberarea'
 
-import bargain from '@/components/home/bargain/bargain'
 //优惠券
 import coupon from '@/components/home/bargain/coupon'
 
-// 我的订单
+//我的订单
 import order from '@/components/order/order'
+
 
 /*分类-模块*/
 import branch_class from '@/components/branch_class/branch_class'
 
+
 /*购物车-模块*/
 import cart from '@/components/cart/cart'
 
+
 /*我的-模块*/
 import user from '@/components/user/user'
+/*申请供应商*/
+import applicationSupplier from '@/components/user/applicationSupplier'
+/*账户余额*/
+import theAccountBalance from '@/components/user/theAccountBalance'
+/*充值金额*/
+import topUpAmount from '@/components/user/topUpAmount'
+/*账户提现*/
+import withdrawal from '@/components/user/withdrawal'
+
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -163,8 +178,34 @@ export default new Router({
 			]
 		},
 
+		
+		// 申请供应商
 		{
-			path: '/home/bargain', /**砍一刀 */
+			path: '/user/ApplicationSupplier',  
+			name: 'ApplicationSupplier',
+			component: (resolve) => require(['@/components/user/applicationSupplier'],resolve) 
+		},
+		// 账户余额
+		{
+			path: '/user/TheAccountBalance',  
+			name: 'TheAccountBalance',
+			component: (resolve) => require(['@/components/user/theAccountBalance'],resolve) 
+		},
+		// 充值金额
+		{
+			path: '/user/TopUpAmount',  
+			name: 'TopUpAmount',
+			component: (resolve) => require(['@/components/user/topUpAmount'],resolve) 
+		},
+		// 账户提现
+		{
+			path: '/user/withdrawal',  
+			name: 'withdrawal',
+			component: (resolve) => require(['@/components/user/withdrawal'],resolve) 
+		},
+		/**砍一刀 */
+		{
+			path: '/home/bargainirg', 
 			name: 'bargainirg',
 			component: (resolve) => require(['@/components/home/bargain/bargainirg'],resolve),
 		},	
@@ -179,11 +220,6 @@ export default new Router({
 			path: '/home/bargain/bargaindetail',
 			name: 'bargaindetail',
 			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
-		},
-		{
-			path: '/home/memberarea/memberareal',
-			name: 'memberarea',
-			component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
 		},
 		{
 			path: '/home/groupArea', /**拼团 */
