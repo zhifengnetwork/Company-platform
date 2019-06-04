@@ -42,22 +42,22 @@
         </van-row>        
         <!-- 拼团信息 -->
         <van-row class="group_booking" type="flex" justify="space-between">
-            <van-col class="group_booking_left" span="8">
+            <van-col class="group_booking_left" span="12">
                 <img class="group_booking_img" :src="data.group_booking[0].userimg" alt="">
                 <span>{{data.group_booking[0].username}}</span>
             </van-col>
-            <van-col class="group_booking_right" span="8">
+            <van-col class="group_booking_right" span="12">
                 <p>还差{{data.group_booking[0].short}}人</p>
                 <p>剩余时间{{data.group_booking[0].time_day}}天{{data.group_booking[0].time}}</p>
             </van-col>
         </van-row>
         <!-- 拼团信息 -->
         <van-row class="group_booking" type="flex" justify="space-between">
-            <van-col class="group_booking_left" span="8">
+            <van-col class="group_booking_left" span="12">
                 <img class="group_booking_img" src="static/img/000⑨.png" alt="">
                 <span>我最能拼了</span>
             </van-col>
-            <van-col class="group_booking_right" span="8">
+            <van-col class="group_booking_right" span="12">
                 <p>还差99人</p>
                 <p>剩余时间6天12:59:11</p>
             </van-col>
