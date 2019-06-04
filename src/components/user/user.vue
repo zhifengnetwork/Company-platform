@@ -160,14 +160,14 @@ import { Dialog } from 'vant';
 	},
 	created(){
 		Dialog.confirm({
-		message: '升级为puls会员即可申请供应商',
-		confirmButtonText:'去升级',
-		confirmButtonColor:'#000',
-		cancelButtonColor:'#666'
+			message: '升级为puls会员即可申请供应商',
+			confirmButtonText:'去升级',
+			confirmButtonColor:'#000',
+			cancelButtonColor:'#666'
 		}).then(() => {
-		// on confirm
+			// on confirm
 		}).catch(() => {
-		// on cancel
+			// on cancel
 		});	
 	}
 	}
