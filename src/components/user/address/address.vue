@@ -9,7 +9,9 @@
                     <div class="item-name">
                         <span class="name">小腊肉</span>
                         <span class="tel">17875592622</span>
-                        <span class="edit"></span>
+                        <router-link to="/user/editAddress">
+                            <span class="edit"></span>
+                        </router-link>
                     </div>
                     <div class="item-address">
                         <div class="isDefault">默认</div>
@@ -23,7 +25,9 @@
                     <div class="item-name">
                         <span class="name">荷包蛋</span>
                         <span class="tel">17875592622</span>
-                        <span class="edit"></span>
+                        <router-link to="/user/editAddress">
+                            <span class="edit"></span>
+                        </router-link>
                     </div>
                     <div class="item-address">
                         <div class="exact-address">
@@ -33,11 +37,13 @@
                     <span class="del-icon"></span>
                 </div>
             </div>
-
-            <div class="add-address">
-                <span class="plus-icon"><img src="/static/img/user/address/plus-icon.png" /></span>
-                <span>新建收货地址</span>
-            </div>
+            
+            <router-link to="/user/addAddress">
+                <div class="add-address">
+                    <span class="plus-icon"><img src="/static/img/user/address/plus-icon.png" /></span>
+                    <span>新建收货地址</span>
+                </div>
+            </router-link>
 
         </div>
 
@@ -65,7 +71,8 @@ export default {
                 borderBottom :'1px solid #e6e6e6'
             },
             return_data: {
-                icon: '/static/img/left_icon_555.png',
+                need_model: true,
+                icon: '/static/img/public/left_icon_555.png',
                 /*跳转的路由(可以传参),为空=>返回上一页*/
                 url_data: '',
             },

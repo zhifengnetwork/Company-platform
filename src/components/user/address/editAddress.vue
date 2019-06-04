@@ -1,5 +1,5 @@
 <template>
-    <div class="addAddress">
+    <div class="editAddress">
         <!-- 头部 -->
         <headtop></headtop>
 
@@ -8,13 +8,13 @@
                 <div class="form-group">
                     <div class="label">收货人</div>
                     <div class="input-group">
-                        <input type="text" placeholder="收货人姓名">
+                        <input type="text" placeholder="小腊肉">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="label">手机号码</div>
                     <div class="input-group">
-                        <input type="number" placeholder="输入电话号码">
+                        <input type="number" placeholder="17875592633">
                     </div>
                 </div>
                 <router-link to="/user/selectPoint">
@@ -30,12 +30,11 @@
                 <div class="form-group">
                     <div class="label">详细地址</div>
                     <div class="input-group">
-                        <textarea placeholder="请输入详细地址" rows="1"></textarea>
+                        <textarea placeholder="嘉禾汇726" rows="1"></textarea>
                     </div>
                 </div>
             </div>
 
-            <!-- 设置默认地址 -->
             <div class="set-default">
                 <div class="label">设置默认地址</div>
                 <van-switch
@@ -56,7 +55,7 @@
 <script>
 import headtop from '@/components/public/page_top_head'
 export default {
-    name:'addAddress',
+    name:'editAddress',
     components: {
         headtop
     },
@@ -82,7 +81,7 @@ export default {
             title: {
                 /**是否-显示该模块 */
                 need_model: true,
-                name: '收货地址',
+                name: '编辑地址',
                 style: {color:'#151515'}
             },
             right_button: {
@@ -113,7 +112,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.addAddress
+.editAddress
     min-height 100vh
     background-color #ffffff
     .content
@@ -168,7 +167,7 @@ export default {
                 width 145px
                 font-size 24px
                 color #151515
-                margin-right 25px  
+                margin-right 25px 
         .saveBtn
             width 92%
             height 88px
@@ -181,6 +180,6 @@ export default {
             left 50%
             bottom 25px
             margin-left -46%
-            border-radius 40px  
+            border-radius 40px    
 
 </style>
