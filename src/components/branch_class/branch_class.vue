@@ -1,8 +1,5 @@
 <template>
     <div class="branch">
-        <div class="branch_title">
-            <img class="branch_title_img" src="static/img/getinto_share_icon.png" alt="">
-        </div>
         <div class="branck_nav">
             <ul class="branck_tab">
                 <li class="branck_tab_list" @click="toggle(index)" v-for="(item,index) in data.list" :key="index" :class="active==index?'active':''">{{item.name}}</li>
@@ -11,6 +8,9 @@
                 <!-- tab内容 -->
                 <li v-for="(item,index) in data.list" :key="index" v-show="active==index">
                     <div class="branck_tabItem_content">
+                        <div class="branch_title">
+                            <img class="branch_title_img" src="static/img/public/getinto_share_icon.png" alt="">
+                        </div>
                         <!-- 列表项 -->
                        <div class="branck_tabItem_content_list clearfloat" v-for="(item,index) in data.item" :key="index">
                            <div class="branck_tabItem_content_imgwrap">
@@ -48,6 +48,9 @@ export default {
                     {name:'商品9'},
                     {name:'商品9'},
                     {name:'商品9'},
+                    {name:'商品9'},
+                    {name:'商品9'},
+                    {name:'商品9'},
                 ],
                 item:[
                     {name:'商品1',img:'static/img/000⑨.png',price:'100.00'},
@@ -76,15 +79,14 @@ export default {
 .branch_title_img
     display block
     margin 0 auto
-    width 80%
+    width 100%
     height 100%
     border-radius 10px
 .branck_tab
     position fixed
-    margin-top 20px
     margin-right 10px
     width 185px
-    height 79.8vh
+    height 100vh
     overflow-y scroll
     padding-bottom 115px
     box-sizing border-box
