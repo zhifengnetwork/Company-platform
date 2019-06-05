@@ -83,7 +83,14 @@ import theAccountBalance from '@/components/user/theAccountBalance'
 import topUpAmount from '@/components/user/topUpAmount'
 /*账户提现*/
 import withdrawal from '@/components/user/withdrawal'
-
+/*输入支付宝提现*/
+import alipay from '@/components/user/alipay'
+/*提现明细*/
+import theWithdrawal from '@/components/user/theWithdrawal'
+/*充值明细*/
+import topUpDetail from '@/components/user/topUpDetail'
+/*账单明细*/
+import billingDetails from '@/components/user/billingDetails'
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -224,14 +231,37 @@ export default new Router({
 			component: (resolve) => require(['@/components/user/lookorder'],resolve)
 		},
 		{
-			path: '/user/TheAccountBalance',  
-			name: 'TheAccountBalance',
+			path: '/user/applicationSupplier',  
+			name: 'applicationSupplier',
+			component: (resolve) => require(['@/components/user/applicationSupplier'],resolve) 
+		},
+		{
+			path: '/user/theAccountBalance',  
+			name: 'theAccountBalance',
 			component: (resolve) => require(['@/components/user/theAccountBalance'],resolve) 
+		},
+		// 提现明细
+		{
+			path: '/user/theWithdrawal',  
+			name: 'theWithdrawal',
+			component: (resolve) => require(['@/components/user/theWithdrawal'],resolve) 
+		},
+		// 充值明细
+		{
+			path: '/user/topUpDetail',  
+			name: 'topUpDetail',
+			component: (resolve) => require(['@/components/user/topUpDetail'],resolve) 
+		},
+		// 账单明细
+		{
+			path: '/user/billingDetails',  
+			name: 'billingDetails',
+			component: (resolve) => require(['@/components/user/billingDetails'],resolve) 
 		},
 		// 充值金额
 		{
-			path: '/user/TopUpAmount',  
-			name: 'TopUpAmount',
+			path: '/index/user/topUpAmount',  
+			name: 'topUpAmount',
 			component: (resolve) => require(['@/components/user/topUpAmount'],resolve) 
 		},
 	
@@ -240,6 +270,12 @@ export default new Router({
 			path: '/user/withdrawal',  
 			name: 'withdrawal',
 			component: (resolve) => require(['@/components/user/withdrawal'],resolve) 
+		},
+		// 输入支付宝提现
+		{
+			path: '/index/user/alipay',  
+			name: 'alipay',
+			component: (resolve) => require(['@/components/user/alipay'],resolve) 
 		},
 		/**砍一刀 */
 		{
@@ -269,11 +305,6 @@ export default new Router({
 			name: 'bargain',
 			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
-		// {
-		// 	path: '/home/memberarea/memberarea',
-		// 	name: 'memberarea',
-		// 	component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
-		// },
 		{
 			path: '/home/groupArea', /**拼团 */
 			name: 'groupArea',
