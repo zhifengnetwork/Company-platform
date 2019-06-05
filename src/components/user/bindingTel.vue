@@ -8,7 +8,7 @@
             </div>
             <div class="input-group">
                 <input type="text" placeholder="输入验证码">
-                <button></button>
+                <button class="getVerifyCode">获取验证码</button>
             </div>
         </div>
     </div>
@@ -62,5 +62,32 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.bindingTel
+    background-color #ffffff
+    min-height 100vh
+    .content
+        padding 108px 24px
+        box-sizing border-box
+        .input-group
+            height 56px
+            display flex
+            align-items center
+            border-bottom 1px solid #e6e6e6
+            padding-top 22px
+            padding-bottom 10px
+            input
+                flex 1
+                height 30px
+                border none
+            .getVerifyCode
+                padding 0 10px
+                height 60px
+                line-height 60px
+                border 1px solid #ff4902
+                font-size 28px
+                background none
+                border-radius 25px
+        .input-group:last-child
+            border none
 
 </style>

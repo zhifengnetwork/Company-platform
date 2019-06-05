@@ -424,6 +424,7 @@ export default {
             ],
             baseUrl:[],// 商品图片路径
             ispage:true,//是否请求数据
+            token:window.sessionStorage.getItem("token")
         }
     },
     /*组件实例创建完成，属性已绑定，但DOM还未生成*/
@@ -495,10 +496,12 @@ export default {
             }
             if(this.ispage){
                 var url = 'Order/order_list'
+                // var token = window.sessionStorage.getItem("token")
+                // console.log(token)
                 var params = new URLSearchParams()
-               
                 params.append('type', type)
                 params.append('page', this.page)
+                params.append('token', this.token)
                 this.$axios({
                     method: "get",
 					url: url,
