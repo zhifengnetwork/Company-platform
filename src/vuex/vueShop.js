@@ -84,7 +84,10 @@ const state = {
 		load_wrap_style: {},
 		/***开始加载=> start 的 loading icon */
 		load_icon_color: '#4a4949',
-	}
+	},
+
+	
+
 }
 
 /*专门修改state 里面的数据（同步操作）*/
@@ -118,9 +121,12 @@ const mutations = {
 		state.top_head_data = clones(_styleObj);
 	},
 	/* public -e*/
-	
+
+
+
 	
 }
+
 
 /*暴露 实例化 vuex (数据管理商店||仓库)*/
 export default new Vuex.Store({

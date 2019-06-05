@@ -13,6 +13,8 @@ import login from '@/components/login/login'
 import home from '@/components/home/home'
 //精选
 import choice from '@/components/home/childrens/choice'
+// 首页子公共组件
+import subBase from '@/components/home/childrens/subBase'
 //9.9包邮
 import guarantees from '@/components/home/childrens/guarantees'
 //男装
@@ -28,6 +30,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+// 拼团详情
+import groupInfo from '@/components/home/groupArea/groupInfo'
 
 //限时购
 import flashSale from '@/components/home/flashSale/flashSale'
@@ -52,6 +56,12 @@ import coupon from '@/components/home/bargain/coupon'
 
 //我的订单
 import order from '@/components/order/order'
+// 去评价
+import evaluate from '@/components/order/evaluate'
+// 退款申请
+import returnRequest from '@/components/order/returnRequest'
+// 退货
+import returnGoods from '@/components/order/returnGoods'
 
 
 /*分类-模块*/
@@ -91,6 +101,18 @@ import theWithdrawal from '@/components/user/theWithdrawal'
 import topUpDetail from '@/components/user/topUpDetail'
 /*账单明细*/
 import billingDetails from '@/components/user/billingDetails'
+
+// 收货地址
+import addressView from '@/components/user/address/address'
+// 添加收货地址
+import addAddress from '@/components/user/address/addAddress'
+// 编辑收货地址
+import editAddress from '@/components/user/address/editAddress'
+// 地址选点
+import selectPoint from '@/components/user/address/selectPoint'
+// 绑定手机号码
+import bindingTel from '@/components/user/bindingTel'
+
 
 /*会员-模块*/
 import member from '@/components/member/member'
@@ -140,39 +162,45 @@ export default new Router({
 					children:[
 						// 精选
 						{ 
-								path: '/index/home/choice', 
-								name:'choice',
-								component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+							path: '/index/home/choice', 
+							name:'choice',
+							component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+						},
+						// 子公共组件
+						{ 
+							path: '/index/home/subBase', 
+							name:'subBase',
+							component: (resolve) => require(['@/components/home/childrens/subBase'],resolve) 
 						},
 						// 9.9包邮
 						{ 
-								path: '/index/home/guarantees', 
-								name:'guarantees',
-								component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
+							path: '/index/home/guarantees', 
+							name:'guarantees',
+							component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
 						},
 						// 男装
 						{ 
-								path: '/index/home/male', 
-								name:'male',
-								component: (resolve) => require(['@/components/home/childrens/male'],resolve)
+							path: '/index/home/male', 
+							name:'male',
+							component: (resolve) => require(['@/components/home/childrens/male'],resolve)
 						},
 						// 女装
 						{ 
-								path: '/index/home/female', 
-								name:'female',
-								component: (resolve) => require(['@/components/home/childrens/female'],resolve)
+							path: '/index/home/female', 
+							name:'female',
+							component: (resolve) => require(['@/components/home/childrens/female'],resolve)
 						},
 						// 家居家纺
 						{ 	
-								path: '/index/home/homeTextile', 
-								name:'homeTextile',
-								component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
+							path: '/index/home/homeTextile', 
+							name:'homeTextile',
+							component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
 						},
 						// 电器
 						{ 
-								path: '/index/home/appliances', 
-								name:'appliances',
-								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
+							path: '/index/home/appliances', 
+							name:'appliances',
+							component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 						}
 					]
 				},
@@ -356,6 +384,56 @@ export default new Router({
 			name: 'order',
 			component: (resolve) => require(['@/components/order/order'],resolve),
 		},
+		// 去评价
+		{
+			path: '/order/evaluate',
+			name: 'evaluate',
+			component: (resolve) => require(['@/components/order/evaluate'],resolve),
+		},
+		// 退货
+		{
+			path: '/order/returnGoods',
+			name: 'returnGoods',
+			component: (resolve) => require(['@/components/order/returnGoods'],resolve),
+		},
+		// 退款申请
+		{
+			path: '/order/returnRequest',
+			name: 'returnRequest',
+			component: (resolve) => require(['@/components/order/returnRequest'],resolve),
+		},
+		// 收货地址
+		{
+			path: '/user/address',
+			name: 'addressView',
+			component: (resolve) => require(['@/components/user/address/address'],resolve),
+		},
+		// 添加收货地址
+		{
+			path: '/user/addAddress',
+			name: 'addAddress',
+			component: (resolve) => require(['@/components/user/address/addAddress'],resolve),
+		},
+		// 修改收货地址
+		{
+			path: '/user/editAddress',
+			name: 'editAddress',
+			component: (resolve) => require(['@/components/user/address/editAddress'],resolve),
+		},
+		// 地址选点
+		{
+			path: '/user/selectPoint',
+			name: 'selectPoint',
+			component: (resolve) => require(['@/components/user/address/selectPoint'],resolve),
+		},
+		// 手机号码绑定
+		{
+			path: '/user/bindingTel',
+			name: 'selectPoint',
+			component: (resolve) => require(['@/components/user/bindingTel'],resolve),
+		},
+	
+
 
 	]
 })
