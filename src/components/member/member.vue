@@ -157,7 +157,7 @@
 
 <style lang="stylus" scoped>
 .maxmax_div
-    positon absolute!import
+    position absolute!import
     top 0
     bottom 0
     left 0
