@@ -22,11 +22,11 @@
                 <!-- 充值、提现按钮 -->
                 <div class="btn_wrap">
                     <!-- 充值 -->
-                    <router-link to="/index/user/TopUpAmount">
+                    <router-link to="/index/user/topUpAmount">
                         <div class="top-up">充值金额</div>
                     </router-link>
                     <!-- 提现 -->
-                    <router-link to="/index/user/withdrawal">
+                    <router-link to="/user/withdrawal">
                         <div class="draw">提现</div>
                     </router-link>    
                 </div>
@@ -34,21 +34,21 @@
                 <!-- 明细 -->
                 <div class="detail_wrap">
                     <!-- 提现 -->
-                    <router-link to="">
+                    <router-link to="/user/theWithdrawal">
                         <div class="dep">
                             <div class="the">提现明细</div>
                             <div class="icon"></div>
                         </div>
                     </router-link>
                     <!-- 充值 -->
-                    <router-link to="">
+                    <router-link to="/user/topUpDetail">
                         <div class="dep">
                             <div class="the">充值明细</div>
                             <div class="icon"></div>
                         </div>
                     </router-link>    
                     <!-- 账单 -->
-                    <router-link to="">
+                    <router-link to="/user/billingDetails">
                         <div class="dep">
                             <div class="the">账单明细</div>
                             <div class="icon"></div>
@@ -162,6 +162,7 @@
                     font-size 26px
                     text-align center
                     line-height 80px
+                    letter-spacing 4px
                 .top-up
                     background #ff4902
                     color #fff
