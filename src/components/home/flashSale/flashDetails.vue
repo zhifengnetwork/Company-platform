@@ -292,6 +292,12 @@
                                     </div>
                                 </li>
                             </ul>
+
+                             <!-- 数据加载完提示 -->
+                            <div class="end-wrap">
+                                <p>我是有底线哦~~</p>
+                            </div>
+
                         </div>
                     </van-tab>
                 </van-tabs>
@@ -744,6 +750,11 @@ export default {
                         .eval-content
                             p
                                 font-size 18px
+                .end-wrap
+                    font-size 18px
+                    color #888888
+                    text-align center
+                    margin 30px auto
     .sku-wrap
         .sku-content
             padding 0 25px

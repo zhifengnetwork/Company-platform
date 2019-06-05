@@ -22,7 +22,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-   	// host: '192.168.1.10', // can be overwritten by process.env.HOST
+   	// host: '192.168.1.112', // can be overwritten by process.env.HOST
    	host: '127.0.0.1', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
@@ -36,7 +36,8 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'cheap-module-eval-source-map',
+    /**注释 打包后 vue在ios9.3.1 出现白屏 */
+    // devtool: 'cheap-module-eval-source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help

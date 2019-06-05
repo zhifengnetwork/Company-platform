@@ -28,3 +28,8 @@
 
 三、职责
 	1、对应做的模块(页面的完成、数据交互、测试)。
+
+四、代码问题
+	1、axios拦截器=> '@/axios_s/request.js' 中
+	2、授权代码 => '@/components/home/newPeopleTo.vue' 中.
+	3、由于部分低版本的手机还不支持ES6语法，将会导致vue报错。

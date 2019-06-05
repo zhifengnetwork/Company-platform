@@ -13,6 +13,8 @@ import login from '@/components/login/login'
 import home from '@/components/home/home'
 //精选
 import choice from '@/components/home/childrens/choice'
+// 首页子公共组件
+import subBase from '@/components/home/childrens/subBase'
 //9.9包邮
 import guarantees from '@/components/home/childrens/guarantees'
 //男装
@@ -28,6 +30,8 @@ import appliances from '@/components/home/childrens/appliances'
 import groupArea from '@/components/home/groupArea/groupArea'
 //拼团订单
 import groupOrder from '@/components/home/groupArea/groupOrder'
+// 拼团详情
+import groupInfo from '@/components/home/groupArea/groupInfo'
 
 //限时购
 import flashSale from '@/components/home/flashSale/flashSale'
@@ -39,6 +43,9 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
+// 打卡明细
+import bargainmingxi from "@/components/home/bargain/bargainmingxi"
+// 砍价模块
 
 //砍价模块
 import bargaindetail from '@/components/home/bargain/bargaindetail'
@@ -49,11 +56,16 @@ import coupon from '@/components/home/bargain/coupon'
 
 //我的订单
 import order from '@/components/order/order'
+// 去评价
+import evaluate from '@/components/order/evaluate'
+// 退款申请
+import returnRequest from '@/components/order/returnRequest'
+// 退货
+import returnGoods from '@/components/order/returnGoods'
 
 
 /*分类-模块*/
 import branch_class from '@/components/branch_class/branch_class'
-
 
 /*购物车-模块*/
 import cart from '@/components/cart/cart'
@@ -61,6 +73,18 @@ import cart from '@/components/cart/cart'
 
 /*我的-模块*/
 import user from '@/components/user/user'
+// 我的团队
+import mylist from '@/components/user/mylist'
+// 团队列表
+import tuandui_table from "@/components/user/tuandui_table"
+// 佣金列表
+import commissionlist from "@/components/user/commissionlist"
+// 业绩明细
+import yejilist from "@/components/user/yejilist"
+// 预计收益
+import shouyilist from "@/components/user/shouyilist"
+//查看订单
+import lookorder from "@/components/user/lookorder"
 /*申请供应商*/
 import applicationSupplier from '@/components/user/applicationSupplier'
 /*账户余额*/
@@ -78,6 +102,18 @@ import topUpDetail from '@/components/user/topUpDetail'
 /*账单明细*/
 import billingDetails from '@/components/user/billingDetails'
 
+// 收货地址
+import addressView from '@/components/user/address/address'
+// 添加收货地址
+import addAddress from '@/components/user/address/addAddress'
+// 编辑收货地址
+import editAddress from '@/components/user/address/editAddress'
+// 地址选点
+import selectPoint from '@/components/user/address/selectPoint'
+// 绑定手机号码
+import bindingTel from '@/components/user/bindingTel'
+
+
 /*会员-模块*/
 import member from '@/components/member/member'
 
@@ -86,6 +122,7 @@ import invitation from '@/components/sub_page/invitation'
 
 //生成广告二维码
 import createcode from '@/components/sub_page/createcode'
+
 
 
 
@@ -125,39 +162,45 @@ export default new Router({
 					children:[
 						// 精选
 						{ 
-								path: '/index/home/choice', 
-								name:'choice',
-								component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+							path: '/index/home/choice', 
+							name:'choice',
+							component: (resolve) => require(['@/components/home/childrens/choice'],resolve) 
+						},
+						// 子公共组件
+						{ 
+							path: '/index/home/subBase', 
+							name:'subBase',
+							component: (resolve) => require(['@/components/home/childrens/subBase'],resolve) 
 						},
 						// 9.9包邮
 						{ 
-								path: '/index/home/guarantees', 
-								name:'guarantees',
-								component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
+							path: '/index/home/guarantees', 
+							name:'guarantees',
+							component: (resolve) => require(['@/components/home/childrens/guarantees'],resolve)
 						},
 						// 男装
 						{ 
-								path: '/index/home/male', 
-								name:'male',
-								component: (resolve) => require(['@/components/home/childrens/male'],resolve)
+							path: '/index/home/male', 
+							name:'male',
+							component: (resolve) => require(['@/components/home/childrens/male'],resolve)
 						},
 						// 女装
 						{ 
-								path: '/index/home/female', 
-								name:'female',
-								component: (resolve) => require(['@/components/home/childrens/female'],resolve)
+							path: '/index/home/female', 
+							name:'female',
+							component: (resolve) => require(['@/components/home/childrens/female'],resolve)
 						},
 						// 家居家纺
 						{ 	
-								path: '/index/home/homeTextile', 
-								name:'homeTextile',
-								component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
+							path: '/index/home/homeTextile', 
+							name:'homeTextile',
+							component: (resolve) => require(['@/components/home/childrens/homeTextile'],resolve)
 						},
 						// 电器
 						{ 
-								path: '/index/home/appliances', 
-								name:'appliances',
-								component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
+							path: '/index/home/appliances', 
+							name:'appliances',
+							component: (resolve) => require(['@/components/home/childrens/appliances'],resolve)
 						}
 					]
 				},
@@ -176,25 +219,52 @@ export default new Router({
 					name: 'cart',
 					component: (resolve) => require(['@/components/cart/cart'],resolve) 
 				},
-					//用户中心
+				//用户中心
 				{
 					path: '/index/user',  
 					name: 'user',
-					component: (resolve) => require(['@/components/user/user'],resolve) 
-				},
+					component: (resolve) => require(['@/components/user/user'],resolve),
+
+				}												
 			]
 		},
-
-		
-		// 申请供应商
+        {
+			path: '/user/mylist',  
+			name: 'mylist',
+			component: (resolve) => require(['@/components/user/mylist'],resolve)
+		},
 		{
-			path: '/index/user/applicationSupplier',  
+			path: '/user/mylist/tuandui_table',  
+			name: 'tuandui_table',
+			component: (resolve) => require(['@/components/user/tuandui_table'],resolve)
+		}, 
+		{
+			path: '/user/mylist/commissionlist',  
+			name: 'commissionlist',
+			component: (resolve) => require(['@/components/user/commissionlist'],resolve)
+		},
+		{
+			path: '/user/mylist/yejilist',  
+			name: 'yejilist',
+			component: (resolve) => require(['@/components/user/yejilist'],resolve)
+		},
+		{
+			path: '/user/mylist/shouyilist',  
+			name: 'shouyilist',
+			component: (resolve) => require(['@/components/user/shouyilist'],resolve)
+		},
+		{
+			path: '/user/mylist/lookorder',  
+			name: 'lookorder',
+			component: (resolve) => require(['@/components/user/lookorder'],resolve)
+		},
+		{
+			path: '/user/applicationSupplier',  
 			name: 'applicationSupplier',
 			component: (resolve) => require(['@/components/user/applicationSupplier'],resolve) 
 		},
-		// 账户余额
 		{
-			path: '/index/user/theAccountBalance',  
+			path: '/user/theAccountBalance',  
 			name: 'theAccountBalance',
 			component: (resolve) => require(['@/components/user/theAccountBalance'],resolve) 
 		},
@@ -222,6 +292,7 @@ export default new Router({
 			name: 'topUpAmount',
 			component: (resolve) => require(['@/components/user/topUpAmount'],resolve) 
 		},
+	
 		// 账户提现
 		{
 			path: '/user/withdrawal',  
@@ -245,11 +316,21 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
-
+		{
+			path: '/home/bargain/guige',
+			name: 'guige',
+			component: (resolve) => require(['@/components/home/bargain/guige'],resolve),
+		},
+		{
+			path: '/home/bargain/bargainmingxi',
+			name: 'bargainmingxi',
+			component: (resolve) => require(['@/components/home/bargain/bargainmingxi'],resolve),
+		},
+		
 		//砍价详情
 		{
 			path: '/home/bargain/bargaindetail',
-			name: 'bargaindetail',
+			name: 'bargain',
 			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
 		{
@@ -303,6 +384,56 @@ export default new Router({
 			name: 'order',
 			component: (resolve) => require(['@/components/order/order'],resolve),
 		},
+		// 去评价
+		{
+			path: '/order/evaluate',
+			name: 'evaluate',
+			component: (resolve) => require(['@/components/order/evaluate'],resolve),
+		},
+		// 退货
+		{
+			path: '/order/returnGoods',
+			name: 'returnGoods',
+			component: (resolve) => require(['@/components/order/returnGoods'],resolve),
+		},
+		// 退款申请
+		{
+			path: '/order/returnRequest',
+			name: 'returnRequest',
+			component: (resolve) => require(['@/components/order/returnRequest'],resolve),
+		},
+		// 收货地址
+		{
+			path: '/user/address',
+			name: 'addressView',
+			component: (resolve) => require(['@/components/user/address/address'],resolve),
+		},
+		// 添加收货地址
+		{
+			path: '/user/addAddress',
+			name: 'addAddress',
+			component: (resolve) => require(['@/components/user/address/addAddress'],resolve),
+		},
+		// 修改收货地址
+		{
+			path: '/user/editAddress',
+			name: 'editAddress',
+			component: (resolve) => require(['@/components/user/address/editAddress'],resolve),
+		},
+		// 地址选点
+		{
+			path: '/user/selectPoint',
+			name: 'selectPoint',
+			component: (resolve) => require(['@/components/user/address/selectPoint'],resolve),
+		},
+		// 手机号码绑定
+		{
+			path: '/user/bindingTel',
+			name: 'bindingTel',
+			component: (resolve) => require(['@/components/user/bindingTel'],resolve),
+		},
+	
+
 
 	]
 })

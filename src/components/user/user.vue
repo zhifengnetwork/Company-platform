@@ -69,9 +69,9 @@
 				 <div class="user-info my-team">
                     <div class="user-title">
 						<span class="my-tit">我的团队</span>
-						<span class="my-look">查看明细
+						<router-link class="my-look" to="/user/mylist">查看明细
 							<i class="right-arrow"></i>
-						</span>
+						</router-link>
 					</div>
 					<div class="user-tabr">
 						 <ul class="clearfloat">
