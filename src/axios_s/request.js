@@ -43,7 +43,7 @@ axios.interceptors.response.use(
 			}).then(() => {
 				window.sessionStorage.setItem("token",null);
 				console.log('token,初始化: ',window.sessionStorage.getItem("token"));
-				/**存储当前路由 */
+				/**存储当前路由（用来授权后，返回该页面） */
 				window.sessionStorage.setItem("this_router",window.location.href)
 				console.log('存储当前路由 this_router: ',window.sessionStorage.getItem("this_router"));
 				router.replace({  	
