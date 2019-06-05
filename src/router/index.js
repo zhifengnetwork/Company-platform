@@ -234,6 +234,7 @@ export default new Router({
 			name: 'TopUpAmount',
 			component: (resolve) => require(['@/components/user/topUpAmount'],resolve) 
 		},
+	
 		// 账户提现
 		{
 			path: '/user/withdrawal',  
@@ -250,6 +251,11 @@ export default new Router({
 			path: '/home/sign',
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
+		},
+		{
+			path: '/home/bargain/guige',
+			name: 'guige',
+			component: (resolve) => require(['@/components/home/bargain/guige'],resolve),
 		},
 		{
 			path: '/home/bargain/bargainmingxi',
