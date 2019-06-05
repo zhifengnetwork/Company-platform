@@ -410,10 +410,10 @@ export default {
         GoodsAction,
         GoodsActionBigBtn,
         GoodsActionMiniBtn,
-   
     },
     data(){
         return {
+            goodsId:this.$route.query.goods_id,//商品id
             tabActive: 0,//tab选中
             rateVal: 3,//评分当前分值
             areaShow:false,//省市区上拉
@@ -422,7 +422,6 @@ export default {
             couponShow:false,//优惠券上拉菜单
             skuShow:false,//规格
             value: 1,//步进器默认值
-
             
             showBase:false,
             sku: {

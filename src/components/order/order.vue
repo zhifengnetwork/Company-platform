@@ -423,6 +423,7 @@ export default {
                 }
             ],
             baseUrl:[],// 商品图片路径
+            page:1,//页数
             ispage:true,//是否请求数据
             token:window.sessionStorage.getItem("token")
         }
@@ -495,22 +496,28 @@ export default {
                 type = "dpj"
             }
             if(this.ispage){
+
                 var url = 'Order/order_list'
-                // var token = window.sessionStorage.getItem("token")
-                // console.log(token)
-                var params = new URLSearchParams()
-                params.append('type', type)
-                params.append('page', this.page)
-                params.append('token', this.token)
-                this.$axios({
-                    method: "get",
-					url: url,
-					data: params
-                }).then( (res)=>{
+                var token = window.sessionStorage.getItem("token")
+                this.$axios.get( url +'?type='+ type +'&page=' + this.page + '&token='+ token)
+                .then( (res)=>{
                     console.log(res)
-                }).catch((error) => {
+                })
+                .catch((error) => {
                     alert('请求错误:'+ error)
                 })
+
+                // var params = new URLSearchParams()
+                    // params.append('type', type)
+                    // params.append('page', this.page)
+                    // params.append('token', this.token)
+
+                // this.$axios({
+                //     method: "post",
+				// 	   url: url,
+				// 	   data: params
+                // })
+               
             }
         }
     }

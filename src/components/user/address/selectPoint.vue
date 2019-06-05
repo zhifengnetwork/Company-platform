@@ -2,7 +2,7 @@
     <div class="selectPoint">
         <div class="map">
             <iframe id="mapPage" width="100%" height="700px" frameborder=0
-                src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
+                src="https://apis.map.qq.com/tools/locpicker?search=1&policy=1&type=1&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
             </iframe>
             <!-- <iframe id="mapPage" width="100%" height="700px" frameborder=0
                 src="https://apis.map.qq.com/tools/locpicker?search=1&policy=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
@@ -14,11 +14,6 @@
 <script>
 export default {
     name:'selectPoint',
-    data(){
-        return {
-           
-        }
-    },
      /*组件实例创建完成，属性已绑定，但DOM还未生成*/
     created: function(){
         /**head=>style */
@@ -60,14 +55,11 @@ export default {
             var loc = event.data;
             if (loc && loc.module == 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
                 console.log('location', loc.poiaddress,loc.poiname);
+                // 跳转路由
                 that.$router.push({name:'addAddress',params:{'poiaddress':loc.poiaddress,'poiname':loc.poiname}})
             }
         }, false);
     },
-    mounted(){
-        
-    },
-
 }
 </script>
 
