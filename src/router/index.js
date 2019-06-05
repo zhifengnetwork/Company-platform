@@ -429,7 +429,7 @@ export default new Router({
 		// 手机号码绑定
 		{
 			path: '/user/bindingTel',
-			name: 'selectPoint',
+			name: 'bindingTel',
 			component: (resolve) => require(['@/components/user/bindingTel'],resolve),
 		},
 	
