@@ -43,6 +43,9 @@ import bargainirg from '@/components/home/bargain/bargainirg'
 
 //打卡模块
 import sign from '@/components/home/sign/sign'
+// 打卡明细
+import bargainmingxi from "@/components/home/bargain/bargainmingxi"
+// 砍价模块
 
 //砍价模块
 import bargaindetail from '@/components/home/bargain/bargaindetail'
@@ -64,13 +67,24 @@ import returnGoods from '@/components/order/returnGoods'
 /*分类-模块*/
 import branch_class from '@/components/branch_class/branch_class'
 
-
 /*购物车-模块*/
 import cart from '@/components/cart/cart'
 
 
 /*我的-模块*/
 import user from '@/components/user/user'
+// 我的团队
+import mylist from '@/components/user/mylist'
+// 团队列表
+import tuandui_table from "@/components/user/tuandui_table"
+// 佣金列表
+import commissionlist from "@/components/user/commissionlist"
+// 业绩明细
+import yejilist from "@/components/user/yejilist"
+// 预计收益
+import shouyilist from "@/components/user/shouyilist"
+//查看订单
+import lookorder from "@/components/user/lookorder"
 /*申请供应商*/
 import applicationSupplier from '@/components/user/applicationSupplier'
 /*账户余额*/
@@ -101,6 +115,7 @@ import invitation from '@/components/sub_page/invitation'
 
 //生成广告二维码
 import createcode from '@/components/sub_page/createcode'
+
 
 
 
@@ -202,19 +217,40 @@ export default new Router({
 					path: '/index/user',  
 					name: 'user',
 					component: (resolve) => require(['@/components/user/user'],resolve),
-				}
-				
+
+				}												
 			]
 		},
-
-		
-		// 申请供应商
-		{
-			path: '/user/ApplicationSupplier',  
-			name: 'ApplicationSupplier',
-			component: (resolve) => require(['@/components/user/applicationSupplier'],resolve) 
+        {
+			path: '/user/mylist',  
+			name: 'mylist',
+			component: (resolve) => require(['@/components/user/mylist'],resolve)
 		},
-		// 账户余额
+		{
+			path: '/user/mylist/tuandui_table',  
+			name: 'tuandui_table',
+			component: (resolve) => require(['@/components/user/tuandui_table'],resolve)
+		}, 
+		{
+			path: '/user/mylist/commissionlist',  
+			name: 'commissionlist',
+			component: (resolve) => require(['@/components/user/commissionlist'],resolve)
+		},
+		{
+			path: '/user/mylist/yejilist',  
+			name: 'yejilist',
+			component: (resolve) => require(['@/components/user/yejilist'],resolve)
+		},
+		{
+			path: '/user/mylist/shouyilist',  
+			name: 'shouyilist',
+			component: (resolve) => require(['@/components/user/shouyilist'],resolve)
+		},
+		{
+			path: '/user/mylist/lookorder',  
+			name: 'lookorder',
+			component: (resolve) => require(['@/components/user/lookorder'],resolve)
+		},
 		{
 			path: '/user/TheAccountBalance',  
 			name: 'TheAccountBalance',
@@ -226,6 +262,7 @@ export default new Router({
 			name: 'TopUpAmount',
 			component: (resolve) => require(['@/components/user/topUpAmount'],resolve) 
 		},
+	
 		// 账户提现
 		{
 			path: '/user/withdrawal',  
@@ -243,13 +280,28 @@ export default new Router({
 			name: 'sign',
 			component: (resolve) => require(['@/components/home/sign/sign'],resolve),
 		},
-
+		{
+			path: '/home/bargain/guige',
+			name: 'guige',
+			component: (resolve) => require(['@/components/home/bargain/guige'],resolve),
+		},
+		{
+			path: '/home/bargain/bargainmingxi',
+			name: 'bargainmingxi',
+			component: (resolve) => require(['@/components/home/bargain/bargainmingxi'],resolve),
+		},
+		
 		//砍价详情
 		{
 			path: '/home/bargain/bargaindetail',
-			name: 'bargaindetail',
+			name: 'bargain',
 			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
+		// {
+		// 	path: '/home/memberarea/memberarea',
+		// 	name: 'memberarea',
+		// 	component: (resolve) => require(['@/components/home/memberarea/memberarea'],resolve),
+		// },
 		{
 			path: '/home/groupArea', /**拼团 */
 			name: 'groupArea',

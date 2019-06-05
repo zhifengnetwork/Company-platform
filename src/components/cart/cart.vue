@@ -4,7 +4,7 @@
              <!-- 头部 -->
              <headtop></headtop>
             
-            <div class="cart_ear"> 
+            <div class="cart_ear" v-show="hh"> 
                  <!-- 第一块产品区域 -->
                 <!-- <div class="shop" v-for="(item,index) in imgUrl" :key="index">
                     <div :class="item.status ? 'xuanzhong':'weixuan'" @click="change(item.id,index)" >  
@@ -28,6 +28,14 @@
                         </p>  
                      </div> 
                 </div>
+            </div>
+            <div v-show="!hh" class="nothing">
+                
+                <img src="/static/img/cart/gouwuche.png" class="gouwuche"/>
+                <p class="kong">购物车空空如也~</p>
+                <div class="goto">去逛逛</div>
+
+
             </div> 
             <!-- 全选状态栏 -->
             <div class="bottom_bar" v-show="$store.state['top_head_data']['right_button']['show']">               
@@ -56,7 +64,7 @@ import headtop from '@/components/public/page_top_head'
         },
         data(){
 			return {
-
+                     hh:true,
                      all: 0,
                     // 商品列表
                     shopList:[
@@ -187,7 +195,9 @@ import headtop from '@/components/public/page_top_head'
 				right_button: {
 					need_model: true,
 					/**通过判断是否值=>为空=> 来控制文字和图片的显隐 */
-					text: '编辑',
+                    text: '编辑',
+                    /**切换-模块（显隐），更换text */
+			        change_text: '完成',
 					/**图标=>内联失效(只能在头部组件style设置样式，传class名) */
 					icon: {
                         // class: 'sha',
@@ -267,6 +277,15 @@ import headtop from '@/components/public/page_top_head'
                     console.log('k'+k)
                     this.shopList.splice(k, 1)
                 }
+                if(this.shopList.length==0){
+                    
+                    this.hh=false;
+
+
+                }
+
+
+
             }              
         },
         computed: {
@@ -526,7 +545,36 @@ import headtop from '@/components/public/page_top_head'
         margin 10px 0 0 410px
         border-radius 10px 
         color white
-        padding 0 10px                
+        padding 0 10px
+.nothing
+    width 100%
+    .gouwuche
+        width 400px;
+        display table
+        margin 100px auto 0 auto
+    .kong
+        text-align center
+        font-weight bolder
+        color rgb(108,108,108)
+        padding-top 70px
+        font-size 32px
+    .goto
+        color white
+        width 400px
+        margin 0 auto
+        text-align center
+        height 100px
+        line-height 100px
+        border-radius 50px
+        background rgb(243,32,40) 
+        margin-top 88px   
+        font-size 30px
+        font-weight bolder
+
+       
+
+
+
 
 </style>
 
