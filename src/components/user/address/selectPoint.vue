@@ -1,12 +1,12 @@
 <template>
     <div class="selectPoint">
-        <!-- <iframe id="mapPage" width="100%" height="700px" frameborder=0
-            src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
-        </iframe> -->
         <div class="map">
             <iframe id="mapPage" width="100%" height="700px" frameborder=0
-                src="https://apis.map.qq.com/tools/locpicker?search=1&policy=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
+                src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
             </iframe>
+            <!-- <iframe id="mapPage" width="100%" height="700px" frameborder=0
+                src="https://apis.map.qq.com/tools/locpicker?search=1&policy=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&referer=myapp">
+            </iframe> -->
         </div>
     </div>
 </template>
@@ -55,14 +55,14 @@ export default {
         /**改变vuex对应头部数据 */
         this.$store.commit('change_head',style_obj);
 
-        window.addEventListener('message', function(event) {
+        window.addEventListener('message', (event) => {
             // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
             var loc = event.data;
             if (loc && loc.module == 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
-            console.log('location', loc);
+                console.log('location', loc.poiaddress,loc.poiname);
+                this.$router.push({name:'addAddress',params:{'poiaddress':loc.poiaddress,'poiname':loc.poiname}})
             }
         }, false);
-      
     },
     mounted(){
         

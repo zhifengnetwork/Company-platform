@@ -21,8 +21,9 @@
                     <div class="form-group">
                         <div class="label">收货地址 </div>
                             <div class="input-group">
-                                <h3>嘉禾汇大厦</h3>
-                                <p>点击选择地址</p>
+                                <p v-if="!this.$route.params.poiname">点击选择地址</p>
+                                <h3 v-if="this.$route.params.poiname">{{this.$route.params.poiname}}</h3>
+                                <p class="publicEllipsis" v-if="this.$route.params.poiaddress">{{this.$route.params.poiaddress}}</p>
                             </div>
                         <div class="right-arrow"></div>
                     </div>
@@ -101,6 +102,8 @@ export default {
         }
         /**改变vuex对应头部数据 */
         this.$store.commit('change_head',style_obj);
+        console.log(this.$route.params.poiaddress)
+        console.log(this.$route.params.poiname)
     },
     methods:{
         //选择默认地址时触发
