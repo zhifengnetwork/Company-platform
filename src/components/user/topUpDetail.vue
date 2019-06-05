@@ -3,6 +3,42 @@
 		<div class="public_head head">
             <HeadTop></HeadTop>
         </div>
+		<div class="content">
+			<div class="bd_wrap">
+				<div class="title_wrap">
+					<ul>
+						<li>充值日期</li>
+						<li>金额</li>
+						<li>充值状态</li>
+					</ul>
+				</div>
+				<div class="list_wrap">
+					<ul class="list">
+						<li>2019-09-06</li>
+						<li>￥200.00</li>
+						<li class="state">充值成功</li>
+					</ul>
+					<ul class="no">
+						<li>2019-09-06</li>
+						<li>￥300.00</li>
+						<li class="status">充值失败</li>
+					</ul>
+					<ul class="list">
+						<li>2019-09-06</li>
+						<li>￥200.00</li>
+						<li class="state">充值成功</li>
+					</ul>
+					<ul class="no">
+						<li>2019-09-06</li>
+						<li>￥300.00</li>
+						<li class="status">充值失败</li>
+					</ul>
+				</div>
+			</div>
+			<!--  -->
+			<p class="none">没有数据哦~~</p>
+		</div>
+
     </div>    
 </template>
 
@@ -70,4 +106,43 @@
 		background #fff
 		.head
 			border-bottom 1.1px solid #e6e6e6
+		.content
+			margin 20px 24px
+			.bd_wrap
+				color #151515
+				.title_wrap
+					background #ffd7c7
+					font-size 0
+				.title_wrap ul li
+					display inline-block
+					width 33.3%
+					font-size 26px
+					font-weight 550
+					text-align center
+					line-height 75px
+				.list_wrap
+					font-size 0
+				.list_wrap .list
+					background #fff4f0
+				.list_wrap ul li
+					display inline-block
+					width 33.3%
+					font-size 18px
+					text-align center
+					line-height 65px
+				.list_wrap .on li:nth-child(3)
+					color #12eb22
+				.state
+					color #f70a0a
+				.status
+					color #12eb22
+				.list_wrap .on
+					background #ffede7		
+		.none
+			margin 20px 0 0	
+			font-size 20px
+			color #909090
+			text-align center
+			line-height 75px
+
 </style>

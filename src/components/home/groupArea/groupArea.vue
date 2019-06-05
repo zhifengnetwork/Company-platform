@@ -29,7 +29,7 @@
 						<div class="good_3">GO</div>
 					</div>
 				</div>
-				<div class="box">
+				<!-- <div class="box">
 					<div class="img_wrap">
 						<div class="img">
 							<img src="/static/img/group_area/shop.png" />
@@ -82,7 +82,7 @@
 						<div class="good_2">马上团购</div>
 						<div class="good_3">GO</div>
 					</div>
-				</div>
+				</div> -->
 
 			</div>
 			

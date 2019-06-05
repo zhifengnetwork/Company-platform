@@ -48,7 +48,7 @@
 						</div>
 						<a class="btn">去使用</a>
 					</div>
-                </div>
+                </div> -->
 
 				<div class="unit two">
 					<input class="inp" type="checkbox"/>
@@ -113,7 +113,7 @@
 						</div>
 
 					</div>
-                </div> -->
+                </div>
 				<!-- 删除按钮 -->
 				<div class="remove_btn" @click="delCoupon" v-show="$store.state['top_head_data']['right_button']['show']">删除</div>
             </div>
