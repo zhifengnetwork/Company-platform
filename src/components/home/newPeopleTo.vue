@@ -46,16 +46,15 @@ export default {
         /**授权-也是写在 会话存储 里 */
         window.sessionStorage.setItem("token", token_data);
         console.log("token: ",window.sessionStorage.getItem("token"));
-        /**改 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
+        /**改 this_router 存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
         if(window.sessionStorage.getItem("this_router")){
             window.location.href = window.sessionStorage.getItem("this_router");
-        }else {
-            /**弹框-蒙版 隐藏 */
-            this.popShow = false;
             return false;
         }
+        /**弹框-蒙版 隐藏 */
+        this.popShow = false;
         
-        /**写死 token 上线删掉 -e*/
+        // /**写死 token 上线删掉 -e*/
 
 
         /**当前的url */
@@ -101,15 +100,16 @@ export default {
                              * 存储token;
                              * **/
                             window.sessionStorage.setItem("token", _res['data']['data']['token']);  
-                            window.sessionStorage.setItem("this_router",window.location.href)
-                            /**改 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
+                            /**该 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
                             if(window.sessionStorage.getItem("this_router")){
                                 window.location.href = window.sessionStorage.getItem("this_router");
-                            } else {
-                                /**弹框-蒙版 隐藏 */
-                                this.popShow = false;
-                                return false;   
+                                return false;
                             } 
+
+                            /**弹框-蒙版 隐藏 */
+                            this.popShow = false;
+                            return false;   
+                            
                            
                         }
                         /**未-绑定手机 */
@@ -204,10 +204,11 @@ export default {
                     /**改 this_router存在时，代表是从其它页面跳转过来--授权的 => 授权完调回到该页面 */
                     if(window.sessionStorage.getItem("this_router")){
                         window.location.href = window.sessionStorage.getItem("this_router");
-                    } else {
-                        /**弹框-蒙版 隐藏 */
-                        this.popShow = false;
-                    } 
+                        return false;
+                    }
+                    /**弹框-蒙版 隐藏 */
+                    this.popShow = false;
+                    
                    
                 })
                 .catch((_err) => {
