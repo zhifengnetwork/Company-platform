@@ -12,7 +12,9 @@
 		mounted(){
 			console.log(789);
 			/*axios=>请求 -s*/
-			this.$axios.post("/Puls/puls_goods",{})
+			this.$axios.post("user/address_list",{
+				token: window.sessionStorage.getItem("token"),
+			})
 				.then((res)=>{
                 	console.log('成功');
 				})
