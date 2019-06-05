@@ -6,42 +6,43 @@
         <div class="content">
             <!-- 广告图 -->
             <div class="advert">
-                <img src="/static/img/flashSale/00advert-img01.png" />
+                <!-- <img src="/static/img/flashSale/00advert-img01.png" /> -->
+                <img :src="baseUrl + rushAdver" />
             </div>
 
             <!-- 限时购列表 -->
             <div class="flash-sale-list">
-                <div class="goods-item">
-                    <router-link to="/home/flashSale/flashDetails">
+                <div class="goods-item" v-for="item in rushList">
+                    <router-link :to="'/home/flashSale/flashDetails?goods_id='+ item.goods_id">
                         <div class="img-wrap">
-                            <img src="/static/img/flashSale/00flash-sale-img01.png" />
+                            <img :src="baseUrl + item.img" />
                         </div>
                     </router-link>
                     <div class="text">
-                        <router-link to="/home/flashSale/flashDetails">
-                            <h3>自然堂化妆品补水防晒虎虎生风副书记粉红色看自然堂化妆品补水防晒自然堂化妆品补水防晒自然堂化妆品补水防晒</h3>
+                        <router-link :to="'/home/flashSale/flashDetails?goods_id='+ item.goods_id">
+                            <h3>{{item.goods_name}}</h3>
                         </router-link>
                         <div class="price">
-                            <span class="discount-price"><i class="yen">￥</i>360.00</span>
-                            <span class="original-price">￥700.00</span>
+                            <span class="discount-price"><i class="yen">￥</i>{{item.price}}</span>
+                            <span class="original-price">￥{{item.original_price}}</span>
                         </div>
                         <div class="progress-wrap">
                             <van-progress
                                 pivot-text=""
                                 color="#ff0b13"
-                                :percentage="50"
+                                :percentage = item.surplus
                             />
-                            <div class="robbed-num">已抢616件</div>
+                            <div class="robbed-num">已抢{{item.purchased}}件</div>
                         </div>
                         <div class="endTime">
-                            距结束: <span>23:23:55</span>
+                            距结束: <span>{{item.down}}</span>
                         </div>
                         <div class="buyBtn">
                             去抢购 &gt;
                         </div>
                     </div>
                 </div>
-                <div class="goods-item">
+                <!-- <div class="goods-item">
                     <div class="img-wrap">
                         <img src="/static/img/flashSale/00flash-sale-img01.png" />
                     </div>
@@ -92,7 +93,7 @@
                             去抢购 &gt;
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- 数据加载完提示 -->
                 <div class="end-wrap">
@@ -114,8 +115,10 @@ export default {
     },
     data(){
         return{
-            //请求页数
-			page:1,
+            page:1,//请求页数
+            baseUrl:'',//图片路径
+            rushAdver:'',//广告图
+            rushList:[],//限时购列表
         }
     },
     /*组件实例创建完成，属性已绑定，但DOM还未生成*/
@@ -155,29 +158,61 @@ export default {
         }
         /**改变vuex对应头部数据 */
         this.$store.commit('change_head',style_obj);
-
+        
     },
     mounted(){
-        this.requestData()
+        this.baseUrl = this.url;//拼接图片路径
+        this.requestData();//请求数据
+        this.countdowm();//倒计时
     },
     methods:{
         // 请求数据
         requestData(){
-            let url = "/Goods/limited_list"
-            let params = new URLSearchParams()
-                params.append('page', this.page)
-            this.$axios({
-                url:url,
-                method:'get',
-                data:params
-            })
-            .then( (res) =>{
+            var url = 'Goods/limited_list';
+            var token = window.sessionStorage.getItem("token");
+            this.$axios.get( url +'&page=' + this.page + '&token='+ token)
+            .then( (res)=>{
                 console.log(res)
+                var status = res.data.status
+                if(status === 1){
+                    this.rushAdver = res.data.data.limited_img;
+                    this.rushList = res.data.data.list;
+                }
             })
-            .catch((error) =>{
-                console.log(error)
+            .catch((error) => {
+                alert('请求错误:'+ error)
             })
+        },
+        //抢购倒计时
+        countdowm () {
+            setInterval( ()=> {
+                for (var key in this.rushList) {
+                    this.$set(
+                        this.rushList[key],"down",''
+                    );
+                    var start = new Date().getTime();
+                    var end = this.rushList[key].limited_end * 1000;  //  结束日期
+                    var differ = end - start;//时间差
+                    var differDate = (Math.floor(differ / 1000 / 60 / 60 / 24));
+
+                    var data = new Date(this.rushList[key].limited_start * 1000);  //开始日期
+                    var present = new Date(this.rushList[key].limited_end * 1000);  //结束日期
+                    if(differDate > 7){
+                        //如果结束日期大于当前日期7天
+                        this.rushList[key]["down"] = (data.getMonth()+1) + "月" + data.getDate() + "日" + '-' + (present.getMonth()+1) + '月' + present.getDate() + "日";							
+                    }else{							
+                        if (differ > 0) {
+                            var dd = Math.floor(differ / 1000 / 60 / 60 / 24);
+                            var hh = Math.floor((differ / 1000 / 60 / 60) % 24);
+                            var mm = Math.floor((differ / 1000 / 60) % 60);
+                            var ss = Math.floor((differ / 1000) % 60);
+                        }
+                        this.rushList[key]["down"] = dd + "天" + hh + "小时" + mm + "分" + ss + "秒";
+                    }
+                }
+            }, 1000);
         }
+
     }
 
 }
@@ -188,9 +223,12 @@ export default {
     padding 88px 24px 0
     box-sizing border-box
     .advert
+        width 700px
+        height 300px
+        border-radius 8px
+        overflow hidden
         img
             width 100%
-            border-radius 8px
     .flash-sale-list
         .goods-item
             display flex
@@ -204,6 +242,9 @@ export default {
                 width 240px
                 height 240px
                 margin-right 28px
+                display flex
+                align-items center
+                justify-content center
                 img 
                     max-width 100%
                     max-height 100%

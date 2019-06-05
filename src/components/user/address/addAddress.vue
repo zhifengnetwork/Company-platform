@@ -23,12 +23,12 @@
                             <div class="input-group">
                                 <p v-if="!this.$route.params.poiname">点击选择地址</p>
                                 <h3 v-if="this.$route.params.poiname">{{this.$route.params.poiname}}</h3>
-                                <p class="publicEllipsis" v-if="this.$route.params.poiaddress">{{this.$route.params.poiaddress}}</p>
+                                <p v-if="this.$route.params.poiaddress">{{this.$route.params.poiaddress}}</p>
                             </div>
                         <div class="right-arrow"></div>
                     </div>
                 </router-link>
-                <div class="form-group">
+                <div class="form-group border-none">
                     <div class="label">详细地址</div>
                     <div class="input-group">
                         <textarea placeholder="请输入详细地址" rows="1"></textarea>
@@ -140,7 +140,8 @@ export default {
                     color #151515
                     margin-right 10px
                 .input-group
-                    flex 1
+                    width 460px
+                    font-size 24px
                     input
                         width 100%
                         height 30px
@@ -149,16 +150,23 @@ export default {
                         width 100%
                         border none
                     h3
+                        font-size 24px
                         color #151515
                         font-weight normal
                     p
-                        color #838383  
+                        color #838383
+                        font-size 22px
+                        overflow hidden
+                        text-overflow ellipsis
+                        white-space nowrap  
                 .right-arrow
                     width 8px
                     height 14px
                     background url("/static/img/user/address/right-arrow.png") no-repeat
                     background-size cover
-                    margin-left 20px   
+                    margin-left 20px
+            .border-none
+                border none   
         .set-default
             height 88px
             display flex

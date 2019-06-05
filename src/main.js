@@ -21,6 +21,8 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+/*拼接图片路径 */
+Vue.prototype.url = 'http://api.zhifengwangluo.c3w.cc/upload/images/'
 
 //倒计时
 // Vue.prototype.countdowm = function (itemEnd,CountDown) {
