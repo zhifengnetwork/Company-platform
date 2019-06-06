@@ -1,6 +1,6 @@
 <template>
 	<div class="tx_wrap">
-		<div class="public_head head">
+		<div class="public_head">
             <HeadTop></HeadTop>
         </div>
 		<div class="content">
@@ -109,8 +109,6 @@
 		width 100%
 		height 100%
 		background #fff
-		.head
-			border-bottom 1.1px solid #e6e6e6
 		.content
 			margin 20px 24px
 			.bd_wrap

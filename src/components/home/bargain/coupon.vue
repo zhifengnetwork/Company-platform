@@ -51,7 +51,9 @@
                 </div> -->
 
 				<div class="unit two">
-					<input class="inp" type="checkbox"/>
+					<div class="inp">
+						<img class="cheack" src="/static/img/group_area/order/gou.png" alt="" />
+					</div>
 					<div class="left_cost">
 						<div class="minus">
 							<span class="mi">300</span>
@@ -70,7 +72,9 @@
                 </div>
 
 				<div class="unit">
-					<input class="inp" type="checkbox"/>
+					<div class="inp">
+						<img class="cheack" src="/static/img/group_area/order/gou.png" alt="" />
+					</div>
 					<div class="left_cost">
 						<div class="minus">
 							<span class="mi">200</span>
@@ -93,7 +97,9 @@
                 </div>
 
 				<div class="unit three">
-					<input class="inp" type="checkbox"/>
+					<div class="inp">
+						<img class="cheack" src="/static/img/group_area/order/gou.png" alt="" />
+					</div>
 					<div class="left_cost">
 						<div class="minus">
 							<span class="mi">300</span>

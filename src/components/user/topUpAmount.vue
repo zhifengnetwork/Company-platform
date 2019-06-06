@@ -1,6 +1,6 @@
 <template>
     <div class="top_wrap">
-        <div class="public_head head">
+        <div class="public_head">
             <HeadTop></HeadTop>
         </div>
         <div class="content">

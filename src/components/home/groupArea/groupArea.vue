@@ -212,7 +212,7 @@
 </script>
 
 <style lang="stylus" scoped>
-	.group
+	.group_wrap
 		width: 100%;
 		height: 100%
 		.content

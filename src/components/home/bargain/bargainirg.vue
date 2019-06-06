@@ -1,6 +1,6 @@
 <template>
     <div class="bargainirg-box">
-        <header >  
+        <header>  
               <Pheader></Pheader>
         </header>
       <div class="bargain-page">
@@ -44,7 +44,7 @@
                                           </div>
                                           <div class="over-time">
                                               <span>距离结束:</span>
-                                              <span class="tiem-text publicEllipsis">{{item.down}}</span>
+                                              <span class="tiem-text">{{item.down}}</span>
                                           </div>
                                   </div>
                                   <div class="bargain-btn">
@@ -119,6 +119,7 @@ export default {
                             background: '#fff',
                         },
                         return_data: {
+                            need_model: true,
                             icon: '/static/img/public/left_icon_555.png',
                             /*跳转的路由(可以传参)，为空=>返回上一页*/
                             url_data: '',
@@ -262,8 +263,7 @@ img
    margin 0 auto
    display block
    width 100%
-   height 100%
-    
+   height 100%   
   .bargain-page
     background #ffffff
     min-height 100vh

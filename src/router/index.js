@@ -249,7 +249,7 @@ export default new Router({
 			component: (resolve) => require(['@/components/user/yejilist'],resolve)
 		},
 		{
-			path: '/user/mylist/shouyilist',  
+			path: '/user/mylist/lookorder',  
 			name: 'shouyilist',
 			component: (resolve) => require(['@/components/user/shouyilist'],resolve)
 		},
@@ -258,11 +258,13 @@ export default new Router({
 			name: 'lookorder',
 			component: (resolve) => require(['@/components/user/lookorder'],resolve)
 		},
+		// 申请供应商
 		{
 			path: '/user/applicationSupplier',  
 			name: 'applicationSupplier',
 			component: (resolve) => require(['@/components/user/applicationSupplier'],resolve) 
 		},
+		// 账户余额
 		{
 			path: '/user/theAccountBalance',  
 			name: 'theAccountBalance',
@@ -333,10 +335,18 @@ export default new Router({
 			name: 'bargain',
 			component: (resolve) => require(['@/components/home/bargain/bargaindetail'],resolve),
 		},
+		// 拼团
 		{
-			path: '/home/groupArea', /**拼团 */
+			path: '/home/groupArea', 
 			name: 'groupArea',
 			component: (resolve) => require(['@/components/home/groupArea/groupArea'],resolve),
+		},
+		// 拼团详情
+		{
+			path: '/home/groupArea/Info',
+			name: 'groupInfo',
+			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
+
 		},
 		{
 			path: '/home/groupArea/order', /**拼团订单 */
@@ -347,12 +357,6 @@ export default new Router({
 			path: '/home/coupon', // 优惠券
 			name: 'coupon',
 			component: (resolve) => require(['@/components/home/bargain/coupon'],resolve)
-
-		},
-		{
-			path: '/home/groupArea/Info',
-			name: 'groupInfo',
-			component: (resolve) => require(['@/components/home/groupArea/groupInfo'],resolve)
 
 		},
 		{

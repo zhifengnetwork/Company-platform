@@ -1,6 +1,6 @@
 <template>
 	<div class="cj_wrap">
-		<div class="public_head head">
+		<div class="public_head">
             <HeadTop></HeadTop>
         </div>
 		<div class="content">
@@ -130,13 +130,11 @@
 					font-size 18px
 					text-align center
 					line-height 65px
-				.list_wrap .on li:nth-child(3)
-					color #12eb22
 				.state
 					color #f70a0a
 				.status
 					color #12eb22
-				.list_wrap .on
+				.list_wrap ul:nth-child(even)
 					background #ffede7		
 		.none
 			margin 20px 0 0	

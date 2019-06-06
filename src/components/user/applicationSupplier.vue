@@ -1,6 +1,6 @@
 <template>
 	<div class="sup_wrap">
-		<div class="public_head head">
+		<div class="public_head">
             <headtop></headtop>
         </div>
 		<div class="content">
@@ -91,8 +91,6 @@
 	width 100%
 	height 100%
 	background #fff
-	.head
-		border-bottom 1.1px solid #e6e6e6
 	.content
 		.row_wrap
 			padding 20px 29px
@@ -127,7 +125,7 @@
 				font-size 24px
 				color #a0a0a0
 		.submit_btn
-			margin 650px auto
+			margin 650px auto 100px
 			width 702px
 			height 88px
 			background #ff4902
