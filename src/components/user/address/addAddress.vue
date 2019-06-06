@@ -20,19 +20,25 @@
                 <router-link to="/user/selectPoint">
                     <div class="form-group">
                         <div class="label">收货地址 </div>
-                            <div class="input-group">
+                            <!-- <div class="input-group">
                                 <p v-if="!this.$route.params.poiname">点击选择地址</p>
                                 <h3 v-if="this.$route.params.poiname">{{this.$route.params.poiname}}</h3>
                                 <p v-if="this.$route.params.poiaddress">{{this.$route.params.poiaddress}}</p>
+                            </div> -->
+                             <div class="input-group">
+                                <p v-if="!this.location">点击选择地址</p>
+                                <template v-else>
+                                    <h3>{{this.location.poiname}}</h3>
+                                    <p>{{this.location.poiaddress}}</p>
+                                </template>
+                                
                             </div>
                         <div class="right-arrow"></div>
                     </div>
                 </router-link>
-                <div class="form-group border-none">
+                <div class="details-address">
                     <div class="label">详细地址</div>
-                    <div class="input-group">
-                        <textarea placeholder="请输入详细地址" rows="1"></textarea>
-                    </div>
+                    <div class="textarea" contenteditable="true" placeholder ="详细地址，例D座726"></div>
                 </div>
             </div>
 
@@ -47,7 +53,7 @@
             </div>
 
             <!-- 保存按钮 -->
-            <div class="saveBtn">保存</div>
+            <div class="saveBtn" @click="onSave()">保存</div>
             
         </div>
 
@@ -63,7 +69,8 @@ export default {
     },
     data(){
         return {
-            checked: false 
+            checked: false,
+            location:{}
         }
     },
      /*组件实例创建完成，属性已绑定，但DOM还未生成*/
@@ -102,14 +109,37 @@ export default {
         }
         /**改变vuex对应头部数据 */
         this.$store.commit('change_head',style_obj);
-        console.log(this.$route.params.poiaddress)
-        console.log(this.$route.params.poiname)
+
+        // console.log(this.$route.params.poiaddress)
+
+        // 返回的位置信息赋值
+        this.location = this.$route.params.location
+        console.log(this.location)
     },
     methods:{
+        // 点击保存按钮时触发
+        onSave(addressData){
+        
+        },
+        // 请求数据
+        requestData(){
+            this.$axios.post('user/add_address',{
+                consignee:"",
+                token:window.sessionStorage.getItem("token")
+            })
+            .then( (res)=>{
+                console.log(res)
+            })
+            .catch( (error) => {
+                alert("请求错误:" + error)
+            })
+
+        },
         //选择默认地址时触发
         onCheack(val){
             console.log(val)
-        }
+        },
+      
     }
 
 }
@@ -146,9 +176,6 @@ export default {
                         width 100%
                         height 30px
                         border none
-                    textarea   
-                        width 100%
-                        border none
                     h3
                         font-size 24px
                         color #151515
@@ -163,10 +190,42 @@ export default {
                     width 8px
                     height 14px
                     background url("/static/img/user/address/right-arrow.png") no-repeat
-                    background-size cover
+                    background-size 100%
                     margin-left 20px
-            .border-none
-                border none   
+            .details-address
+                min-height 56px
+                display flex
+                padding-top 22px
+                padding-bottom 10px 
+                .label
+                    width 145px
+                    font-size 24px
+                    color #151515
+                    margin-right 10px 
+                .textarea
+                    flex 1
+                    font-size 24px
+                    color #858585
+                    min-height 30px
+                    line-height 30px
+                    max-height 140px
+                    _height 120px
+                    margin-left auto
+                    margin-right auto
+                    padding 3px
+                    outline 0                    
+                    padding 2px
+                    word-wrap break-word
+                    overflow-x hidden
+                    overflow-y auto
+                    _overflow-y visible
+                    -webkit-user-modify read-write-plaintext-only // 只是编辑text文本，只能解决webkit内核里面问题，手机端适用
+                    -webkit-user-select text // 解决IOS部分手机不支持contenteditable=true属性问题               
+                .textarea[placeholder]:empty:before 
+                    content attr(placeholder) 
+                // 焦点时内容为空
+                .textarea[placeholder]:empty:focus:before 
+                    content ""
         .set-default
             height 88px
             display flex

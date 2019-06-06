@@ -99,8 +99,23 @@ export default {
         /**改变vuex对应头部数据 */
         this.$store.commit('change_head',style_obj);
     },
+    mounted(){
+        this.requestData();//请求数据
+    },
     methods:{
-      
+        // 请求数据
+        requestData(){
+            this.$axios.post('user/address_list',{
+                token:window.sessionStorage.getItem("token")
+            })
+            .then( (res)=>{
+                console.log(res)
+            })
+            .catch( (error) => {
+                alert("请求错误:" + error)
+            })
+
+        }
     }
 
 }
